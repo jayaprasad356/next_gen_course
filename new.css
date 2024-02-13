@@ -1,0 +1,117 @@
+#demand {
+    background: linear-gradient(
+        to right,
+        #ffd457,
+        #ffb854,
+        #ff924d
+     
+    );
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align items to the top */
+    align-items: center; /* Center items horizontally */
+    padding-top: 30px; /* Add padding to push content from the top */
+}
+#demand h5 {
+    margin-top:40px;
+    padding:50px;
+    font-weight: bold;
+    padding:10px;
+    font-size:20px;    
+   
+}
+#demand h4 {
+    font-size: 20px;
+    color: aliceblue;
+    font-weight: bold;
+}
+
+#demand p {
+    font-size: 20px;
+    color: rgb(235, 8, 8);
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+#demand iframe {
+   margin-top:100px;
+}
+#Marketing {
+    background: linear-gradient(
+        to right,
+        #9f5be2,
+        #c471a5,
+        #fa8d55
+     
+    );
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align items to the top */
+    align-items: center; /* Center items horizontally */
+    padding-top: 30px; /* Add padding to push content from the top */
+}
+#Marketing h5 {
+    margin-top:40px;
+    padding:50px;
+    font-weight: bold;
+    padding:10px;
+    font-size:20px;    
+   
+}
+#Marketing h4 {
+    font-size: 20px;
+    color: aliceblue;
+    font-weight: bold;
+}
+
+#Marketing p {
+    font-size: 20px;
+    color: rgb(235, 8, 8);
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+#Marketing iframe {
+   margin-top:100px;
+}
+#Business {
+    background: linear-gradient(
+        to right,
+        #55d3e1,
+        #2e96c9,
+        #0b5db3
+     
+    );
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align items to the top */
+    align-items: center; /* Center items horizontally */
+    padding-top: 30px; /* Add padding to push content from the top */
+}
+#Business h5 {
+    margin-top:40px;
+    padding:50px;
+    font-weight: bold;
+    padding:10px;
+    font-size:20px;    
+   
+}
+#Business h4 {
+    font-size: 20px;
+    color: aliceblue;
+    font-weight: bold;
+}
+
+#Business p {
+    font-size: 20px;
+    color: rgb(235, 8, 8);
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+#Business iframe {
+   margin-top:100px;
+}

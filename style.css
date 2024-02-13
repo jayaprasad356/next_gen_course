@@ -1,0 +1,512 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+section {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#home {
+    background: linear-gradient(
+        to right,
+        #6f5de5,
+        #7497f3,
+        #62d2e8
+     
+    );
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align items to the top */
+    align-items: center; /* Center items horizontally */
+    padding-top: 30px; /* Add padding to push content from the top */
+}
+
+#home h4 {
+    font-size: 40px;
+    color: aliceblue;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+#home p {
+    font-size: 20px;
+    color: rgb(235, 8, 8);
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+#home p1 {
+    font-size: 20px;
+    color: rgb(235, 8, 8);
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+#home p1 {
+    font-size: 22px;
+    color: rgb(227, 231, 230);
+    margin-bottom: 20px;
+}
+
+#home svg {
+    position: absolute;
+    top: 40px;
+}
+#home h1 {
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 100px;
+    margin-left:10px;
+}
+#course {
+    background: linear-gradient(
+        to right,
+        #fef3b1,
+        #fed5cf,
+        #ffb1f2
+    );
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 30px;
+}
+
+#course h4 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 30px;
+    text-decoration: underline;
+}
+
+.course-details {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding:100px;
+    gap:20px;
+}
+
+.course-info {
+    flex: 1;
+}
+
+.course-prices {
+    flex: 1;
+    text-align: right;
+}
+
+#course h1 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-top: 50px;
+}
+
+#course h2 {
+    color: #0d46b2;
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 10px;
+    margin-top: 60px;
+}
+
+#course img{
+    width:140px;
+    height:140px;
+    position: absolute;
+ top:53rem;
+    left: 10%; 
+}
+#course #images {
+    width: 140px;
+    height: 140px;
+    position: absolute;
+    top: 53rem;
+    left: 80%; 
+}
+
+#demand {
+    background: linear-gradient(
+        to right,
+        #ffd457,
+        #ffb854,
+        #ff924d
+     
+    );
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align items to the top */
+    align-items: center; /* Center items horizontally */
+    padding-top: 30px; /* Add padding to push content from the top */
+}
+#demand h5 {
+    margin-top:40px;
+    padding:50px;
+    font-weight: bold;
+    padding:10px;
+    font-size:26px;    
+   
+}
+#demand h4 {
+    font-size: 20px;
+    color: aliceblue;
+    font-weight: bold;
+}
+
+#demand p {
+    font-size: 20px;
+    color: rgb(235, 8, 8);
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+#demand iframe {
+   margin-top:40px;
+}
+#Marketing {
+    background: linear-gradient(
+        to right,
+        #9f5be2,
+        #c471a5,
+        #fa8d55
+     
+    );
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align items to the top */
+    align-items: center; /* Center items horizontally */
+    padding-top: 30px; /* Add padding to push content from the top */
+}
+#Marketing h5 {
+    margin-top:40px;
+    padding:50px;
+    font-weight: bold;
+    padding:10px;
+    font-size:26px;   
+   
+}
+#Marketing h4 {
+    font-size: 20px;
+    color: aliceblue;
+    font-weight: bold;
+}
+
+#Marketing p {
+    font-size: 20px;
+    color: rgb(235, 8, 8);
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+#Marketing iframe {
+   margin-top:40px;
+}
+#Business {
+    background: linear-gradient(
+        to right,
+        #55d3e1,
+        #2e96c9,
+        #0b5db3
+     
+    );
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align items to the top */
+    align-items: center; /* Center items horizontally */
+    padding-top: 30px; /* Add padding to push content from the top */
+}
+#Business h5 {
+    margin-top:40px;
+    padding:50px;
+    font-weight: bold;
+    padding:15px;
+    font-size:26px;   
+   
+}
+#Business h4 {
+    font-size: 20px;
+    color: aliceblue;
+    font-weight: bold;
+}
+
+#Business p {
+    font-size: 20px;
+    color: rgb(235, 8, 8);
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+#Business iframe {
+   margin-top:40px;
+}
+#ready {
+    background: linear-gradient(
+        to right,
+        #c8f9dc,
+        #b2dceb,
+        #96bbff
+     
+    );
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align items to the top */
+    align-items: center; /* Center items horizontally */
+    padding-top: 30px; /* Add padding to push content from the top */
+}
+#ready img{
+    height:80%;
+ }
+ .box{
+    width: 80% !important;
+    margin-top: 10px;
+
+ }
+ form{
+    display: flex;
+    flex-direction: column;
+ }
+ #ready input{
+    margin:2px 0px;
+ }
+ #ready textarea {
+    margin:2px 0px;
+ }
+ .signin{
+    background: aqua !important;
+    color: black !important;
+    box-shadow: 2px 4px 5px rgba(0, 0, 0, .3);
+}
+#ready{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#contact {
+    background: linear-gradient(
+        to right,
+        #fcfbf9,
+        #fcfbf9,
+        #fcfbf9
+    );
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 30px;
+}
+
+#contact h4 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 30px;
+    text-decoration: underline;
+}
+
+.contact-details {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding:100px;
+    gap:20px;
+    font-weight: bold;
+}
+
+.contact-info {
+    flex: 1;
+}
+
+.contact-prices {
+    flex: 1;
+    text-align: right;
+}
+
+#contact h1 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-top: 50px;
+}
+
+#contact h2 {
+    color: #0d46b2;
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 10px;
+    margin-top: 60px;
+}
+#contact svg {
+    position: absolute;
+    top:600px;
+}
+#contact p1 {
+    margin-left:100px;
+}
+#contact p2 {
+    margin-left:300px;
+}
+#contact p3 {
+    margin-left:250px;
+}
+#contact p {
+    margin-left:400px;
+   padding-top:90px;
+}
+
+
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+    #home h4 {
+        font-size: 32px;
+    }
+
+    #home p {
+        font-size: 16px;
+    }
+
+    #home p1 {
+        font-size: 18px;
+    }
+
+    #home {
+        padding-top: 20px;
+    }
+    #home h1 {
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .course-details {
+        padding: 50px; 
+    }
+    #course h1 {
+        font-size: 25px;
+        margin-top: 70px;
+        padding-bottom:50px;
+    }
+    #course h2 {
+        color: #0d46b2;
+        font-size: 20px;
+        font-weight: bold;
+        margin-right: 10px;
+        margin-top: 79px;
+        word-wrap: break-word; /* Allow text to break */
+    }
+    #course img{
+        width:70px;
+        height:70px;
+        position: absolute;
+     top:90rem;
+        left: 10%; 
+    }
+    #course #images {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: 128rem;
+        left: 65%; 
+    }
+    #demand .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #demand h5 {
+        font-weight: bold;
+        font-size:20px;  
+        margin-bottom:40px;  
+        line-height: 1.5;
+       
+    }
+    #Marketing .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #Marketing h5 {
+        font-weight: bold;
+        font-size:20px;  
+        margin-bottom:40px; 
+        line-height: 1.5; 
+       
+    }
+    #Business .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #Business h5 {
+        font-weight: bold;
+        font-size:20px;  
+        margin-bottom:40px;  
+        line-height: 1.5;
+       
+    }
+    .contact-details {
+        padding: 50px; 
+    }
+    #contact h1 {
+        font-size: 15px;
+        margin-top: 70px;
+        padding-bottom:50px;
+    }
+    #contact h2 {
+        color: #0d46b2;
+        font-size: 20px;
+        font-weight: bold;
+        margin-right: 10px;
+        margin-top: 79px;
+        word-wrap: break-word; /* Allow text to break */
+    }
+    #contact p1 {
+        margin-left:10px;
+        font-size:12px;
+        position: relative;
+        bottom:40px;
+       
+    }
+    #contact p2 {
+        margin-left:20px;
+        font-size:12px;
+        position: relative;
+        top:-40px;
+    }
+    #contact p3 {
+        margin-left:20px;
+        font-size:12px;
+        position: relative;
+        top:-40px;
+    }
+ 
+    #contact p {
+        margin-left:30px;
+       padding-top:60px;
+       position: relative;
+       top:-40px;
+       font-size:10px;
+    }
+
+}
