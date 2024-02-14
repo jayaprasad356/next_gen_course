@@ -1,3 +1,37 @@
+#home {
+    background: linear-gradient(
+        to right,
+        #6f5de5,
+        #7497f3,
+        #62d2e8
+     
+    );
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align items to the top */
+    align-items: center; /* Center items horizontally */
+    padding-top: 30px; /* Add padding to push content from the top */
+}
+
+#home p1 {
+    font-size: 25px;
+    color: rgb(227, 231, 230);
+    margin-top: 20px;
+}
+#home .paragraph{
+   margin-top:90px;
+    
+}
+#home img{
+    position: absolute;
+    top: 0%;
+    margin-left: 70%; 
+    width: 50%;
+    max-width:200px;
+    height: 200px;
+}
 #demand {
     background: linear-gradient(
         to right,
@@ -122,6 +156,14 @@
         margin-bottom:40px;  
         line-height: 1.5;
        
+    }
+    #home img{
+        position: absolute;
+        margin-top:-1%;
+        margin-left: 25%; 
+        width: 40%;
+        max-width:200px;
+        height: 170px;
     }
     #Marketing h5 {
         font-weight: bold;

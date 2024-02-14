@@ -48,7 +48,7 @@ section {
 
 
 #home p1 {
-    font-size: 15px;
+    font-size: 25px;
     color: rgb(227, 231, 230);
     margin-bottom: 20px;
 }
@@ -63,12 +63,13 @@ section {
     margin-top: 100px;
     margin-left:10px;
 }
-#home img {
-    width: 30%; /* Make the image fill the container */
-    height: auto; /* Maintain aspect ratio */
-    position: relative;
-    top:7%;
-
+#home img{
+    position: absolute;
+    margin-top:-10%;
+    margin-left: 70%; 
+    width: 50%;
+    max-width:200px;
+    height: 200px;
 }
 #course {
     background: linear-gradient(
@@ -129,14 +130,14 @@ section {
     width:140px;
     height:140px;
     position: absolute;
- top:40rem;
+ top:37rem;
     left: 10%; 
 }
 #course #images {
     width: 140px;
     height: 140px;
     position: absolute;
-    top: 40rem;
+    top: 37rem;
     left: 80%; 
 }
 
@@ -161,7 +162,7 @@ section {
     padding:50px;
     font-weight: bold;
     padding:10px;
-    font-size:26px;    
+    font-size:25px;    
    
 }
 #demand h4 {
@@ -200,7 +201,7 @@ section {
     padding:50px;
     font-weight: bold;
     padding:10px;
-    font-size:26px;   
+    font-size:25px;   
    
 }
 #Marketing h4 {
@@ -239,7 +240,7 @@ section {
     padding:50px;
     font-weight: bold;
     padding:15px;
-    font-size:26px;   
+    font-size:25px;   
    
 }
 #Business h4 {
@@ -388,11 +389,25 @@ section {
     }
 
     #home p1 {
-        font-size: 10px;
+        font-size: 23px;
     }
 
     #home {
         padding-top: 20px;
+        
+    }
+    #home .paragraph{
+        position:absolute;
+        bottom:10px;
+        
+    }
+    #home img{
+        position: absolute;
+        margin-top:-1%;
+        margin-left: 25%; 
+        width: 40%;
+        max-width:200px;
+        height: 170px;
     }
     #home h1 {
         font-size: 20px;
