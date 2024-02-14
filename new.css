@@ -115,3 +115,26 @@
 #Business iframe {
    margin-top:100px;
 }
+@media (max-width: 768px) {
+    #demand h5 {
+        font-weight: bold;
+        font-size:13px;  
+        margin-bottom:40px;  
+        line-height: 1.5;
+       
+    }
+    #Marketing h5 {
+        font-weight: bold;
+        font-size:12px;  
+        margin-bottom:40px; 
+        line-height: 1.2; 
+       
+    }
+    #Business h5 {
+        font-weight: bold;
+        font-size:12px;  
+        margin-bottom:40px;  
+        line-height: 1.2;
+       
+    }
+}
