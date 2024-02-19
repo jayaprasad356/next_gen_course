@@ -90,6 +90,14 @@
             left:80px;
             top:10px;
         }
+        .pink-bg {
+            background-color: #2743ff;
+            color: white; /* Text color */
+            border-color: #2743ff; /* Border color (optional) */
+            position: relative;
+            left:300px;
+            bottom:1px;
+        }
         .green-bg {
             background-color: #2743ff;
             color: white; /* Text color */
@@ -107,12 +115,12 @@
 .wallet-container i {
    position: relative;
    left:10px;
-   bottom:7px;
+   bottom:55px;
 }
 .wallet-container h6 {
    position: relative;
    left:30px;
-   bottom:30px;
+   bottom:77px;
 }
 .transaction-container {
     display: flex;
@@ -123,12 +131,12 @@
 .transaction-container i {
    position: relative;
    left:10px;
-   bottom:30px;
+   bottom:70px;
 }
 .transaction-container h6 {
    position: relative;
    left:28px;
-   bottom:50px;
+   bottom: 90px;
 }
 
        /* Existing styles */
@@ -140,7 +148,7 @@
         position: relative;
         bottom: 30px;
         right: 80px;
-        font-size: 13px;
+        font-size:12px;
     }
     .profile svg {
         position: relative;
@@ -150,15 +158,17 @@
     }
     /* Adjust button styles for smaller screens */
     .button-container {
-        margin-top: 10px; /* Reduce top margin */
+        margin-top: 15px; /* Reduce top margin */
         display: flex;
         flex-direction: column; /* Stack buttons vertically */
         align-items: center; /* Center buttons horizontally */
+        
     }
     .button-container a {
         margin: 5px 0; /* Adjust margin for buttons */
         padding: 5px 10px; /* Decrease padding */
         font-size: 14px; /* Decrease font size */
+        font-size:9px;
     }
     .violet-bg,
     .green-bg {
@@ -167,8 +177,28 @@
         right: 0;
         top: 0;
         margin-bottom: 10px; /* Add some space between buttons */
+        
     }
-    
+    .pink-bg {
+        position: relative;
+        left:150px;
+        right: 0;
+        top: 0;
+        margin-bottom: 10px; /* Add some space between buttons */
+        font-size:9px;
+        }
+        .white-bg {
+            background-color: white;
+            color: blue; /* Text color */
+            border-color: white; /* Border color (optional) */
+            font-size:11px;
+        }
+        .blue-bg {
+            background-color: #181d83;
+            color: white; /* Text color */
+            border-color: #181d83; /* Border color (optional) */
+            font-size:11px;
+        }
 }
 
         
@@ -179,13 +209,13 @@
         <h2>Profile</h2>
         <div class="card">
             <div class="card-body">
-                <p class="card-text text-center">Hire(Refer) candidate Get ₹500 Incentives + 500 Orders ₹100 = Total ₹600.</p>
+                <p class="card-text text-center">Earn Refer Bonus Upto 50℅ Of Course Charges</p>
                 <div class="card-buttons">
                 <a href="#" class="btn btn-primary btn-with-icon white-bg"> 
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy icon" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
                         </svg>
-                        HR1000
+                        Copy
                     </a>
                     <a href="#" class="btn btn-primary btn-with-icon blue-bg"> Refer Friends</a>
                 </div>
@@ -206,6 +236,7 @@
     </div>
 </div>
 <hr>
+<a href="#" class="btn btn-primary btn-with-icon pink-bg">Change Course Discount ℅</a>
 <div class="wallet-container">
     <a href="#">
         <i class="bi bi-wallet2"></i>
