@@ -111,8 +111,8 @@
 }
 .wallet-container h6 {
    position: relative;
-   left:20px;
-   bottom:5px;
+   left:30px;
+   bottom:30px;
 }
 .transaction-container {
     display: flex;
@@ -123,12 +123,12 @@
 .transaction-container i {
    position: relative;
    left:10px;
-   bottom:7px;
+   bottom:30px;
 }
 .transaction-container h6 {
    position: relative;
-   left:20px;
-   bottom:5px;
+   left:28px;
+   bottom:50px;
 }
 
        /* Existing styles */
@@ -168,6 +168,7 @@
         top: 0;
         margin-bottom: 10px; /* Add some space between buttons */
     }
+    
 }
 
         
@@ -206,13 +207,31 @@
 </div>
 <hr>
 <div class="wallet-container">
-    <i class="bi bi-wallet2"></i>
-    <h6>wallet</h6>
+    <a href="#">
+        <i class="bi bi-wallet2"></i>
+        <h6>wallet</h6>
+    </a>
 </div>
 <div class="transaction-container">
-<i class="bi bi-file-check"></i>
-    <h6>Transaction</h6>
+    <a href="#">
+        <i class="bi bi-file-check"></i>
+        <h6>Transaction</h6>
+    </a>
 </div>
+
+
+<script>
+    function redirectToWallet() {
+        // Redirect to the wallet page
+        window.location.href = "index.html";
+    }
+
+    function redirectToTransaction() {
+        // Redirect to the transaction page
+        window.location.href = "index.html";
+    }
+</script>
+
     </div>
 </body>
 </html>
