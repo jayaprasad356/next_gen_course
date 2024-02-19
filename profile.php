@@ -181,7 +181,7 @@
     }
     .pink-bg {
         position: relative;
-        left:150px;
+        left:170px;
         right: 0;
         top: 0;
         margin-bottom: 10px; /* Add some space between buttons */
