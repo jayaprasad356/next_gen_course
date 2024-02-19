@@ -30,7 +30,7 @@
     margin-left: 70%; 
     width: 50%;
     max-width:200px;
-    height: 200px;
+    height: 180px;
 }
 #demand {
     background: linear-gradient(
@@ -163,7 +163,7 @@
         margin-left: 25%; 
         width: 40%;
         max-width:200px;
-        height: 170px;
+        height: 140px;
     }
     #Marketing h5 {
         font-weight: bold;
