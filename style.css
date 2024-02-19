@@ -83,6 +83,12 @@ section {
     top:5%;
     font-size:25px;
 }
+#home h5{
+    position: absolute;
+    left:72%;
+    top:5%;
+    font-size:25px;
+}
 #course {
     background: linear-gradient(
         to right,
@@ -427,13 +433,19 @@ section {
     }
     #home h2{
         position: absolute;
-        left:70%;
+        left:75%;
         top:3%;
         font-size:13px;
     }
     #home h3{
         position: absolute;
-        left:84%;
+        left:86%;
+        top:3%;
+        font-size:13px;
+    }
+    #home h5{
+        position: absolute;
+        left:60%;
         top:3%;
         font-size:13px;
     }
