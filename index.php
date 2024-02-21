@@ -1,3 +1,78 @@
+<?php
+// Function to initiate payment
+$redirectUrl = 'payment-success.php'; // Replace 'payment-success.php' with your actual redirect URL
+$apiKey = '099eb0cd-02cf-4e2a-8aca-3e6c6aff0399';
+function initiatePayment($amount, $description, $redirectUrl, $apiKey) {
+    $merchantId = 'PGTESTPAYUAT';
+    $order_id = uniqid();
+    $name = "Tutorials Website";
+    $email = "ashokkumar7hitter@gmail.com";
+    $mobile = 8056896831;
+
+    $paymentData = array(
+        'merchantId' => $merchantId,
+        'merchantTransactionId' => $order_id,
+        "merchantUserId" => "MUID123",
+        'amount' => $amount * 100,
+        'redirectUrl' => $redirectUrl,
+        'redirectMode' => "POST",
+        'callbackUrl' => $redirectUrl,
+        "merchantOrderId" => $order_id,
+        "mobileNumber" => $mobile,
+        "message" => $description,
+        "email" => $email,
+        "shortName" => $name,
+        "paymentInstrument" => array(
+            "type" => "PAY_PAGE",
+        )
+    );
+
+    $jsonencode = json_encode($paymentData);
+    $payloadMain = base64_encode($jsonencode);
+    $salt_index = 1; //key index 1
+    $payload = $payloadMain . "/pg/v1/pay" . $apiKey;
+    $sha256 = hash("sha256", $payload);
+    $final_x_header = $sha256 . '###' . $salt_index;
+    $request = json_encode(array('request' => $payloadMain));
+
+    $curl = curl_init();
+    curl_setopt_array($curl, [
+        CURLOPT_URL => "https://api-preprod.phonepe.com/apis/pg-sandbox/pg/v1/pay",
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "POST",
+        CURLOPT_POSTFIELDS => $request,
+        CURLOPT_HTTPHEADER => [
+            "Content-Type: application/json",
+            "X-VERIFY: " . $final_x_header,
+            "accept: application/json"
+        ],
+    ]);
+
+    $response = curl_exec($curl);
+    $err = curl_error($curl);
+
+    curl_close($curl);
+
+    if ($err) {
+        echo "cURL Error #:" . $err;
+    } else {
+        $res = json_decode($response);
+
+        if (isset($res->success) && $res->success == '1') {
+            $paymentCode = $res->code;
+            $paymentMsg = $res->message;
+            $payUrl = $res->data->instrumentResponse->redirectInfo->url;
+            return $payUrl;
+        }
+    }
+}
+?>
+
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -87,15 +162,26 @@
                 <h1>2) Digital Marketing</h1>
                 <h1>3) Own Business Ecommerce</h1>
             </div>
-
             <div class="course-prices">
-                <h2>₹999/- Old Price ₹1999</h2>
-                <a href="#"><button type="button" class="btn btn-success">Pay Now</button></a>
-                <h2>₹2499/- Old Price ₹4999</h2>
-                <a href="#"><button type="button" class="btn btn-success">Pay Now</button></a>
-                <h2>₹4999/- Old Price ₹9999</h2>
-                <a href="#"><button type="button" class="btn btn-success">Pay Now</button></a>
-            </div>
+            <h2>Now ₹999/-  Old <span class="old-price">₹1999</span></h2>
+
+    <?php
+    $payUrl = initiatePayment(999, 'Payment for Course 1', $redirectUrl, $apiKey);
+    echo "<a href='" . $payUrl . "' class='btn btn-success'>Pay Now</a>";
+    ?>
+    <h2>Now 2499/- Old <span class="old-price">₹4999</span></h2>
+    <?php
+    $payUrl = initiatePayment(2499, 'Payment for Course 2', $redirectUrl, $apiKey);
+    echo "<a href='" . $payUrl . "' class='btn btn-success'>Pay Now</a>";
+    ?>
+    <h2>Now ₹4999/- Old <span class="old-price">₹9999</span></h2>
+    <?php
+    $payUrl = initiatePayment(4999, 'Payment for Course 3', $redirectUrl, $apiKey);
+    echo "<a href='" . $payUrl . "' class='btn btn-success'>Pay Now</a>";
+    ?>
+</div>
+
+   
             <img src="https://png.pngtree.com/png-vector/20230318/ourmid/pngtree-book-clipart-vector-png-image_6653535.png" data-aos="fade-up"  class="img-fluid">
             <img  src="https://static.vecteezy.com/system/resources/previews/023/366/090/original/back-to-school-happy-pupils-children-learning-computer-reading-books-concept-png.png" id="images" data-aos="fade-up"  class="img-fluid">
         </div>
