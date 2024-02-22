@@ -163,21 +163,22 @@ function initiatePayment($amount, $description, $redirectUrl, $apiKey) {
                 <h1>3) Own Business Ecommerce</h1>
             </div>
             <div class="course-prices">
-            <h2>Now ₹999/-  Old <span class="old-price">₹1999</span></h2>
+            <h2>Now ₹999/-</h2>Old <span class="old-price">₹1999</span>
 
     <?php
     $payUrl = initiatePayment(999, 'Payment for Course 1', $redirectUrl, $apiKey);
-    echo "<a href='" . $payUrl . "' class='btn btn-success'>Pay Now</a>";
+    echo "<a href='" . $payUrl . "' class='btn btn-success' style='border-radius: 30px;'>Pay & Enroll</a>";
+
     ?>
-    <h2>Now 2499/- Old <span class="old-price">₹4999</span></h2>
+    <h3>Now ₹2499/-</h3> Old <span class="old-price"> ₹4999</span>
     <?php
     $payUrl = initiatePayment(2499, 'Payment for Course 2', $redirectUrl, $apiKey);
-    echo "<a href='" . $payUrl . "' class='btn btn-success'>Pay Now</a>";
+    echo "<a href='" . $payUrl . "' class='btn btn-success' style='border-radius: 30px;'>Pay & Enroll</a>";
     ?>
-    <h2>Now ₹4999/- Old <span class="old-price">₹9999</span></h2>
+    <p>Now ₹4999/-</p>Old <span class="old-price"> ₹9999</span>
     <?php
     $payUrl = initiatePayment(4999, 'Payment for Course 3', $redirectUrl, $apiKey);
-    echo "<a href='" . $payUrl . "' class='btn btn-success'>Pay Now</a>";
+    echo "<a href='" . $payUrl . "' class='btn btn-success' style='border-radius: 30px;'>Pay & Enroll</a>";
     ?>
 </div>
 
@@ -201,7 +202,7 @@ function initiatePayment($amount, $description, $redirectUrl, $apiKey) {
                 <img src="https://png.pngtree.com/png-vector/20220707/ourmid/pngtree-t-shirt-print-on-demand-services-png-image_5741452.png" data-aos="fade-up"  class="img-fluid">
               </div>
             <div class="col-lg-6">
-                    <h5>Dive into the world of creative expression with NextGen's T-shirt Designing Course for Print on Demand Sales, now available at an exclusive rate of Rs 999, a 50% discount from the original Rs 1999. Our course equips you with the skills to craft captivating T-shirt designs and effectively promote them on various online platforms <a href="demand.html"><button type="button" class="btn btn-primary">More Info</button></a></h5>
+                    <h5>Dive into the world of creative expression with NextGen's T-shirt Designing Course for Print on Demand Sales, now available at an exclusive rate of Rs 999, a 50% discount from the original Rs 1999. Our course equips you with the skills to craft captivating T-shirt designs and effectively promote them on various online platforms <a href="demand-information.html"><button type="button" class="btn btn-primary">More Info</button></a></h5>
             </div>
         </div>
     </div>
@@ -214,7 +215,7 @@ function initiatePayment($amount, $description, $redirectUrl, $apiKey) {
                 <p>What You Learn - How You Earn</p>
             </div>
             <div class="col-lg-6">
-                <h5> Welcome to NextGen's Digital Marketing Course, your pathway to mastering the art of online sales and social media marketing! Priced at just Rs 2499, with a generous 50% discount from the original Rs 4999, our comprehensive course equips you with the skills to succeed in the digital marketplace.Learn how to leverage digital marketing and social media <a href="digital.html"><button type="button" class="btn btn-primary">More Info</button></a></h5>
+                <h5> Welcome to NextGen's Digital Marketing Course, your pathway to mastering the art of online sales and social media marketing! Priced at just Rs 2499, with a generous 50% discount from the original Rs 4999, our comprehensive course equips you with the skills to succeed in the digital marketplace.Learn how to leverage digital marketing and social media <a href="digital-information.html"><button type="button" class="btn btn-primary">More Info</button></a></h5>
         </div>
         <div class="col-lg-6 col-md-6 col-12">
             <img src="https://freepngimg.com/save/24871-marketing-transparent-image/501x393" data-aos="fade-up"  class="img-fluid">
@@ -233,7 +234,7 @@ function initiatePayment($amount, $description, $redirectUrl, $apiKey) {
                 <img src="https://freepngimg.com/save/15307-online-marketing-transparent/500x408" data-aos="fade-up"  class="img-fluid">
               </div>
             <div class="col-lg-6">
-                    <h5>Welcome to NextGen's revolutionary Ecommerce & Reselling Business Course, where we offer you the keys to unlock boundless earning potential in the digital marketplace. Enroll now at an exclusive rate of just Rs 4999, a 50% discount from the original Rs 9999, and receive a complimentary website for your business.<a href="business.html"><button type="button" class="btn btn-primary">More Info</button></a></h5>
+                    <h5>Welcome to NextGen's revolutionary Ecommerce & Reselling Business Course, where we offer you the keys to unlock boundless earning potential in the digital marketplace. Enroll now at an exclusive rate of just Rs 4999, a 50% discount from the original Rs 9999, and receive a complimentary website for your business.<a href="business-information.html"><button type="button" class="btn btn-primary">More Info</button></a></h5>
             </div>
         </div>
     </div>
@@ -270,9 +271,9 @@ function initiatePayment($amount, $description, $redirectUrl, $apiKey) {
                 <h1>Address:</h1>
             </div>
             <div class="contact-prices">
-                <h2></h2>
-                <h2></h2>
-                <h2></h2>
+                <h3>+91 86187 19941</h3>
+                <h2>support@slveenterprises.org.</h2>
+                <h6>#9,2nd Floor,A3,NBA Tower, Thillainagar, 11th Cross W, Tennur, Tiruchirappalli, Tamil Nadu 620018</h6>
             </div>
         </div>
         <p1><a href="privacy_policy.html">Privacy Policy</a></p1>

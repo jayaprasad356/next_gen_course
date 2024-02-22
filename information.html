@@ -20,9 +20,7 @@ section {
     justify-content: center;
     align-items: center;
 }
-#information {
-  background-color: white; /* Change background color to white */
-}
+
 
     #information h5{
    text-align: center;
@@ -45,14 +43,18 @@ section {
   
   .panel-header {
     position: relative;
-    background-color: #191010;
+    background-color: #f9f5f5;
+    color:#191010;
     padding: 10px;
     cursor: pointer;
+    font-weight: bold;
   }
 
   .panel-content {
     padding: 10px;
-    background-color: #191010;
+    background-color: #f1e5e5;
+    color:#191010;
+    font-weight: bold;
   }
   .hidden {
     display: none;
@@ -103,14 +105,18 @@ section {
       
       .panel-header {
         position: relative;
-        background-color: #191010;
+        background-color: #f1e8e8;
+        color:black;
         padding: 10px;
         cursor: pointer;
+        font-weight: bold;
       }
     
       .panel-content {
         padding: 10px;
-        background-color: #191010;
+        background-color: #f1ecec;
+        color: black;
+        font-weight: bold;
       }
       
       .hidden {
@@ -127,24 +133,24 @@ section {
   }
   #register {
     position:absolute;
-    top:660px;
+    top:750px;
   }
   #enroll {
     position:absolute;
-    top:900px;
+    top:1000px;
   }
   #withdraw {
     position:absolute;
-    top:1150px;
+    top:1250px;
   }
   #refer {
     position:absolute;
-    top:1400px;
+    top:1480px;
   }
     }
 </style>
 <body>
-<section id="information" class="bg-white text-white">
+<section id="information" class="bg-primary text-white">
   <img src="faq.jpeg" data-aos="fade-up"  class="img-fluid">
     <div class="container-4">
       <div class="accordion">
@@ -187,6 +193,7 @@ section {
       </div>
     </div>
   </section>
+
   <div id="register" >
     <div class="container">
         <h3><u>How To Register??</u></h3>
@@ -215,6 +222,7 @@ section {
         <iframe id= "video" width="50%" height="315" src="https://www.youtube.com/embed/V90381PsLH0" frameborder="0" allowfullscreen></iframe>
     </div>
 </div>  
+
   <script>
     function togglePanel(panelHeader) {
       var panel = panelHeader.parentNode;
