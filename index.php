@@ -144,7 +144,7 @@ function initiatePayment($amount, $description, $redirectUrl, $apiKey) {
         <h1>About us</h1> 
         <p1> Welcome to NextGen, your trusted partner in career building and online earning opportunities! For four years, we've been dedicated to empowering individuals to kickstart their online journey and unleash their potential in the digital realm.
 
-            At NextGen, we understand the evolving landscape<a href="about.html"><button type="button" class="btn btn-primary">More Info</button></a></p1>
+            At NextGen, we understand the evolving landscape  of career development and the increasing demand for diverse skill sets. That's why we offer a range of cutting-edge courses designed to equip you with the knowledge and skills needed to thrive in the digital age.<a href="about.html"><button type="button" class="btn btn-primary">More Info</button></a></p1>
     </div>
 </div>
 </section>
