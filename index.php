@@ -202,7 +202,7 @@ function initiatePayment($amount, $description, $redirectUrl, $apiKey) {
                 <img src="https://png.pngtree.com/png-vector/20220707/ourmid/pngtree-t-shirt-print-on-demand-services-png-image_5741452.png" data-aos="fade-up"  class="img-fluid">
               </div>
             <div class="col-lg-6">
-                    <h5>Dive into the world of creative expression with NextGen's T-shirt Designing Course for Print on Demand Sales, now available at an exclusive rate of Rs 999, a 50% discount from the original Rs 1999. Our course equips you with the skills to craft captivating T-shirt designs and effectively promote them on various online platforms <a href="demand-information.html"><button type="button" class="btn btn-primary">More Info</button></a></h5>
+                    <h5>Dive into the world of creative expression with NextGen's T-shirt Designing Course for Print on Demand Sales, now available at an exclusive rate of  Rs 1999. Our course equips you with the skills to craft captivating T-shirt designs and effectively promote them on various online platforms <a href="demand-information.html"><button type="button" class="btn btn-primary">More Info</button></a></h5>
             </div>
         </div>
     </div>
@@ -215,7 +215,7 @@ function initiatePayment($amount, $description, $redirectUrl, $apiKey) {
                 <p>What You Learn - How You Earn</p>
             </div>
             <div class="col-lg-6">
-                <h5> Welcome to NextGen's Digital Marketing Course, your pathway to mastering the art of online sales and social media marketing! Priced at just Rs 2499, with a generous 50% discount from the original Rs 4999, our comprehensive course equips you with the skills to succeed in the digital marketplace.Learn how to leverage digital marketing and social media <a href="digital-information.html"><button type="button" class="btn btn-primary">More Info</button></a></h5>
+                <h5> Welcome to NextGen's Digital Marketing Course, your pathway to mastering the art of online sales and social media marketing! Priced at just  Rs 4999, our comprehensive course equips you with the skills to succeed in the digital marketplace.Learn how to leverage digital marketing and social media <a href="digital-information.html"><button type="button" class="btn btn-primary">More Info</button></a></h5>
         </div>
         <div class="col-lg-6 col-md-6 col-12">
             <img src="https://freepngimg.com/save/24871-marketing-transparent-image/501x393" data-aos="fade-up"  class="img-fluid">
@@ -234,7 +234,7 @@ function initiatePayment($amount, $description, $redirectUrl, $apiKey) {
                 <img src="https://freepngimg.com/save/15307-online-marketing-transparent/500x408" data-aos="fade-up"  class="img-fluid">
               </div>
             <div class="col-lg-6">
-                    <h5>Welcome to NextGen's revolutionary Ecommerce & Reselling Business Course, where we offer you the keys to unlock boundless earning potential in the digital marketplace. Enroll now at an exclusive rate of just Rs 4999, a 50% discount from the original Rs 9999, and receive a complimentary website for your business.<a href="business-information.html"><button type="button" class="btn btn-primary">More Info</button></a></h5>
+                    <h5>Welcome to NextGen's revolutionary Ecommerce & Reselling Business Course, where we offer you the keys to unlock boundless earning potential in the digital marketplace. Enroll now at an exclusive rate of just Rs 9999, and receive a complimentary website for your business.<a href="business-information.html"><button type="button" class="btn btn-primary">More Info</button></a></h5>
             </div>
         </div>
     </div>
