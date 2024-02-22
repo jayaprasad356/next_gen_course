@@ -655,8 +655,8 @@ section {
         word-wrap: break-word; /* Allow text to break */
     }
     #contact p1 {
-        margin-left:10px;
-        font-size:12px;
+        margin-left:5px;
+        font-size:13px;
         position: relative;
         bottom:20px;
        
@@ -669,7 +669,7 @@ section {
     }
     #contact p3 {
         margin-left:20px;
-        font-size:12px;
+        font-size:13px;
         position: relative;
         top:-20px;
     }
