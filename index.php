@@ -202,7 +202,41 @@ function initiatePayment($amount, $description, $redirectUrl, $apiKey) {
                 <img src="https://png.pngtree.com/png-vector/20220707/ourmid/pngtree-t-shirt-print-on-demand-services-png-image_5741452.png" data-aos="fade-up"  class="img-fluid">
               </div>
             <div class="col-lg-6">
-                    <h5>Dive into the world of creative expression with NextGen's T-shirt Designing Course for Print on Demand Sales, now available at an exclusive rate of  Rs 1999. Our course equips you with the skills to craft captivating T-shirt designs and effectively promote them on various online platforms <a href="demand-information.html"><button type="button" class="btn btn-primary">More Info</button></a></h5>
+                <br>
+                <p1><strong>*Course Title : </strong>*Print On Demand Course</p1>
+            <br>
+             <p1><strong>*Course Fee : </strong>* Rs 1999</p1>
+             <br>
+             <p1><strong>*Duration : </strong>*2 Days</p1>
+              <br><br>
+             <p1><strong>*Course content* :</strong></p1>
+             <br><br>
+             <p1><strong>1.*How To Design T-Shirts*</strong></p1>
+             <ul>
+                <li>Learn fundamental design principles</li>
+                <li>Hands-on practice with design tools</li>
+              </ul>
+              <p1><strong>2.*Market Trends and Attractive Designing Skills*</strong></p1>
+             <ul>
+                <li>Explore current market trends</li>
+                <li>Develop eye-catching design techniques</li>
+              </ul>
+              <p1><strong>3.*Product Placement and Commission Earnings*</strong></p1>
+             <ul>
+                <li>Post your designed products on our website</li>
+                <li>Earn commission for each successful sale</li>
+              </ul>
+              <p1><strong>4.*Universal Platforms for Design Posting*</strong></p1>
+             <ul>
+                <li>Identify popular platforms to showcase your designs</li>
+                <li>Maximize exposure and sales opportunities</li>
+              </ul>
+              <p1><strong>5.*Referral Bonus Opportunities*</strong></p1>
+              <ul>
+                 <li>Earn up to 40% referral bonus on course charges</li>
+                 <li>Encourage others to enroll and benefit from your referral</li>
+               </ul>
+                    <h5><a href="demand.html"><button type="button" class="btn btn-primary">More Info</button></a></h5>
             </div>
         </div>
     </div>
@@ -215,7 +249,40 @@ function initiatePayment($amount, $description, $redirectUrl, $apiKey) {
                 <p>What You Learn - How You Earn</p>
             </div>
             <div class="col-lg-6">
-                <h5> Welcome to NextGen's Digital Marketing Course, your pathway to mastering the art of online sales and social media marketing! Priced at just  Rs 4999, our comprehensive course equips you with the skills to succeed in the digital marketplace.Learn how to leverage digital marketing and social media <a href="digital-information.html"><button type="button" class="btn btn-primary">More Info</button></a></h5>
+            <p1><strong>*Course Title : </strong>*NextGen Digital Marketing Course</p1>
+            <br>
+             <p1><strong>*Course Fee : </strong>*Rs 4999</p1>
+             <br>
+             <p1><strong>*Duration : </strong>*4 Days</p1>
+              <br><br>
+             <p1><strong>*Course Details:*:</strong></p1>
+             <br><br>
+             <p1><strong>1.*Digital Marketing Fundamentals*</strong></p1>
+             <ul>
+                <li>Explore core concepts of digital marketing</li>
+                <li>Understand the digital landscape and its components</li>
+              </ul>
+              <p1><strong>2.*Social Media Marketing*</strong></p1>
+             <ul>
+                <li>Strategies for effective social media campaigns</li>
+                <li>Utilize major social platforms for marketing</li>
+              </ul>
+              <p1><strong>3.*Search Engine Optimization (SEO)*</strong></p1>
+             <ul>
+                <li>Learn SEO techniques for better website visibility</li>
+                <li>Understand keyword optimization and on-page SEO</li>
+              </ul>
+              <p1><strong>4.*Email Marketing*</strong></p1>
+             <ul>
+                <li>Create engaging email campaigns</li>
+                <li>Utilize email marketing tools and analytics</li>
+              </ul>
+              <p1><strong>5.*Refer Bonus Incentives*</strong></p1>
+              <ul>
+                 <li>Earn up to 40% referral bonus for course recommendations</li>
+                 <li>Encourage others to join and benefit from the course</li>
+               </ul>
+                <h5> <a href="digital.html"><button type="button" class="btn btn-primary">More Info</button></a></h5>
         </div>
         <div class="col-lg-6 col-md-6 col-12">
             <img src="https://freepngimg.com/save/24871-marketing-transparent-image/501x393" data-aos="fade-up"  class="img-fluid">
@@ -234,7 +301,41 @@ function initiatePayment($amount, $description, $redirectUrl, $apiKey) {
                 <img src="https://freepngimg.com/save/15307-online-marketing-transparent/500x408" data-aos="fade-up"  class="img-fluid">
               </div>
             <div class="col-lg-6">
-                    <h5>Welcome to NextGen's revolutionary Ecommerce & Reselling Business Course, where we offer you the keys to unlock boundless earning potential in the digital marketplace. Enroll now at an exclusive rate of just Rs 9999, and receive a complimentary website for your business.<a href="business-information.html"><button type="button" class="btn btn-primary">More Info</button></a></h5>
+            <br>
+            <p1><strong>*Course Title : </strong>*NextGen Ecommerce Business Course</p1>
+            <br>
+             <p1><strong>*Course Fee : </strong>*Rs 9999</p1>
+             <br>
+             <p1><strong>*Duration : </strong>*6 Days</p1>
+              <br> <br>
+             <p1><strong>*Course Details:*:</strong></p1>
+             <br><br>
+             <p1><strong>1.*Comprehensive Ecommerce Strategy*</strong></p1>
+             <ul>
+                <li> Learn key strategies for successful ecommerce businesses</li>
+                <li>Understand market trends and consumer behavior</li>
+              </ul>
+              <p1><strong>2.*Free Website Setup*</strong></p1>
+             <ul>
+                <li>Get hands-on guidance in setting up your business website</li>
+                <li>Utilize essential tools for website customization</li>
+              </ul>
+              <p1><strong>3.*Integration with Ecommerce Platforms*</strong></p1>
+             <ul>
+                <li>Explore methods to integrate with popular ecommerce platforms</li>
+                <li>Earn reselling commissions through strategic partnerships</li>
+              </ul>
+              <p1><strong>4.*Maximizing Reselling Opportunities*</strong></p1>
+             <ul>
+                <li>Learn techniques to maximize profits through reselling</li>
+                <li>Optimize product listings and marketing strategies</li>
+              </ul>
+              <p1><strong>5.*Up to 40% Referral Bonus*</strong></p1>
+              <ul>
+                 <li>Refer others to the course and earn up to 40% referral bonus</li>
+                 <li>Leverage your network to enhance your earning potential</li>
+               </ul>
+                    <h5><a href="business.html"><button type="button" class="btn btn-primary">More Info</button></a></h5>
             </div>
         </div>
     </div>

@@ -32,6 +32,22 @@
     max-width:200px;
     height: 180px;
 }
+#privacy {
+    background: linear-gradient(
+        to right,
+        #ffd457,
+        #ffb854,
+        #ff924d
+     
+    );
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align items to the top */
+    align-items: center; /* Center items horizontally */
+    padding-top: 30px; /* Add padding to push content from the top */
+}
 #demand {
     background: linear-gradient(
         to right,
@@ -71,6 +87,7 @@
 #demand iframe {
    margin-top:100px;
 }
+
 #Marketing {
     background: linear-gradient(
         to right,
