@@ -513,42 +513,42 @@ section {
     
     }
     #course h2 {
-        color: #0d46b2;
+        color: #f3f4f5;
         font-size: 17px;
         font-weight: bold;
         margin-right: 10px;
         margin-top: 180px;
         word-wrap: break-word; /* Allow text to break */
-        padding: 1px; /* Padding */
-        border: 2px solid #0d46b2; /* Border color */
-        border-radius: 8px; /* Rounded corners */
-        max-width: 150px; /* Maximum width */
+        padding: 3px; /* Padding */
+        background-color: #5271ff;
+        border-radius: 10px; /* Rounded corners */
+        max-width: 120px; /* Maximum width */
         position: relative;
-        left:30px;
+        left:35px;
     }
     #course h3 {
-        color: #0d46b2;
+        color: #f3f4f5;
         font-size: 16px;
         font-weight: bold;
         margin-right: 10px;
         margin-top: 140px;
         word-wrap: break-word; /* Allow text to break */
-        padding: 1px; /* Padding */
-        border: 2px solid #0d46b2; /* Border color */
-        border-radius: 8px; /* Rounded corners */
+        padding:2px; /* Padding */
+        border-radius:10px; /* Rounded corners */
         max-width: 150px; /* Maximum width */
         position: relative;
         left:30px;
+        background-color: #5271ff;
     }
     #course p {
-        color: #0d46b2;
+        color: #f3f4f5;
         font-size: 16px;
         font-weight: bold;
         margin-right: 10px;
         margin-bottom: 115px;
         word-wrap: break-word; /* Allow text to break */
-        padding: 1px; /* Padding */
-        border: 2px solid #0d46b2; /* Border color */
+        padding:1px; /* Padding */
+        background-color: #5271ff;
         border-radius: 8px; /* Rounded corners */
         max-width: 140px; /* Maximum width */
         position: relative;
@@ -628,17 +628,17 @@ section {
         color: #0d46b2;
         font-size: 12px;
         font-weight: bold;
-        margin-top: 60px;
+        margin-top: 45px;
         padding:15px;
         position: absolute;
-        left:140px;
+        left:160px;
         word-wrap: break-word; /* Allow text to break */
     }
     #contact h2 {
         color: #0d46b2;
         font-size: 12px;
         font-weight: bold;
-        margin-top: 174px;
+        margin-top: 160px;
        left:135px;
         padding:15px;
         position: absolute;
@@ -648,7 +648,7 @@ section {
         color: #0d46b2;
         font-size: 10px;
         font-weight: bold;
-        margin-top: 294px;
+        margin-top: 280px;
         padding:15px;
         left:120px;
         position: absolute;
