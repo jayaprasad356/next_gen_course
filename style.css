@@ -76,18 +76,22 @@ section {
     left:82%;
     top:5%;
     font-size:25px;
+    color: white;
+    font-weight: bold;
 }
 #home h3{
     position: absolute;
     left:88%;
     top:5%;
     font-size:25px;
+    font-weight: bold;
 }
 #home h5{
     position: absolute;
     left:75%;
     top:5%;
     font-size:25px;
+    font-weight: bold;
 }
 #course {
     background: linear-gradient(

@@ -127,9 +127,10 @@ function initiatePayment($amount, $description, $redirectUrl, $apiKey) {
             <p>Building Your Future</p>
             <p1>With career Building Course</p1>
         </div>
-        <h2><a href="login.html">login</a></h2>
-        <h3><a href="register.html">register</a></h3>   
-        <h5><a href="profile.php">Profile</a></h5>     
+        <h2><a href="login.html" style="color: white;">login</a></h2>
+<h3><a href="register.html" style="color: white;">register</a></h3>   
+<h5><a href="profile.php" style="color: white;">Profile</a></h5>
+  
         <svg id="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="white" class="bi bi-list" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
         </svg>
@@ -202,40 +203,41 @@ function initiatePayment($amount, $description, $redirectUrl, $apiKey) {
                 <img src="https://png.pngtree.com/png-vector/20220707/ourmid/pngtree-t-shirt-print-on-demand-services-png-image_5741452.png" data-aos="fade-up"  class="img-fluid">
               </div>
             <div class="col-lg-6">
-                <br>
-                <p1><strong>*Course Title : </strong>*Print On Demand Course</p1>
             <br>
-             <p1><strong>*Course Fee : </strong>* Rs 1999</p1>
-             <br>
-             <p1><strong>*Duration : </strong>*2 Days</p1>
-              <br><br>
-             <p1><strong>*Course content* :</strong></p1>
-             <br><br>
-             <p1><strong>1.*How To Design T-Shirts*</strong></p1>
-             <ul>
-                <li>Learn fundamental design principles</li>
-                <li>Hands-on practice with design tools</li>
-              </ul>
-              <p1><strong>2.*Market Trends and Attractive Designing Skills*</strong></p1>
-             <ul>
-                <li>Explore current market trends</li>
-                <li>Develop eye-catching design techniques</li>
-              </ul>
-              <p1><strong>3.*Product Placement and Commission Earnings*</strong></p1>
-             <ul>
-                <li>Post your designed products on our website</li>
-                <li>Earn commission for each successful sale</li>
-              </ul>
-              <p1><strong>4.*Universal Platforms for Design Posting*</strong></p1>
-             <ul>
-                <li>Identify popular platforms to showcase your designs</li>
-                <li>Maximize exposure and sales opportunities</li>
-              </ul>
-              <p1><strong>5.*Referral Bonus Opportunities*</strong></p1>
-              <ul>
-                 <li>Earn up to 40% referral bonus on course charges</li>
-                 <li>Encourage others to enroll and benefit from your referral</li>
-               </ul>
+<p1 style="color: white;"><strong>*Course Title : </strong>*Print On Demand Course</p1>
+<br>
+<p1 style="color: white;"><strong>*Course Fee : </strong>* Rs 1999</p1>
+<br>
+<p1 style="color: white;"><strong>*Duration : </strong>*2 Days</p1>
+<br><br>
+<p1 style="color: white;"><strong>*Course content* :</strong></p1>
+<br><br>
+<p1 style="color: white;"><strong>1.*How To Design T-Shirts*</strong></p1>
+<ul>
+    <li style="color: white;">Learn fundamental design principles</li>
+    <li style="color: white;">Hands-on practice with design tools</li>
+</ul>
+<p1 style="color: white;"><strong>2.*Market Trends and Attractive Designing Skills*</strong></p1>
+<ul>
+    <li style="color: white;">Explore current market trends</li>
+    <li style="color: white;">Develop eye-catching design techniques</li>
+</ul>
+<p1 style="color: white;"><strong>3.*Product Placement and Commission Earnings*</strong></p1>
+<ul>
+    <li style="color: white;">Post your designed products on our website</li>
+    <li style="color: white;">Earn commission for each successful sale</li>
+</ul>
+<p1 style="color: white;"><strong>4.*Universal Platforms for Design Posting*</strong></p1>
+<ul>
+    <li style="color: white;">Identify popular platforms to showcase your designs</li>
+    <li style="color: white;">Maximize exposure and sales opportunities</li>
+</ul>
+<p1 style="color: white;"><strong>5.*Referral Bonus Opportunities*</strong></p1>
+<ul>
+    <li style="color: white;">Earn up to 40% referral bonus on course charges</li>
+    <li style="color: white;">Encourage others to enroll and benefit from your referral</li>
+</ul>
+
                     <h5><a href="demand.html"><button type="button" class="btn btn-primary">More Info</button></a></h5>
             </div>
         </div>
@@ -249,39 +251,41 @@ function initiatePayment($amount, $description, $redirectUrl, $apiKey) {
                 <p>What You Learn - How You Earn</p>
             </div>
             <div class="col-lg-6">
-            <p1><strong>*Course Title : </strong>*NextGen Digital Marketing Course</p1>
-            <br>
-             <p1><strong>*Course Fee : </strong>*Rs 4999</p1>
-             <br>
-             <p1><strong>*Duration : </strong>*4 Days</p1>
-              <br><br>
-             <p1><strong>*Course Details:*:</strong></p1>
-             <br><br>
-             <p1><strong>1.*Digital Marketing Fundamentals*</strong></p1>
-             <ul>
-                <li>Explore core concepts of digital marketing</li>
-                <li>Understand the digital landscape and its components</li>
-              </ul>
-              <p1><strong>2.*Social Media Marketing*</strong></p1>
-             <ul>
-                <li>Strategies for effective social media campaigns</li>
-                <li>Utilize major social platforms for marketing</li>
-              </ul>
-              <p1><strong>3.*Search Engine Optimization (SEO)*</strong></p1>
-             <ul>
-                <li>Learn SEO techniques for better website visibility</li>
-                <li>Understand keyword optimization and on-page SEO</li>
-              </ul>
-              <p1><strong>4.*Email Marketing*</strong></p1>
-             <ul>
-                <li>Create engaging email campaigns</li>
-                <li>Utilize email marketing tools and analytics</li>
-              </ul>
-              <p1><strong>5.*Refer Bonus Incentives*</strong></p1>
-              <ul>
-                 <li>Earn up to 40% referral bonus for course recommendations</li>
-                 <li>Encourage others to join and benefit from the course</li>
-               </ul>
+                <br>
+            <p1 style="color: white;"><strong>*Course Title : </strong>*NextGen Digital Marketing Course</p1>
+<br>
+<p1 style="color: white;"><strong>*Course Fee : </strong>*Rs 4999</p1>
+<br>
+<p1 style="color: white;"><strong>*Duration : </strong>*4 Days</p1>
+<br><br>
+<p1 style="color: white;"><strong>*Course Details:*:</strong></p1>
+<br><br>
+<p1 style="color: white;"><strong>1.*Digital Marketing Fundamentals*</strong></p1>
+<ul>
+    <li style="color: white;">Explore core concepts of digital marketing</li>
+    <li style="color: white;">Understand the digital landscape and its components</li>
+</ul>
+<p1 style="color: white;"><strong>2.*Social Media Marketing*</strong></p1>
+<ul>
+    <li style="color: white;">Strategies for effective social media campaigns</li>
+    <li style="color: white;">Utilize major social platforms for marketing</li>
+</ul>
+<p1 style="color: white;"><strong>3.*Search Engine Optimization (SEO)*</strong></p1>
+<ul>
+    <li style="color: white;">Learn SEO techniques for better website visibility</li>
+    <li style="color: white;">Understand keyword optimization and on-page SEO</li>
+</ul>
+<p1 style="color: white;"><strong>4.*Email Marketing*</strong></p1>
+<ul>
+    <li style="color: white;">Create engaging email campaigns</li>
+    <li style="color: white;">Utilize email marketing tools and analytics</li>
+</ul>
+<p1 style="color: white;"><strong>5.*Refer Bonus Incentives*</strong></p1>
+<ul>
+    <li style="color: white;">Earn up to 40% referral bonus for course recommendations</li>
+    <li style="color: white;">Encourage others to join and benefit from the course</li>
+</ul>
+
                 <h5> <a href="digital.html"><button type="button" class="btn btn-primary">More Info</button></a></h5>
         </div>
         <div class="col-lg-6 col-md-6 col-12">
@@ -302,39 +306,40 @@ function initiatePayment($amount, $description, $redirectUrl, $apiKey) {
               </div>
             <div class="col-lg-6">
             <br>
-            <p1><strong>*Course Title : </strong>*NextGen Ecommerce Business Course</p1>
-            <br>
-             <p1><strong>*Course Fee : </strong>*Rs 9999</p1>
-             <br>
-             <p1><strong>*Duration : </strong>*6 Days</p1>
-              <br> <br>
-             <p1><strong>*Course Details:*:</strong></p1>
-             <br><br>
-             <p1><strong>1.*Comprehensive Ecommerce Strategy*</strong></p1>
-             <ul>
-                <li> Learn key strategies for successful ecommerce businesses</li>
-                <li>Understand market trends and consumer behavior</li>
-              </ul>
-              <p1><strong>2.*Free Website Setup*</strong></p1>
-             <ul>
-                <li>Get hands-on guidance in setting up your business website</li>
-                <li>Utilize essential tools for website customization</li>
-              </ul>
-              <p1><strong>3.*Integration with Ecommerce Platforms*</strong></p1>
-             <ul>
-                <li>Explore methods to integrate with popular ecommerce platforms</li>
-                <li>Earn reselling commissions through strategic partnerships</li>
-              </ul>
-              <p1><strong>4.*Maximizing Reselling Opportunities*</strong></p1>
-             <ul>
-                <li>Learn techniques to maximize profits through reselling</li>
-                <li>Optimize product listings and marketing strategies</li>
-              </ul>
-              <p1><strong>5.*Up to 40% Referral Bonus*</strong></p1>
-              <ul>
-                 <li>Refer others to the course and earn up to 40% referral bonus</li>
-                 <li>Leverage your network to enhance your earning potential</li>
-               </ul>
+<p1 style="color: white;"><strong>*Course Title : </strong>*NextGen Ecommerce Business Course</p1>
+<br>
+<p1 style="color: white;"><strong>*Course Fee : </strong>*Rs 9999</p1>
+<br>
+<p1 style="color: white;"><strong>*Duration : </strong>*6 Days</p1>
+<br> <br>
+<p1 style="color: white;"><strong>*Course Details:*:</strong></p1>
+<br><br>
+<p1 style="color: white;"><strong>1.*Comprehensive Ecommerce Strategy*</strong></p1>
+<ul>
+    <li style="color: white;"> Learn key strategies for successful ecommerce businesses</li>
+    <li style="color: white;">Understand market trends and consumer behavior</li>
+</ul>
+<p1 style="color: white;"><strong>2.*Free Website Setup*</strong></p1>
+<ul>
+    <li style="color: white;">Get hands-on guidance in setting up your business website</li>
+    <li style="color: white;">Utilize essential tools for website customization</li>
+</ul>
+<p1 style="color: white;"><strong>3.*Integration with Ecommerce Platforms*</strong></p1>
+<ul>
+    <li style="color: white;">Explore methods to integrate with popular ecommerce platforms</li>
+    <li style="color: white;">Earn reselling commissions through strategic partnerships</li>
+</ul>
+<p1 style="color: white;"><strong>4.*Maximizing Reselling Opportunities*</strong></p1>
+<ul>
+    <li style="color: white;">Learn techniques to maximize profits through reselling</li>
+    <li style="color: white;">Optimize product listings and marketing strategies</li>
+</ul>
+<p1 style="color: white;"><strong>5.*Up to 40% Referral Bonus*</strong></p1>
+<ul>
+    <li style="color: white;">Refer others to the course and earn up to 40% referral bonus</li>
+    <li style="color: white;">Leverage your network to enhance your earning potential</li>
+</ul>
+
                     <h5><a href="business.html"><button type="button" class="btn btn-primary">More Info</button></a></h5>
             </div>
         </div>
@@ -348,14 +353,8 @@ function initiatePayment($amount, $description, $redirectUrl, $apiKey) {
                   <img src="img.png" data-aos="fade-up"  class="img-fluid">
                 </div>
     <div class="col-lg-6 col-md-6 col-12">
-        <h1 style="color:black; font-size: 2.5em;" data-aos="fade-up">APPLY NOW</h1>
-        <form method="post"  href="index.php" enctype="multipart/form-data" data-aos="fade-up">
-    <input type="text"  class="form-control" id="name" name="name" placeholder="enter your name" required>
-    <input type="mail"  class="form-control" id="email" name="email" placeholder="enter your mail" name="email" required>
-    <input type="number"  class="form-control" id="mobile" name="mobile" placeholder="enter your Contact Number" name="mobile" required>
-    <input type="text"  class="form-control" id="location" name="location" placeholder="enter your Location" name="location" required>
-    <button type="submit" class="btn signin" name="btnAdd">Enroller Now</button>
-</form>
+        <h1 style="color:black; font-size: 2.5em;" data-aos="fade-up">Register Now</h1>
+        <a href="register.html" class="btn signin">Enroll Now</a>
         </div>
    </div>
    </div>
