@@ -1,3 +1,34 @@
+<?php
+session_start();
+
+$servername = "localhost"; // replace with your database host
+$username = "u117947056_nextgencourse"; // replace with your database username
+$password = "Nextgen@2024"; // replace with your database password
+$database = "u117947056_nextgencourse"; // replace with your database name
+
+$conn = new mysqli($servername, $username, $password, $database);
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $mobile = isset($_POST['mobile']) ? $_POST['mobile'] : '';
+    $password = isset($_POST['password']) ? $_POST['password'] : '';
+
+    $sql_query = "SELECT * FROM users WHERE mobile='$mobile' AND password='$password'";
+    $result = $conn->query($sql_query);
+
+    if ($result->num_rows > 0) {
+        $_SESSION['loggedin'] = true;
+        $_SESSION['mobile'] = $mobile;
+        header("Location: index.php"); 
+        exit();
+    } else {
+        $error = "Invalid mobile number or password";
+        echo "<script>alert('$error');</script>"; 
+    }
+}
+
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -77,7 +108,7 @@
 <body>
     <div class="container">
         <h2>Login</h2>
-        <form action="login_process.php" method="POST">
+        <form method="post" action="#" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="mobile">Phone number:</label>
                 <input type="number" id="mobile" name="mobile" placeholder="Mobile" required>
@@ -86,13 +117,12 @@
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" placeholder="Password" required>
             </div>
-            <!-- Moved Forgot Password link below the password field -->
             <div class="form-group forgot-password">
                 <a href="#">Forgot Password?</a>
             </div>
             <!-- Register button placed before the Login button -->
             <button type="submit" class="btn">Login</button>
-            <a href="register.html" ><button type="button"  class="btn register-btn">Register</button></a>
+            <a href="register.php" ><button type="button"  class="btn register-btn">Register</button></a>
         </form>
     </div>
 </body>

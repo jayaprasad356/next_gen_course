@@ -1,9 +1,43 @@
+<?php
+
+$servername = "localhost"; // replace with your database host
+$username = "u117947056_nextgencourse"; // replace with your database username
+$password = "Nextgen@2024"; // replace with your database password
+$database = "u117947056_nextgencourse"; // replace with your database name
+
+
+$conn = new mysqli($servername, $username, $password, $database);
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = isset($_POST['name']) ? $_POST['name'] : '';
+    $email = isset($_POST['email']) ? $_POST['email'] : '';
+    $mobile = isset($_POST['mobile']) ? $_POST['mobile'] : '';
+    $location = isset($_POST['location']) ? $_POST['location'] : '';
+    $password = isset($_POST['password']) ? $_POST['password'] : '';
+    $referral_code = isset($_POST['referral_code']) ? $_POST['referral_code'] : '';
+
+    $sql_query = "INSERT INTO users (name, email, mobile,location,password,referral_code) VALUES ('$name','$email', '$mobile', '$location', '$password', '$referral_code')";
+    
+    if ($conn->query($sql_query) === TRUE) {
+        echo "<script>alert('New record created successfully');</script>";
+
+        echo "<script>window.location.href='index.php';</script>";
+        exit();
+
+
+    } else {
+        echo "Error: " . $sql_query . "<br>" . $conn->error;
+    }
+}
+
+$conn->close();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>Register Page</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -61,7 +95,7 @@
 <body>
     <div class="container">
         <h2>Register</h2>
-        <form action="login_process.php" method="POST">
+        <form method="post" action="#" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" placeholder="name" required>
@@ -86,7 +120,7 @@
                 <label for="referral_code"> Referral code</label>
                 <input type="text" id="referral_code" name="referral_code" placeholder="Referral Code" required>
             </div>
-            <button type="submit" class="btn">Register</button>
+            <button class="btn signin" name="btnAdd">Register</button>
         </form>
     </div>
 </body>

@@ -127,8 +127,8 @@ function initiatePayment($amount, $description, $redirectUrl, $apiKey) {
             <p>Building Your Future</p>
             <p1>With career Building Course</p1>
         </div>
-        <h2><a href="login.html" style="color: white;">login</a></h2>
-<h3><a href="register.html" style="color: white;">register</a></h3>   
+        <h2><a href="login.php" style="color: white;">login</a></h2>
+<h3><a href="register.php" style="color: white;">register</a></h3>   
 <h5><a href="profile.php" style="color: white;">Profile</a></h5>
   
         <svg id="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="white" class="bi bi-list" viewBox="0 0 16 16">
@@ -354,7 +354,7 @@ function initiatePayment($amount, $description, $redirectUrl, $apiKey) {
                 </div>
     <div class="col-lg-6 col-md-6 col-12">
         <h1 style="color:black; font-size: 2.5em; margin-top:50px;" data-aos="fade-up">Register Now</h1>
-        <a href="register.html" class="btn signin">Enroll Now</a>
+        <a href="register.php" class="btn signin">Enroll Now</a>
         </div>
    </div>
    </div>
