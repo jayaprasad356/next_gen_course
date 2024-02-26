@@ -463,7 +463,9 @@ section {
 
 /* Media Query for Mobile Devices */
 @media (max-width: 768px) {
-
+    #ready img{
+        height:110%;
+     }
     #home h4 {
         font-size: 32px;
     }

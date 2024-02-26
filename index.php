@@ -350,10 +350,10 @@ function initiatePayment($amount, $description, $redirectUrl, $apiKey) {
         <div class="row">
         <h1 class="my-5" style="color:black; font-weight:bold;" data-aos="fade-up">Ready to work with us??</h1>
                 <div class="col-lg-6 col-md-6 col-12">
-                  <img src="register.jpeg" data-aos="fade-up"  class="img-fluid">
+                  <img src="https://cdn3d.iconscout.com/3d/premium/thumb/man-raising-his-hand-to-show-something-6559357-5559663.png" data-aos="fade-up"  class="img-fluid">
                 </div>
     <div class="col-lg-6 col-md-6 col-12">
-        <h1 style="color:black; font-size: 2.5em;" data-aos="fade-up">Register Now</h1>
+        <h1 style="color:black; font-size: 2.5em; margin-top:50px;" data-aos="fade-up">Register Now</h1>
         <a href="register.html" class="btn signin">Enroll Now</a>
         </div>
    </div>
