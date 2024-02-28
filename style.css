@@ -460,7 +460,10 @@ section {
     text-decoration: line-through; /* Add a line on top of the text */
     color:red;
 }
-
+#course p1{
+    margin-left:10px;
+    font-size:24px;
+}
 
   
 
@@ -579,7 +582,7 @@ section {
         top:110px;
     }
     #course p1{
-        
+        margin-left:10px;
     }
     #course a{
         margin-top:5px;
