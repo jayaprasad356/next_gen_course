@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-$servername = "localhost"; // replace with your database host
-$username = "u117947056_nextgencourse"; // replace with your database username
-$password = "Nextgen@2024"; // replace with your database password
-$database = "u117947056_nextgencourse"; // replace with your database name
+$servername = "localhost";
+$username = "u743445510_ngcourse";
+$password = "Ngcourse@2024";
+$database = "u743445510_ngcourse";
 
 $conn = new mysqli($servername, $username, $password, $database);
 
@@ -17,6 +17,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($result->num_rows > 0) {
         $_SESSION['loggedin'] = true;
+        // Fetch the user_id from the result
+        $row = $result->fetch_assoc();
+        $_SESSION['user_id'] = $row['id'];
         $_SESSION['mobile'] = $mobile;
         header("Location: index.php"); 
         exit();
@@ -26,8 +29,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
+// Ensure $conn is available for subsequent queries
+if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
+    $user_id = $_SESSION['user_id'];
+    $sql = "SELECT name, mobile FROM users WHERE id='$user_id'";
+    $result = $conn->query($sql);
+    if($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $name = $row['name'];
+        $mobile = $row['mobile'];
+    }
+}
+
 $conn->close();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

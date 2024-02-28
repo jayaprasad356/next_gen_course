@@ -141,43 +141,46 @@ section {
 }
 
 #course h2 {
-    color: #0d46b2; /* Text color */
+    color: #efeff0; /* Text color */
     font-size: 16px; /* Font size */
     font-weight: bold;
     margin-right:20px;
-    margin-top: 90px; /* Margin top */
+    margin-top: 110px; /* Margin top */
     padding: 10px; /* Padding */
     border: 2px solid #0d46b2; /* Border color */
     border-radius: 8px; /* Rounded corners */
-    max-width: 150px; /* Maximum width */
+    max-width: 100px; /* Maximum width */
     position: relative;
-    left:290px;
+    left:340px;
+    background-color: #5271ff;
 }
 #course h3 {
-    color: #0d46b2; /* Text color */
+    color: #f8fafe; /* Text color */
     font-size: 16px; /* Font size */
     font-weight: bold;
     margin-right:20px;
-    margin-top: 50px; /* Margin top */
+    margin-top: 80px; /* Margin top */
     padding: 10px; /* Padding */
     border: 2px solid #0d46b2; /* Border color */
     border-radius: 8px; /* Rounded corners */
-    max-width: 150px; /* Maximum width */
+    max-width: 100px; /* Maximum width */
     position: relative;
-    left:290px;
+    left:340px;
+    background-color: #5271ff;
 }
 #course p {
-    color: #0d46b2; /* Text color */
+    color: #fafbfc; /* Text color */
     font-size: 16px; /* Font size */
     font-weight: bold;
     margin-right:20px;
-    margin-top: 50px; /* Margin top */
-    padding: 10px; /* Padding */
+    margin-top: 80px; /* Margin top */
+    padding: 8px; /* Padding */
     border: 2px solid #0d46b2; /* Border color */
     border-radius: 8px; /* Rounded corners */
-    max-width: 150px; /* Maximum width */
+    max-width: 100px; /* Maximum width */
     position: relative;
-    left:290px;
+    left:340px;
+    background-color: #5271ff;
 }
 
 #course img{
@@ -522,53 +525,65 @@ section {
     }
   
     #course h1 {
-        font-size:24px;
-        margin-top: 165px;
+        font-size:16px;
+        margin-top: 180px;
         padding-top:20px;
-    
+        white-space: nowrap;
     }
     #course h2 {
         color: #f3f4f5;
-        font-size: 17px;
+        font-size: 15px;
         font-weight: bold;
         margin-right: 10px;
         margin-top: 180px;
         word-wrap: break-word; /* Allow text to break */
-        padding: 3px; /* Padding */
+        padding:6px; /* Padding */
         background-color: #5271ff;
-        border-radius: 14px; /* Rounded corners */
-        max-width: 120px; /* Maximum width */
+        border-radius: 10px; /* Rounded corners */
+        width: 80px; /* Maximum width */
+        height:30px;
         position: relative;
         left:30px;
+        top:5px;
     }
     #course h3 {
         color: #f3f4f5;
-        font-size: 16px;
+        font-size: 15px;
         font-weight: bold;
         margin-right: 10px;
-        margin-top: 140px;
+        margin-top: 150px;
         word-wrap: break-word; /* Allow text to break */
-        padding:2px; /* Padding */
-        border-radius:14px; /* Rounded corners */
-        max-width: 150px; /* Maximum width */
+        padding:6px; /* Padding */
+        border-radius:10px; /* Rounded corners */
+        width: 80px; /* Maximum width */
+        height:30px;
         position: relative;
         left:30px;
+        top:5px;
         background-color: #5271ff;
     }
     #course p {
         color: #f3f4f5;
-        font-size: 16px;
+        font-size: 15px;
         font-weight: bold;
         margin-right: 10px;
         margin-bottom: 115px;
         word-wrap: break-word; /* Allow text to break */
-        padding:1px; /* Padding */
+        padding:6px; /* Padding */
         background-color: #5271ff;
-        border-radius: 14px; /* Rounded corners */
-        max-width: 140px; /* Maximum width */
+        border-radius: 10px; /* Rounded corners */
+        width: 80px; /* Maximum width */
+        height:30px;
         position: relative;
         left:30px;
         top:110px;
+    }
+    #course p1{
+        
+    }
+    #course a{
+        margin-top:5px;
+        font-size: 12px;
     }
     #course img{
         width:70px;

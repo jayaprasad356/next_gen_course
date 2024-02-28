@@ -1,3 +1,37 @@
+<?php
+session_start();
+
+$servername = "localhost";
+$username = "u743445510_ngcourse";
+$password = "Ngcourse@2024";
+$database = "u743445510_ngcourse";
+
+$conn = new mysqli($servername, $username, $password, $database);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
+    $user_id = $_SESSION['user_id'];
+    
+    // Fetch user details from the database using user_id
+    $sql = "SELECT name, mobile FROM users WHERE id='$user_id'";
+    $result = $conn->query($sql);
+    
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $name = $row['name'];
+        $mobile = $row['mobile'];
+    }
+} else {
+    // Redirect to login page if user is not logged in
+    header("Location: login.php");
+    exit();
+}
+
+$conn->close();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +53,7 @@
         .container {
             background: rgb(255, 255, 255);
             max-width: 600px;
-            height:550px;
+            height:650px;
             margin: 0 auto;
             padding: 40px;
             border: 2px solid #9de45f;
@@ -115,12 +149,12 @@
 .wallet-container i {
    position: relative;
    left:10px;
-   bottom:55px;
+   bottom:10px;
 }
 .wallet-container h6 {
    position: relative;
    left:30px;
-   bottom:77px;
+   bottom:30px;
 }
 .transaction-container {
     display: flex;
@@ -131,12 +165,32 @@
 .transaction-container i {
    position: relative;
    left:10px;
-   bottom:70px;
+   bottom:30px;
 }
 .transaction-container h6 {
    position: relative;
    left:28px;
-   bottom: 90px;
+   bottom:50px;
+}
+.friends-container {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    margin-top:10px;
+}
+
+.friends-container i {
+   position: relative;
+   left:10px;
+   bottom:50px;
+}
+.friends-container h6 {
+   position: relative;
+   left:29px;
+   bottom:70px;
+}
+
+.container img{
+    margin-left:210px;
 }
 
        /* Existing styles */
@@ -199,6 +253,12 @@
             border-color: #181d83; /* Border color (optional) */
             font-size:11px;
         }
+        .container img{
+    margin-left:20px;
+}
+
+   
+
 }
 
         
@@ -210,6 +270,10 @@
         <div class="card">
             <div class="card-body">
                 <p class="card-text text-center">Earn Refer Bonus Upto 50℅ Of Course Charges</p>
+                <div class="col-lg-6 d-flex justify-content-center">
+                  <img src="refer.jpeg" class="img-fluid">
+                 </div>
+
                 <div class="card-buttons">
                 <a href="#" class="btn btn-primary btn-with-icon white-bg"> 
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy icon" viewBox="0 0 16 16">
@@ -227,8 +291,10 @@
             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
             <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
         </svg>
-        <p>gshyusg</p>
-        <p>87898765</p>
+        <?php if(isset($name) && isset($mobile)): ?>
+        <p><?php echo $name; ?></p>
+        <p><?php echo $mobile; ?></p>
+    <?php endif; ?>
     </div>
     <div class="button-container">
     <a href="#" class="btn btn-primary btn-with-icon violet-bg">Update Profile</a>
@@ -236,9 +302,8 @@
     </div>
 </div>
 <hr>
-<a href="#" class="btn btn-primary btn-with-icon pink-bg">Change Course Discount ℅</a>
 <div class="wallet-container">
-    <a href="#">
+    <a href="wallet.php">
         <i class="bi bi-wallet2"></i>
         <h6>wallet</h6>
     </a>
@@ -249,6 +314,15 @@
         <h6>Transaction</h6>
     </a>
 </div>
+<div class="friends-container">
+    <a href="refer_friends.php">
+    <i class="bi bi-person-circle"></i>
+        <h6>Your Friends</h6>
+    </a>
+</div>
+
+
+
 
 
 <script>
