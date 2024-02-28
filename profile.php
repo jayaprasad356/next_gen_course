@@ -66,10 +66,7 @@ $conn->close();
         .card p{
           color: white;
         }
-        .card {
-            padding: 20px;
-            background-color:#760851;
-        }
+        
         .card-buttons {
             display: flex;
             justify-content: center;
@@ -188,15 +185,40 @@ $conn->close();
    left:29px;
    bottom:70px;
 }
-
-.container img{
-    margin-left:210px;
+.logout-container {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    margin-top:10px;
 }
 
+.logout-container i {
+   position: relative;
+   left:380px;
+   bottom:190px;
+}
+.logout-container h6 {
+   position: relative;
+   left:400px;
+   bottom:210px;
+}
+
+.container img{
+    margin-left:80px;
+}
+.icon svg {
+        position: relative;
+        top: 35px;
+        left: 30px;
+        width: 26px;
+    }
        /* Existing styles */
 
 /* Styles for smaller screens */
 @media (max-width: 768px) {
+    .container h2{
+       font-size:25px;
+       margin-left:30px;
+    }
     .profile p {
         margin-left: 150px;
         position: relative;
@@ -209,6 +231,12 @@ $conn->close();
         top: 20px;
         left: 10px;
         width: 50px;
+    }
+    .icon svg {
+        position: relative;
+        top: 35px;
+        left: 10px;
+        width: 26px;
     }
     /* Adjust button styles for smaller screens */
     .button-container {
@@ -255,7 +283,21 @@ $conn->close();
         }
         .container img{
     margin-left:20px;
+    
 }
+
+
+.logout-container i {
+   position: relative;
+   left: 190px;
+   bottom:190px;
+}
+.logout-container h6 {
+   position: relative;
+   left:210px;
+   bottom:210px;
+}
+
 
    
 
@@ -266,24 +308,18 @@ $conn->close();
 </head>
 <body>
 <div class="container">
+<div class="icon">
+<a href="index.php">
+    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+    </svg>
+</a>
+</div>
         <h2>Profile</h2>
-        <div class="card">
             <div class="card-body">
-                <p class="card-text text-center">Earn Refer Bonus Upto 50℅ Of Course Charges</p>
-                <div class="col-lg-6 d-flex justify-content-center">
+                <div class="col-lg-10 d-flex justify-content-center">
                   <img src="refer.jpeg" class="img-fluid">
                  </div>
-
-                <div class="card-buttons">
-                <a href="#" class="btn btn-primary btn-with-icon white-bg"> 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy icon" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
-                        </svg>
-                        Copy
-                    </a>
-                    <a href="#" class="btn btn-primary btn-with-icon blue-bg"> Refer Friends</a>
-                </div>
-            </div>
         </div>
         <div class="profile-container">
     <div class="profile">
@@ -320,7 +356,12 @@ $conn->close();
         <h6>Your Friends</h6>
     </a>
 </div>
-
+<div class="logout-container">
+    <a href="logout.php">
+    <i class="bi bi-person-circle"></i>
+        <h6>Logout</h6>
+    </a>
+</div>
 
 
 

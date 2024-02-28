@@ -65,6 +65,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Page</title>
     <style>
+         input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
         body {
             font-family: Arial, sans-serif;
             background: linear-gradient(
@@ -115,7 +120,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             background-color: #0056b3;
         }
 
-       
+        .register-btn {
+            width: 48%; 
+            padding: 10px;
+            background-color: #28a745;
+            border: none;
+            border-radius: 15px;
+            color: #fff;
+            cursor: pointer;
+            margin-top:-35px;
+            float: right; 
+        }
+        p{
+            width: 48%; 
+            padding: 10px;
+            margin-top:-70px;
+            float: right; 
+            font-size: 12px;
+            position: relative;
+            left:40px;
+            white-space: nowrap;
+        }
+        @media (max-width: 768px) {
+
+            p{
+            width: 48%; 
+            padding: 10px;
+            margin-top:-70px;
+            float: right; 
+            font-size: 10px;
+            position: relative;
+            left:25px;
+            white-space: nowrap;
+        }
+        }
     </style>
 </head>
 <body>
@@ -147,6 +185,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="text" id="referred_by" name="referred_by" placeholder="Referred By" required>
             </div>
             <button class="btn signin" name="btnAdd">Register</button>
+            <p>Already have an account</p>
+            <a href="login.php" ><button type="button"  class="btn register-btn">Login</button></a>
         </form>
     </div>
 </body>

@@ -81,7 +81,7 @@ section {
 }
 #home h3{
     position: absolute;
-    left:88%;
+    left:84%;
     top:5%;
     font-size:25px;
     font-weight: bold;
@@ -238,7 +238,7 @@ section {
    margin-top:40px;
 }
 #demand img {
-    margin-top:100px;
+    margin-top:0px;
  }
 #Marketing {
     background: linear-gradient(
@@ -279,9 +279,7 @@ section {
 #Marketing iframe {
    margin-top:40px;
 }
-#Marketing img {
-    margin-top:100px;
- }
+
 #Business {
     background: linear-gradient(
         to right,
@@ -321,9 +319,7 @@ section {
 #Business iframe {
    margin-top:40px;
 }
-#Business img {
-    margin-top:100px;
- }
+
 #ready {
     background: linear-gradient(
         to right,
@@ -513,13 +509,13 @@ section {
     }
     #home h3{
         position: absolute;
-        left:84%;
+        left:82%;
         top:3%;
         font-size:13px;
     }
     #home h5{
         position: absolute;
-        left:60%;
+        left:68%;
         top:3%;
         font-size:13px;
     }
@@ -614,7 +610,10 @@ section {
         top: 0;
         left:20px;
     }
-    
+    #demand .col-lg-6 {
+        position: relative;
+        bottom:10px;
+      }
       
       
     #demand h5 {

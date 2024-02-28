@@ -127,7 +127,6 @@ function initiatePayment($amount, $description, $redirectUrl, $apiKey) {
             <p>Building Your Future</p>
             <p1>With career Building Course</p1>
         </div>
-        <h2><a href="login.php" style="color: white;">login</a></h2>
 <h3><a href="register.php" style="color: white;">register</a></h3>   
 <h5><a href="profile.php" style="color: white;">Profile</a></h5>
   

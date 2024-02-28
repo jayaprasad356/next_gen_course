@@ -68,7 +68,7 @@ $conn->close();
                 #62d2e8
             );
         }
-        .container {
+        .container  {
             background:white;
             max-width: 600px;
             height: auto;
@@ -84,26 +84,53 @@ $conn->close();
             color:black;
             font-size:20px;
             font-weight: bold;
+            margin-left:120px;
+            white-space: nowrap;
+            padding:20px;
         }
+        @media (max-width: 768px) {
+
+            .container h4 {
+            text-align: center;
+            color:black;
+            font-size:17px;
+            font-weight: bold;
+            margin-left:10px;
+            white-space: nowrap;
+            padding:20px;
+        }
+}
     </style>
 </head>
 <body>
 <div class="container">
-   
-    <h4>Referred Details </h4>
+    <h4 style="background:blue; color: white; height: 60px; width: 250px; border-radius: 50px; border: none;">Your Friends Details </h4>
     <br>
     <div class="row justify-content-center">
-        <div class="col-md-5 col-12 mb-3">
-            <div class="card p-2 text-center border border-warning" style="background-color:#080b42;height:90px;border-radius:50px;">
-            <?php if(isset($referring_user_name) && isset($referring_user_mobile)):  ?>
-                    <p style="color:white;"><?php echo $referring_user_name; ?></p>
-                    <p style="color:white;"><?php echo $referring_user_mobile; ?></p>
+        <div class="col-md-8 col-12">
+            <table class="table table-borderless">
+                <thead>
+                    <tr>
+                       <th>ID</th>
+                        <th>Name</th>
+                        <th>Mobile</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php if(isset($referring_user_name) && isset($referring_user_mobile)): ?>
+                        <tr>
+                        <td>1</td>
+                            <td><?php echo $referring_user_name; ?></td>
+                            <td><?php echo $referring_user_mobile; ?></td>
+                        </tr>
                     <?php endif; ?>
-            </div>
+                </tbody>
+            </table>
         </div>
     </div>
     <br>
 </div>
+
 </body>
 </html>
 
