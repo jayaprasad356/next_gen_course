@@ -583,7 +583,7 @@ section {
         width: 80px; /* Maximum width */
         height:30px;
         position: relative;
-        left:45px;
+        left:30px;
         top:5px;
     }
     #course h3 {
@@ -598,7 +598,7 @@ section {
         width: 80px; /* Maximum width */
         height:30px;
         position: relative;
-        left:45px;
+        left:30px;
         top:-50px;
         background-color: #5271ff;
     }
@@ -615,7 +615,7 @@ section {
         width: 80px; /* Maximum width */
         height:30px;
         position: relative;
-        left:45px;
+        left:30px;
         top:-25px;
     }
    
