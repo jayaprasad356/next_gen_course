@@ -159,26 +159,26 @@ function initiatePayment($amount, $description, $redirectUrl, $apiKey) {
         <div class="course-details">
             <div class="course-info">
                 <h1>1. <br>Print on Demand</h1>
-                <h1>2. <br>Digital Marketing</h1>
-                <h1>3. <br>Ecommerce Business</h1><p1>(Free Website)</p1>
+                <h6>2. <br>Digital Marketing</h6>
+                <h5>3. <br>Ecommerce Business</h5><p1>(Free Website)</p1>
             </div>
             <div class="course-prices">
             <h2>₹1999/-</h2>
 
     <?php
     $payUrl = initiatePayment(999, 'Payment for Course 1', $redirectUrl, $apiKey);
-    echo "<a href='" . $payUrl . "' class='btn btn-success' style='border-radius: 30px;'>Pay & Enroll</a>";
+    echo "<a href='" . $payUrl . "' class='btn btn-success btn-roll' style='border-radius: 30px;'>Pay & Enroll</a>";
 
     ?>
     <h3>₹4999/-</h3> 
     <?php
     $payUrl = initiatePayment(2499, 'Payment for Course 2', $redirectUrl, $apiKey);
-    echo "<a href='" . $payUrl . "' class='btn btn-success' style='border-radius: 30px;'>Pay & Enroll</a>";
+    echo "<a href='" . $payUrl . "' class='btn btn-success btn-pay' style='border-radius: 30px;'>Pay & Enroll</a>";
     ?>
     <p>₹9999/-</p>
     <?php
     $payUrl = initiatePayment(4999, 'Payment for Course 3', $redirectUrl, $apiKey);
-    echo "<a href='" . $payUrl . "' class='btn btn-success' style='border-radius: 30px;'>Pay & Enroll</a>";
+    echo "<a href='" . $payUrl . "' class='btn btn-success btn-back' style='border-radius: 30px;'>Pay & Enroll</a>";
     ?>
 </div>
 

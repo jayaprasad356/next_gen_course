@@ -139,6 +139,18 @@ section {
     margin-left: 10px;
     margin-top: 100px;
 }
+#course h6 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-top: 100px;
+}
+#course h5 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-top: 100px;
+}
 
 #course h2 {
     color: #efeff0; /* Text color */
@@ -519,6 +531,22 @@ section {
         top:3%;
         font-size:13px;
     }
+    #course {
+        background: linear-gradient(
+            to right,
+            #fef3b1,
+            #fed5cf,
+            #ffb1f2
+        );
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 30px;
+        height:100px;
+    }
     .course-details {
         padding: 20px; 
     }
@@ -529,20 +557,33 @@ section {
         padding-top:20px;
         white-space: nowrap;
     }
+    #course h6 {
+        font-size:16px;
+        margin-top: 100px;
+        padding-top:20px;
+        white-space: nowrap;
+        font-weight: bold;
+    }
+    #course h5 {
+        font-size:16px;
+        margin-top: 100px;
+        padding-top:20px;
+        white-space: nowrap;
+        font-weight: bold;
+    }
     #course h2 {
         color: #f3f4f5;
         font-size: 15px;
         font-weight: bold;
         margin-right: 10px;
         margin-top: 180px;
-        word-wrap: break-word; /* Allow text to break */
         padding:6px; /* Padding */
         background-color: #5271ff;
         border-radius: 10px; /* Rounded corners */
         width: 80px; /* Maximum width */
         height:30px;
         position: relative;
-        left:30px;
+        left:45px;
         top:5px;
     }
     #course h3 {
@@ -557,8 +598,8 @@ section {
         width: 80px; /* Maximum width */
         height:30px;
         position: relative;
-        left:30px;
-        top:5px;
+        left:45px;
+        top:-50px;
         background-color: #5271ff;
     }
     #course p {
@@ -574,15 +615,16 @@ section {
         width: 80px; /* Maximum width */
         height:30px;
         position: relative;
-        left:30px;
-        top:110px;
+        left:45px;
+        top:-25px;
     }
+   
     #course p1{
-        margin-left:10px;
+        margin-left:0px;
         font-size:14px;
     }
     #course a{
-        margin-top:5px;
+        margin-top:10x;
         font-size: 12px;
     }
     #course img{
@@ -605,9 +647,19 @@ section {
         align-items: center;
     }
   
-    .btn-success{
+    .btn-pay{
         position: relative;
-        top: 0;
+        top: -50px;
+        left:20px;
+    }
+    .btn-roll{
+        position: relative;
+        top: 5px;
+        left:20px;
+    }
+    .btn-back{
+        position: relative;
+        top: -130px;
         left:20px;
     }
     #demand .col-lg-6 {

@@ -53,7 +53,7 @@ $conn->close();
         .container {
             background: rgb(255, 255, 255);
             max-width: 600px;
-            height:650px;
+            height:670px;
             margin: 0 auto;
             padding: 40px;
             border: 2px solid #9de45f;
@@ -112,6 +112,12 @@ $conn->close();
     right: 0;
 }
 
+.image{
+
+width: 400px;
+margin-left:40px;
+
+}
 
 .violet-bg {
             background-color: #2743ff;
@@ -202,9 +208,6 @@ $conn->close();
    bottom:210px;
 }
 
-.container img{
-    margin-left:80px;
-}
 .icon svg {
         position: relative;
         top: 35px;
@@ -215,6 +218,16 @@ $conn->close();
 
 /* Styles for smaller screens */
 @media (max-width: 768px) {
+    .container {
+            background: rgb(255, 255, 255);
+            max-width: 600px;
+            height:600px;
+            margin: 0 auto;
+            padding: 40px;
+            border: 2px solid #9de45f;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
     .container h2{
        font-size:25px;
        margin-left:30px;
@@ -281,8 +294,10 @@ $conn->close();
             border-color: #181d83; /* Border color (optional) */
             font-size:11px;
         }
-        .container img{
-    margin-left:20px;
+        .image{
+
+    width:300px;
+    margin-left:-30px;
     
 }
 
@@ -317,7 +332,7 @@ $conn->close();
 </div>
         <h2>Profile</h2>
             <div class="card-body">
-                <div class="col-lg-10 d-flex justify-content-center">
+                <div class="image">
                   <img src="refer.jpeg" class="img-fluid">
                  </div>
         </div>
