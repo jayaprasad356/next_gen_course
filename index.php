@@ -166,18 +166,18 @@ function initiatePayment($amount, $description, $redirectUrl, $apiKey) {
             <h2>₹1999/-</h2>
 
     <?php
-    $payUrl = initiatePayment(999, 'Payment for Course 1', $redirectUrl, $apiKey);
+    $payUrl = initiatePayment(1999, 'Payment for Course 1', $redirectUrl, $apiKey);
     echo "<a href='" . $payUrl . "' class='btn btn-success btn-roll' style='border-radius: 30px;'>Pay & Enroll</a>";
 
     ?>
     <h3>₹4999/-</h3> 
     <?php
-    $payUrl = initiatePayment(2499, 'Payment for Course 2', $redirectUrl, $apiKey);
+    $payUrl = initiatePayment(4999, 'Payment for Course 2', $redirectUrl, $apiKey);
     echo "<a href='" . $payUrl . "' class='btn btn-success btn-pay' style='border-radius: 30px;'>Pay & Enroll</a>";
     ?>
     <p>₹9999/-</p>
     <?php
-    $payUrl = initiatePayment(4999, 'Payment for Course 3', $redirectUrl, $apiKey);
+    $payUrl = initiatePayment(9999, 'Payment for Course 3', $redirectUrl, $apiKey);
     echo "<a href='" . $payUrl . "' class='btn btn-success btn-back' style='border-radius: 30px;'>Pay & Enroll</a>";
     ?>
 </div>
