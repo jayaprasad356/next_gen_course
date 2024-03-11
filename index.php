@@ -1,3 +1,4 @@
+
 <?php
 // Function to initiate payment
 $redirectUrl = 'payment-success.php'; // Replace 'payment-success.php' with your actual redirect URL
@@ -167,18 +168,18 @@ function initiatePayment($amount, $description, $redirectUrl, $apiKey) {
 
     <?php
     $payUrl = initiatePayment(1999, 'Payment for Course 1', $redirectUrl, $apiKey);
-    echo "<a href='" . $payUrl . "' class='btn btn-success btn-roll' style='border-radius: 30px;'>Pay & Enroll</a>";
+    echo "<a class='btn btn-success btn-roll' style='border-radius: 30px;'>Pay & Enroll</a>";
 
     ?>
     <h3>₹4999/-</h3> 
     <?php
     $payUrl = initiatePayment(4999, 'Payment for Course 2', $redirectUrl, $apiKey);
-    echo "<a href='" . $payUrl . "' class='btn btn-success btn-pay' style='border-radius: 30px;'>Pay & Enroll</a>";
+    echo "<a class='btn btn-success btn-pay' style='border-radius: 30px;'>Pay & Enroll</a>";
     ?>
     <p>₹9999/-</p>
     <?php
     $payUrl = initiatePayment(9999, 'Payment for Course 3', $redirectUrl, $apiKey);
-    echo "<a href='" . $payUrl . "' class='btn btn-success btn-back' style='border-radius: 30px;'>Pay & Enroll</a>";
+    echo "<a  class='btn btn-success btn-back' style='border-radius: 30px;'>Pay & Enroll</a>";
     ?>
 </div>
 
@@ -370,7 +371,7 @@ function initiatePayment($amount, $description, $redirectUrl, $apiKey) {
                 <h1>Address:</h1>
             </div>
             <div class="contact-prices">
-                <h3>+91 86187 19941</h3>
+                <h3>+91</h3>
                 <h2>support@slveenterprises.org.</h2>
                 <h6>#9,2nd Floor,A3,NBA Tower, Thillainagar, 11th Cross W, Tennur, Tiruchirappalli, Tamil Nadu 620018</h6>
             </div>
