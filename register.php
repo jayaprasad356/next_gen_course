@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+
 $servername = "localhost";
 $username = "u117947056_ngcourse";
 $password = "Ngcourse@2024";
@@ -31,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $refer_code = '';
             if (empty($referred_by)) {
-                $refer_code = 'MAIN_REFER' . $user_id; 
+                $refer_code = 'CMDS' . $user_id; 
             } else {
                 $admincode = substr($referred_by, 0, -5); 
                 $sql = "SELECT refer_code FROM admin WHERE refer_code='$admincode'";
@@ -182,7 +183,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div class="form-group">
                 <label for="referred_by"> Referred By</label>
-                <input type="text" id="referred_by" name="referred_by" placeholder="Referred By" required>
+                <input type="text" id="referred_by" name="referred_by" placeholder="Referred By">
             </div>
             <button class="btn signin" name="btnAdd">Register</button>
             <p>Already have an account</p>
