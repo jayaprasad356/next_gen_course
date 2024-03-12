@@ -129,8 +129,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                 </div>
                 <div class="form-group">
-                    <label for="referred_by">Referred By:</label>
-                    <input type="text" class="form-control" id="referred_by" name="referred_by" placeholder="Referred By">
+                    <label for="referred_by">Refer code:</label>
+                    <input type="text" class="form-control" id="referred_by" name="referred_by" placeholder="Refer Code">
                 </div>
                 <div class="row">
                     <div class="col-6">
