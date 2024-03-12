@@ -92,7 +92,7 @@
                         <h3 class="card-title" style="font-weight: bold;">Print On Demand</h3>
                         <br>
                         <p class="card-text bg-primary text-white p-2 rounded mx-auto" style="width: fit-content;">₹ 1999/-</p>
-                            <a href="#" class="btn btn-success" style="border-radius:18px;">Pay & Enroll</a>
+                            <a href="register.php"  class="btn btn-success" style="border-radius:18px;">Enroll</a>
                         </div>
                     </div>
                 </div>
@@ -103,7 +103,7 @@
                         <h3 class="card-title font-weight-bold" style="font-weight: bold;">Digital Marketing</h3>
                         <br>
                             <p class="card-text bg-primary text-white p-2 rounded mx-auto" style="width: fit-content;">₹ 4999/-</p>
-                            <a href="#" class="btn btn-success" style="border-radius:18px;">Pay & Enroll</a>
+                            <a href="register.php"  class="btn btn-success" style="border-radius:18px;">Enroll</a>
                         </div>
                     </div>
                 </div>
@@ -113,7 +113,7 @@
                         <div class="card-body">
                             <h3 class="card-title" style="font-weight: bold;">Ecommerce Business</h3><p>(Free Website)</p>
                             <p class="card-text bg-primary text-white p-2 rounded mx-auto" style="width: fit-content;">₹ 9999/-</p>
-                            <a href="#" class="btn btn-success" style="border-radius:18px;">Pay & Enroll</a>
+                            <a href="register.php"  class="btn btn-success" style="border-radius:18px;">Enroll</a>
                         </div>
                     </div>
                 </div>
