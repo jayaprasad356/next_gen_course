@@ -366,18 +366,16 @@ function initiatePayment($amount, $description, $redirectUrl, $apiKey) {
         </div>
         <div class="contact-details">
             <div class="contact-info">
-                <h1>Phone Number:</h1>
                 <h1>Email ID:</h1>
                 <h1>Address:</h1>
             </div>
             <div class="contact-prices">
-                <h3>+91</h3>
                 <h2>support@slveenterprises.org.</h2>
                 <h6>#9,2nd Floor,A3,NBA Tower, Thillainagar, 11th Cross W, Tennur, Tiruchirappalli, Tamil Nadu 620018</h6>
             </div>
         </div>
         <p1><a href="privacy_policy.html">Privacy Policy</a></p1>
-        <p2><a href="terms_conditions.html">Terms & Conditions</a></p2>
+        <p2><a href="terms_conditions.html">Terms&Conditions</a></p2>
         <p3><a href="refund_policy.html">Refund Policy</a></p3>
         
         <p>Copyright 2024. Powered by SLVE Enterprise APP</p>

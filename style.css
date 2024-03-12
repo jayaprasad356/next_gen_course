@@ -723,7 +723,7 @@ section {
         color: #0d46b2;
         font-size: 12px;
         font-weight: bold;
-        margin-top: 175px;
+        margin-top:55px;
        left:135px;
         padding:15px;
         position: absolute;
@@ -733,191 +733,39 @@ section {
         color: #0d46b2;
         font-size: 10px;
         font-weight: bold;
-        margin-top: 295px;
+        margin-top: 175px;
         padding:15px;
         left:120px;
         position: absolute;
         word-wrap: break-word; /* Allow text to break */
     }
     #contact p1 {
-        margin-left:5px;
         font-size:13px;
         position: relative;
-        bottom:20px;
+        bottom:-18px;
+        left:-100px;
        
     }
     #contact p2 {
-        margin-left:20px;
+        margin-left:10px;
         font-size:12px;
         position: relative;
-        top:-20px;
+        top:20px;
+        right:100px;
     }
     #contact p3 {
-        margin-left:20px;
         font-size:13px;
         position: relative;
-        top:-20px;
+        top:-3px;
+        left:-20px;
     }
  
     #contact p {
         margin-left:50px;
        padding-top:60px;
        position: relative;
-       top:-40px;
+       top:40px;
        font-size:10px;
     }
 
-}
-@media only screen and (min-width: 412px) and (min-height: 915px) {
-    .course-details {
-        padding: 20px; 
-    }
-     
-  
-    #course h1 {
-        font-size:16px;
-        margin-top: 190px;
-        padding-top:10px;
-        white-space: nowrap;
-    }
-    #course h6 {
-        font-size:16px;
-        margin-top: 100px;
-        padding-top:20px;
-        white-space: nowrap;
-        font-weight: bold;
-    }
-    #course h5 {
-        font-size:16px;
-        margin-top: 100px;
-        padding-top:20px;
-        white-space: nowrap;
-        font-weight: bold;
-    }
-    #course h2 {
-        color: #f3f4f5;
-        font-size: 15px;
-        font-weight: bold;
-        margin-right: 10px;
-        margin-top: 180px;
-        padding:6px; /* Padding */
-        background-color: #5271ff;
-        border-radius: 10px; /* Rounded corners */
-        width: 80px; /* Maximum width */
-        height:30px;
-        position: relative;
-        left:80px;
-        top:5px;
-    }
-    #course h3 {
-        color: #f3f4f5;
-        font-size: 15px;
-        font-weight: bold;
-        margin-right: 10px;
-        margin-top: 150px;
-        word-wrap: break-word; /* Allow text to break */
-        padding:6px; /* Padding */
-        border-radius:10px; /* Rounded corners */
-        width: 80px; /* Maximum width */
-        height:30px;
-        position: relative;
-        left:80px;
-        top:-50px;
-        background-color: #5271ff;
-    }
-    #course p {
-        color: #f3f4f5;
-        font-size: 15px;
-        font-weight: bold;
-        margin-right: 10px;
-        margin-bottom: 115px;
-        word-wrap: break-word; /* Allow text to break */
-        padding:6px; /* Padding */
-        background-color: #5271ff;
-        border-radius: 10px; /* Rounded corners */
-        width: 80px; /* Maximum width */
-        height:30px;
-        position: relative;
-        left:80px;
-        top:-25px;
-    }
-   
-    #course p1{
-        margin-left:10px;
-        font-size:14px;
-    }
-    #course a{
-        margin-top:10x;
-        font-size: 12px;
-    }
-    #course img{
-        width:70px;
-        height:70px;
-        position: absolute;
-     top:65rem;
-        left: 8%; 
-    }
-    #course #images {
-        width: 90px;
-        height: 90px;
-        position: absolute;
-        top: 65rem;
-        left: 68%; 
-    }
-    #contact p1 {
-        margin-left:10px;
-        font-size:14px;
-        position: relative;
-        bottom:20px;
-       
-    }
-    #contact p2 {
-        margin-left:35px;
-        font-size:14px;
-        position: relative;
-        top:-20px;
-    }
-    #contact p3 {
-        margin-left:35px;
-        font-size:14px;
-        position: relative;
-        top:-20px;
-    }
-    #contact p {
-        margin-left:70px;
-       padding-top:60px;
-       position: relative;
-       top:-40px;
-       font-size:10px;
-    }
-    #contact h3 {
-        color: #0d46b2;
-        font-size: 12px;
-        font-weight: bold;
-        margin-top: 45px;
-        padding:15px;
-        position: absolute;
-        left:160px;
-        word-wrap: break-word; /* Allow text to break */
-    }
-    #contact h2 {
-        color: #0d46b2;
-        font-size: 12px;
-        font-weight: bold;
-        margin-top: 160px;
-       left:135px;
-        padding:15px;
-        position: absolute;
-        word-wrap: break-word; /* Allow text to break */
-    }
-    #contact h6 {
-        color: #0d46b2;
-        font-size: 10px;
-        font-weight: bold;
-        margin-top: 275px;
-        padding:15px;
-        left:120px;
-        position: absolute;
-        word-wrap: break-word; /* Allow text to break */
-    }
 }

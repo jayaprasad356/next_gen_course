@@ -57,138 +57,92 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Page</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-         input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-inner-spin-button,
         input[type="number"]::-webkit-outer-spin-button {
-          -webkit-appearance: none;
-          margin: 0;
+            -webkit-appearance: none;
+            margin: 0;
         }
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(
-        to right,
-        #6f5de5,
-        #7497f3,
-        #62d2e8
-    );
+            background: linear-gradient(to right, #6f5de5, #7497f3, #62d2e8);
         }
-        .container {
-            background: rgb(255, 255, 255);
-            max-width: 400px; 
+        .custom-container {
+            width: 450px; 
             margin: 0 auto;
             padding: 40px;
             border: 2px solid #9de45f;
             border-radius: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             margin-top: 100px;
+            background: rgb(255, 255, 255);
         }
-        .container h2 {
-            text-align: center;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        .form-group input {
+        .btn-custom {
             width: 100%;
-            padding: 8px;
-            border: 1px solid #40e95c;
-            border-radius: 10px;
+            margin-top:25px;
         }
-        .btn {
-            width: 50%;
-            padding: 10px;
-            background-color: #007bff;
-            border: none;
-            border-radius: 15px;
-            color: #fff;
-            cursor: pointer;
-            margin-top: 20px; 
-
+        .btn-customs {
+            width: 100%;
+           
         }
-        .btn:hover {
-            background-color: #0056b3;
+        @media (max-width: 576px) {
+            .nowrap-mobile {
+                white-space: nowrap;
+                font-size: 10px;
+            }
         }
 
-        .register-btn {
-            width: 48%; 
-            padding: 10px;
-            background-color: #28a745;
-            border: none;
-            border-radius: 15px;
-            color: #fff;
-            cursor: pointer;
-            margin-top:-35px;
-            float: right; 
-        }
-        p{
-            width: 48%; 
-            padding: 10px;
-            margin-top:-70px;
-            float: right; 
-            font-size: 12px;
-            position: relative;
-            left:40px;
-            white-space: nowrap;
-        }
-        @media (max-width: 768px) {
-
-            p{
-            width: 48%; 
-            padding: 10px;
-            margin-top:-70px;
-            float: right; 
-            font-size: 10px;
-            position: relative;
-            left:25px;
-            white-space: nowrap;
-        }
-        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Register</h2>
-        <form method="post" action="#" enctype="multipart/form-data">
-            <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" placeholder="name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="email" required>
-            </div>
-            <div class="form-group">
-                <label for="mobile">Phone Number:</label>
-                <input type="number" id="mobile" name="mobile" placeholder="Phone Number" required>
-            </div>
-            <div class="form-group">
-                <label for="location">Location:</label>
-                <input type="text" id="location" name="location" placeholder="Location" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" placeholder="password" required>
-            </div>
-            <div class="form-group">
-                <label for="referred_by"> Referred By</label>
-                <input type="text" id="referred_by" name="referred_by" placeholder="Referred By">
-            </div>
-            <button class="btn signin" name="btnAdd">Register</button>
-            <p>Already have an account</p>
-            <a href="login.php" ><button type="button"  class="btn register-btn">Login</button></a>
-        </form>
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="custom-container">
+            <h2 class="text-center">Register</h2>
+            <form method="post" action="#" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="mobile">Phone Number:</label>
+                    <input type="number" class="form-control" id="mobile" name="mobile" placeholder="Phone Number" required>
+                </div>
+                <div class="form-group">
+                    <label for="location">Location:</label>
+                    <input type="text" class="form-control" id="location" name="location" placeholder="Location" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                    <label for="referred_by">Referred By:</label>
+                    <input type="text" class="form-control" id="referred_by" name="referred_by" placeholder="Referred By">
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <button type="submit" class="btn btn-primary btn-custom">Register</button>
+                    </div>
+                    <div class="col-6 text-right">
+                    <p class="mb-1 small nowrap-mobile">Already have an account?</p>
+                        <a href="login.php" class="btn btn-success btn-customs">Login</a>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 </body>
 </html>
+
+

@@ -51,95 +51,60 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(
-        to right,
-        #6f5de5,
-        #7497f3,
-        #62d2e8
-    );
+            background: linear-gradient(to right, #6f5de5, #7497f3, #62d2e8);
+            height: 100vh;
         }
         .container {
-            background: rgb(255, 255, 255);
+            background-color: white;
             max-width: 400px; 
-            margin: 0 auto;
-            padding: 40px;
+        }
+        .custom-border {
             border: 2px solid #9de45f;
             border-radius: 20px;
+            padding: 40px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-top: 100px;
         }
-        .container h2 {
-            text-align: center;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        .form-group input {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #40e95c;
-            border-radius: 10px;
-        }
-        .btn {
-            width: 48%; /* Adjusted width to fit two buttons in one line */
-            padding: 10px;
-            background-color: #007bff;
-            border: none;
+        .btn-custom {
             border-radius: 15px;
-            color: #fff;
-            cursor: pointer;
-            margin-top: 20px; 
-        }
-        .btn:hover {
-            background-color: #0056b3;
-        }
-        .forgot-password {
-            text-align: center;
-            margin-top: 10px;
-        }
-        .forgot-password a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        .register-btn {
-            width: 48%; 
-            padding: 10px;
-            background-color: #28a745;
-            border: none;
-            border-radius: 15px;
-            color: #fff;
-            cursor: pointer;
-            margin-top: 20px;
-            float: right; 
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Login</h2>
-        <form method="post" action="#" enctype="multipart/form-data">
-            <div class="form-group">
-                <label for="mobile">Phone number:</label>
-                <input type="number" id="mobile" name="mobile" placeholder="Mobile" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" placeholder="Password" required>
-            </div>
-            <div class="form-group forgot-password">
-                <a href="#">Forgot Password?</a>
-            </div>
-            <!-- Register button placed before the Login button -->
-            <button type="submit" class="btn">Login</button>
-            <a href="register.php" ><button type="button"  class="btn register-btn">Register</button></a>
-        </form>
+    <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <div class="container custom-border">
+            <h2 class="text-center mb-4">Login</h2>
+            <form method="post" action="#" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="mobile">Phone number:</label>
+                    <input type="number" class="form-control" id="mobile" name="mobile" placeholder="Mobile" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                </div>
+                <div class="text-center mb-3">
+                    <a href="#" class="text-primary">Forgot Password?</a>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <button type="submit" class="btn btn-primary btn-custom w-100">Login</button>
+                    </div>
+                    <div class="col-6">
+                        <a href="register.php" class="btn btn-success btn-custom w-100">Register</a>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+
