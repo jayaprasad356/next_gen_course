@@ -1,3 +1,30 @@
+<?php
+session_start();
+
+$servername = "localhost";
+$username = "u117947056_ngcourse";
+$password = "Ngcourse@2024";
+$database = "u117947056_ngcourse";
+
+$conn = new mysqli($servername, $username, $password, $database);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT question, answer FROM faq ORDER BY id LIMIT 6";
+$result = $conn->query($sql);
+
+$faqs = array();
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $faqs[] = $row;
+    }
+}
+
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -151,48 +178,18 @@ section {
 </style>
 <body>
 <section id="information" class="bg-primary text-white">
-  <img src="faq.jpeg" data-aos="fade-up"  class="img-fluid">
+    <img src="faq.jpeg" data-aos="fade-up" class="img-fluid">
     <div class="container-4">
-      <div class="accordion">
-        <div class="panel panel">
-          <div class="panel-header" onclick="togglePanel(this)">Who Can Apply? </div>
-          <div class="panel-content hidden">
-          Anyone between 18 to 50 Yrs of Age Can Apply
-          </div>
+        <div class="accordion">
+            <?php foreach ($faqs as $faq) { ?>
+                <div class="panel panel">
+                    <div class="panel-header" onclick="togglePanel(this)"><?php echo $faq['question']; ?></div>
+                    <div class="panel-content hidden"><?php echo $faq['answer']; ?></div>
+                </div>
+            <?php } ?>
         </div>
-        <div class="panel panel">
-          <div class="panel-header" onclick="togglePanel(this)">What Is The Minimum Qualification Required? </div>
-          <div class="panel-content hidden">
-          You should have completed minimum of 8th Std and above.
-          </div>
-        </div>
-        <div class="panel panel">
-          <div class="panel-header" onclick="togglePanel(this)">Is The Course Online? </div>
-          <div class="panel-content hidden">
-          Yes, The course is completely online and you can complete it anytime.
-          </div>
-        </div>
-        <div class="panel panel">
-          <div class="panel-header" onclick="togglePanel(this)">Is The Course Available In All Languages? </div>
-          <div class="panel-content hidden">
-          Yes, The Course Is Available In All Languages That You Wish To Choose
-          </div>
-        </div>
-        <div class="panel panel">
-          <div class="panel-header" onclick="togglePanel(this)">Will I Get Job After Completing The Course? </div>
-          <div class="panel-content hidden">
-          Yes. 100% You will get the job by NextGen Company On Order Fulfilment Job Role.
-          </div>
-        </div>
-        <div class="panel panel">
-          <div class="panel-header" onclick="togglePanel(this)">Is The  Job Available For Work From Home? </div>
-          <div class="panel-content hidden">
-          Yes, Job is Completely online, And you can work from anywhere and anytime.
-          </div>
-        </div>
-      </div>
     </div>
-  </section>
+</section>
 
   <div id="register" >
     <div class="container">

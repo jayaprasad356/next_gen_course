@@ -1,78 +1,4 @@
 
-<?php
-// Function to initiate payment
-$redirectUrl = 'payment-success.php'; // Replace 'payment-success.php' with your actual redirect URL
-$apiKey = '099eb0cd-02cf-4e2a-8aca-3e6c6aff0399';
-function initiatePayment($amount, $description, $redirectUrl, $apiKey) {
-    $merchantId = 'PGTESTPAYUAT';
-    $order_id = uniqid();
-    $name = "Tutorials Website";
-    $email = "ashokkumar7hitter@gmail.com";
-    $mobile = 8056896831;
-
-    $paymentData = array(
-        'merchantId' => $merchantId,
-        'merchantTransactionId' => $order_id,
-        "merchantUserId" => "MUID123",
-        'amount' => $amount * 100,
-        'redirectUrl' => $redirectUrl,
-        'redirectMode' => "POST",
-        'callbackUrl' => $redirectUrl,
-        "merchantOrderId" => $order_id,
-        "mobileNumber" => $mobile,
-        "message" => $description,
-        "email" => $email,
-        "shortName" => $name,
-        "paymentInstrument" => array(
-            "type" => "PAY_PAGE",
-        )
-    );
-
-    $jsonencode = json_encode($paymentData);
-    $payloadMain = base64_encode($jsonencode);
-    $salt_index = 1; //key index 1
-    $payload = $payloadMain . "/pg/v1/pay" . $apiKey;
-    $sha256 = hash("sha256", $payload);
-    $final_x_header = $sha256 . '###' . $salt_index;
-    $request = json_encode(array('request' => $payloadMain));
-
-    $curl = curl_init();
-    curl_setopt_array($curl, [
-        CURLOPT_URL => "https://api-preprod.phonepe.com/apis/pg-sandbox/pg/v1/pay",
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_ENCODING => "",
-        CURLOPT_MAXREDIRS => 10,
-        CURLOPT_TIMEOUT => 30,
-        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST => "POST",
-        CURLOPT_POSTFIELDS => $request,
-        CURLOPT_HTTPHEADER => [
-            "Content-Type: application/json",
-            "X-VERIFY: " . $final_x_header,
-            "accept: application/json"
-        ],
-    ]);
-
-    $response = curl_exec($curl);
-    $err = curl_error($curl);
-
-    curl_close($curl);
-
-    if ($err) {
-        echo "cURL Error #:" . $err;
-    } else {
-        $res = json_decode($response);
-
-        if (isset($res->success) && $res->success == '1') {
-            $paymentCode = $res->code;
-            $paymentMsg = $res->message;
-            $payUrl = $res->data->instrumentResponse->redirectInfo->url;
-            return $payUrl;
-        }
-    }
-}
-?>
-
  
 <!DOCTYPE html>
 <html lang="en">
@@ -138,7 +64,7 @@ function initiatePayment($amount, $description, $redirectUrl, $apiKey) {
             <a href="demand.html">Print in demand</a>
             <a href="digital.html">Digital Marketing Course</a>
             <a href="business.html">E commerce Own Business Course</a>
-            <a href="information.html">FAQ</a>
+            <a href="information.php">FAQ</a>
         </div>
         <img src="new.jpeg" data-aos="fade-up"  class="img-fluid">
         <div class="paragraph">
@@ -153,45 +79,50 @@ function initiatePayment($amount, $description, $redirectUrl, $apiKey) {
 <!---course--> 
 <section id="course" class="py-5">
     <div class="container">
-        <div class="text-center">
+        <div class="text-center" style="text-decoration: underline;">
             <h4>Course Details</h4>
         </div>
-      
-        <div class="course-details">
-            <div class="course-info">
-                <h1>1. <br>Print on Demand</h1>
-                <h6>2. <br>Digital Marketing</h6>
-                <h5>3. <br>Ecommerce Business</h5><p1>(Free Website)</p1>
+        <br>
+        <div class="container-fluid" style="background: linear-gradient(to right, #fef3b1, #fed5cf, #ffb1f2);">
+            <div class="row justify-content-center">
+                <div class="col-md-4 mb-3">
+                    <div class="card text-center" style="background: none;">
+                        <img class="card-img-top mx-auto" src="https://png.pngtree.com/png-vector/20230318/ourmid/pngtree-book-clipart-vector-png-image_6653535.png" alt="Card image cap" style="width: 80%; height: auto;">
+                        <div class="card-body">
+                        <h3 class="card-title" style="font-weight: bold;">Print On Demand</h3>
+                        <br>
+                        <p class="card-text bg-primary text-white p-2 rounded mx-auto" style="width: fit-content;">₹ 1999/-</p>
+                            <a href="#" class="btn btn-success" style="border-radius:18px;">Pay & Enroll</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card text-center" style="background: none;">
+                        <img class="card-img-top mx-auto" src="https://static.vecteezy.com/system/resources/previews/023/366/090/original/back-to-school-happy-pupils-children-learning-computer-reading-books-concept-png.png" alt="Card image cap" style="width: 60%; height: auto;">
+                        <div class="card-body">
+                        <h3 class="card-title font-weight-bold" style="font-weight: bold;">Digital Marketing</h3>
+                        <br>
+                            <p class="card-text bg-primary text-white p-2 rounded mx-auto" style="width: fit-content;">₹ 4999/-</p>
+                            <a href="#" class="btn btn-success" style="border-radius:18px;">Pay & Enroll</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card text-center" style="background: none;">
+                        <img class="card-img-top mx-auto" src="https://png.pngtree.com/png-vector/20230318/ourmid/pngtree-book-clipart-vector-png-image_6653535.png" alt="Card image cap" style="width: 80%; height: auto;">
+                        <div class="card-body">
+                            <h3 class="card-title" style="font-weight: bold;">Ecommerce Business</h3><p>(Free Website)</p>
+                            <p class="card-text bg-primary text-white p-2 rounded mx-auto" style="width: fit-content;">₹ 9999/-</p>
+                            <a href="#" class="btn btn-success" style="border-radius:18px;">Pay & Enroll</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="course-prices">
-            <h2>₹1999/-</h2>
-
-    <?php
-    $payUrl = initiatePayment(1999, 'Payment for Course 1', $redirectUrl, $apiKey);
-    echo "<a class='btn btn-success btn-roll' style='border-radius: 30px;'>Pay & Enroll</a>";
-
-    ?>
-    <h3>₹4999/-</h3> 
-    <?php
-    $payUrl = initiatePayment(4999, 'Payment for Course 2', $redirectUrl, $apiKey);
-    echo "<a class='btn btn-success btn-pay' style='border-radius: 30px;'>Pay & Enroll</a>";
-    ?>
-    <p>₹9999/-</p>
-    <?php
-    $payUrl = initiatePayment(9999, 'Payment for Course 3', $redirectUrl, $apiKey);
-    echo "<a  class='btn btn-success btn-back' style='border-radius: 30px;'>Pay & Enroll</a>";
-    ?>
-</div>
-
-   
-            <img src="https://png.pngtree.com/png-vector/20230318/ourmid/pngtree-book-clipart-vector-png-image_6653535.png" data-aos="fade-up"  class="img-fluid">
-            <img  src="https://static.vecteezy.com/system/resources/previews/023/366/090/original/back-to-school-happy-pupils-children-learning-computer-reading-books-concept-png.png" id="images" data-aos="fade-up"  class="img-fluid">
         </div>
-      <!---<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="white" class="bi bi-list" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
-        </svg>-->
     </div>
 </section>
+
+
 <section id="demand" class="py-5">
     <div class="container">
         <div class="row">
@@ -359,31 +290,91 @@ function initiatePayment($amount, $description, $redirectUrl, $apiKey) {
    </div>
    </div>
     </section>
-<section id="contact" class="py-5">
+    <section id="contact" class="py-5">
     <div class="container">
+        <div class="text-center" style="text-decoration: underline;">
+            <h4 style="font-weight: bold;">Contact Us</h4>
+        </div>
+        <br> <!-- Add vertical space -->
+        <br>
+        <br>
         <div class="text-center">
-            <h4>Contact Us</h4>
-        </div>
-        <div class="contact-details">
-            <div class="contact-info">
-                <h1>Email ID:</h1>
-                <h1>Address:</h1>
+            <div class="row">
+                <div class="col">
+                    <p style="font-weight: bold;">Email ID:</p>
+                </div>
+                <br>
+               <br>
+               <br>
+                <br>
+                <div class="col">
+                    <p class="font customss-font" style="color:blue; font-weight: bold;">support@slveenterprises.org.</p>
+                </div>
             </div>
-            <div class="contact-prices">
-                <h2>support@slveenterprises.org.</h2>
-                <h6>#9,2nd Floor,A3,NBA Tower, Thillainagar, 11th Cross W, Tennur, Tiruchirappalli, Tamil Nadu 620018</h6>
+            <div class="my-4"></div> <!-- Decrease space between rows -->
+            <div class="row">
+                <div class="col">
+                    <p class="font customs-font" style="font-weight: bold;">Address:</p>
+                </div>
+                <div class="col">
+    <p class="font custom-font" style="color:blue; font-weight: bold;">
+        #9, 2nd Floor, A3, NBA Tower, Thillainagar, 11th Cross W, Tennur, <br>Tiruchirappalli, Tamil Nadu 620018
+    </p>
+</div>
+
             </div>
         </div>
-        <p1><a href="privacy_policy.html">Privacy Policy</a></p1>
-        <p2><a href="terms_conditions.html">Terms&Conditions</a></p2>
-        <p3><a href="refund_policy.html">Refund Policy</a></p3>
-        
-        <p>Copyright 2024. Powered by SLVE Enterprise APP</p>
-      <!---<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="white" class="bi bi-list" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
-        </svg>-->
+        <br>
+        <br>
+        <br>
+        <br>
+        <!-- Privacy, Terms & Refund Policies -->
+        <div class="text-center">
+        <div class="row">
+        <div class="col-md-3">
+            <p><a href="privacy_policy.html">Privacy Policy</a></p>
+        </div>
+        <div class="col-md-3">
+            <p><a href="terms_conditions.html">Terms & Conditions</a></p>
+        </div>
+        <div class="col-md-3">
+            <p><a href="refund_policy.html">Refund Policy</a></p>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Media Query for Small Devices */
+    @media (max-width: 767.98px) {
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .col-md-3 {
+            flex: 0 0 50%; /* Two columns per row on small screens */
+            max-width: 50%;
+            text-align: center;
+        }
+    }
+</style>
+
+        <br> <!-- Add vertical space -->
+        <br>
+        <br>
+        <!-- Copyright -->
+        <div class="row">
+            <div class="col-md-12">
+                <p class="text-center">Copyright 2024. Powered by SLVE Enterprise APP</p>
+            </div>
+        </div>
     </div>
 </section>
+
+
+
+    <!-- Bootstrap JS (optional) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
 <!---home--> 
