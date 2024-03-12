@@ -330,14 +330,14 @@
         <br>
         <!-- Privacy, Terms & Refund Policies -->
         <div class="text-center">
-        <div class="row">
-        <div class="col-md-3">
+    <div class="row">
+        <div class="col-md-4 text">
             <p><a href="privacy_policy.html">Privacy Policy</a></p>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4 text">
             <p><a href="terms_conditions.html">Terms & Conditions</a></p>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4 text">
             <p><a href="refund_policy.html">Refund Policy</a></p>
         </div>
     </div>
@@ -351,7 +351,7 @@
             flex-wrap: wrap;
             justify-content: center;
         }
-        .col-md-3 {
+        .text {
             flex: 0 0 50%; /* Two columns per row on small screens */
             max-width: 50%;
             text-align: center;
