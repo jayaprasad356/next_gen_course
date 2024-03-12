@@ -87,9 +87,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .btn-custom {
             width: 100%;
             margin-top:25px;
+            border-radius: 15px;
         }
         .btn-customs {
             width: 100%;
+            border-radius: 15px;
            
         }
         @media (max-width: 576px) {
