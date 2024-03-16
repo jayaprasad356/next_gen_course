@@ -1,4 +1,78 @@
+<?php
+// Function to initiate payment
+$redirectUrl = 'payment-success.php'; // Replace 'payment-success.php' with your actual redirect URL
+$apiKey = '099eb0cd-02cf-4e2a-8aca-3e6c6aff0399';
+function initiatePayment($amount, $description, $redirectUrl, $apiKey) {
+    $merchantId = 'PGTESTPAYUAT';
+    $order_id = uniqid();
+    $name = "Tutorials Website";
+    $email = "ashokkumar7hitter@gmail.com";
+    $mobile = 8056896831;
 
+    $paymentData = array(
+        'merchantId' => $merchantId,
+        'merchantTransactionId' => $order_id,
+        "merchantUserId" => "MUID123",
+        'amount' => $amount * 100,
+        'redirectUrl' => $redirectUrl,
+        'redirectMode' => "POST",
+        'callbackUrl' => $redirectUrl,
+        "merchantOrderId" => $order_id,
+        "mobileNumber" => $mobile,
+        "message" => $description,
+        "email" => $email,
+        "shortName" => $name,
+        "paymentInstrument" => array(
+            "type" => "PAY_PAGE",
+        )
+    );
+
+    $jsonencode = json_encode($paymentData);
+    $payloadMain = base64_encode($jsonencode);
+    $salt_index = 1; //key index 1
+    $payload = $payloadMain . "/pg/v1/pay" . $apiKey;
+    $sha256 = hash("sha256", $payload);
+    $final_x_header = $sha256 . '###' . $salt_index;
+    $request = json_encode(array('request' => $payloadMain));
+
+    $curl = curl_init();
+    curl_setopt_array($curl, [
+        CURLOPT_URL => "https://api-preprod.phonepe.com/apis/pg-sandbox/pg/v1/pay",
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "POST",
+        CURLOPT_POSTFIELDS => $request,
+        CURLOPT_HTTPHEADER => [
+            "Content-Type: application/json",
+            "X-VERIFY: " . $final_x_header,
+            "accept: application/json"
+        ],
+    ]);
+
+    $response = curl_exec($curl);
+    $err = curl_error($curl);
+
+    curl_close($curl);
+
+    if ($err) {
+        echo "cURL Error #:" . $err;
+    } else {
+        $res = json_decode($response);
+
+        if (isset($res->success) && $res->success == '1') {
+            $paymentCode = $res->code;
+            $paymentMsg = $res->message;
+            $payUrl = $res->data->instrumentResponse->redirectInfo->url;
+            return $payUrl;
+        }
+    }
+}
+?>
+
+ 
  
 <!DOCTYPE html>
 <html lang="en">
@@ -83,36 +157,25 @@
             <h4>Course Details</h4>
         </div>
         <br>
+        <br>
+        <br>
+        <br>
+        <br>
         <div class="container-fluid" style="background: linear-gradient(to right, #fef3b1, #fed5cf, #ffb1f2);">
             <div class="row justify-content-center">
                 <div class="col-md-4 mb-3">
                     <div class="card text-center" style="background: none;">
                         <img class="card-img-top mx-auto" src="https://png.pngtree.com/png-vector/20230318/ourmid/pngtree-book-clipart-vector-png-image_6653535.png" alt="Card image cap" style="width: 80%; height: auto;">
                         <div class="card-body">
-                        <h3 class="card-title" style="font-weight: bold;">Print On Demand</h3>
-                        <br>
-                        <p class="card-text bg-primary text-white p-2 rounded mx-auto" style="width: fit-content;">₹ 1999/-</p>
-                            <a href="register.php"  class="btn btn-success" style="border-radius:18px;">Enroll</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card text-center" style="background: none;">
-                        <img class="card-img-top mx-auto" src="https://static.vecteezy.com/system/resources/previews/023/366/090/original/back-to-school-happy-pupils-children-learning-computer-reading-books-concept-png.png" alt="Card image cap" style="width: 60%; height: auto;">
-                        <div class="card-body">
-                        <h3 class="card-title font-weight-bold" style="font-weight: bold;">Digital Marketing</h3>
-                        <br>
-                            <p class="card-text bg-primary text-white p-2 rounded mx-auto" style="width: fit-content;">₹ 4999/-</p>
-                            <a href="register.php"  class="btn btn-success" style="border-radius:18px;">Enroll</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card text-center" style="background: none;">
-                        <img class="card-img-top mx-auto" src="https://png.pngtree.com/png-vector/20230318/ourmid/pngtree-book-clipart-vector-png-image_6653535.png" alt="Card image cap" style="width: 80%; height: auto;">
-                        <div class="card-body">
                             <h3 class="card-title" style="font-weight: bold;">Ecommerce Business</h3><p>(Free Website)</p>
-                            <p class="card-text bg-primary text-white p-2 rounded mx-auto" style="width: fit-content;">₹ 9999/-</p>
+                            <div style="display: flex; justify-content: center; align-items: center; gap: 10px;">
+                            <button class="text-black p-2 " style="margin-bottom: 0; font-weight:bold; font-size:18px;  background-color:#424dfd; color:white; border-radius:10px;">₹ 9999/-</button>
+                          <?php
+                            $payUrl = initiatePayment(1999, 'Payment for Course 1', $redirectUrl, $apiKey);
+                            echo "<a href='" . $payUrl . "' class='btn btn-success' style='border-radius:10px;  font-size:20px;'>Pay</a>";
+                         ?>
+                        </div>
+                        <br>
                             <a href="register.php"  class="btn btn-success" style="border-radius:18px;">Enroll</a>
                         </div>
                     </div>

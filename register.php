@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-
 $servername = "localhost";
 $username = "u117947056_ngcourse";
 $password = "Ngcourse@2024";
@@ -130,7 +129,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <div class="form-group">
                     <label for="referred_by">Refer code:</label>
-                    <input type="text" class="form-control" id="referred_by" name="referred_by" placeholder="Refer Code">
+                    <input type="text" class="form-control" id="referred_by" name="referred_by" placeholder="Refer Code" value="<?php echo isset($_GET['refercode']) ? htmlspecialchars($_GET['refercode']) : ''; ?>">
                 </div>
                 <div class="row">
                     <div class="col-6">

@@ -16,13 +16,14 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
     $user_id = $_SESSION['user_id'];
     
     // Fetch user details from the database using user_id
-    $sql = "SELECT name, mobile FROM users WHERE id='$user_id'";
+    $sql = "SELECT name, mobile ,refer_code FROM users WHERE id='$user_id'";
     $result = $conn->query($sql);
     
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         $name = $row['name'];
         $mobile = $row['mobile'];
+        $refer_code = $row['refer_code'];
     }
 } else {
     // Redirect to login page if user is not logged in
@@ -53,7 +54,7 @@ $conn->close();
         .container {
             background: rgb(255, 255, 255);
             max-width: 600px;
-            height:670px;
+            height:750px;
             margin: 0 auto;
             padding: 40px;
             border: 2px solid #9de45f;
@@ -103,8 +104,8 @@ $conn->close();
           left:40px;
         }
         .profile-container {
-    position: relative;
-}
+          position: relative;
+          }
 
 .button-container {
     position: absolute;
@@ -221,7 +222,7 @@ margin-left:40px;
     .container {
             background: rgb(255, 255, 255);
             max-width: 600px;
-            height:600px;
+            height:650px;
             margin: 0 auto;
             padding: 40px;
             border: 2px solid #9de45f;
@@ -272,6 +273,7 @@ margin-left:40px;
         right: 0;
         top: 0;
         margin-bottom: 10px; /* Add some space between buttons */
+        font-weight:bold;
         
     }
     .pink-bg {
@@ -314,8 +316,6 @@ margin-left:40px;
 }
 
 
-   
-
 }
 
         
@@ -330,12 +330,22 @@ margin-left:40px;
     </svg>
 </a>
 </div>
-        <h2>Profile</h2>
-            <div class="card-body">
-                <div class="image">
-                  <img src="refer.jpeg" class="img-fluid">
-                 </div>
-        </div>
+<h2>Profile</h2>
+<div class="card-body">
+    <div class="image">
+        <img src="refers.jpeg" class="img-fluid">
+    </div>
+    <br>
+    <center>
+        <button style="color:blue;font-weight:bold; background-color:white;border:2px solid black; border-radius:10px; font-size:17px; padding:10px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+            </svg> copy
+        </button>
+        <a href="https://ngcourse.nextgencareer.in/?refercode=<?php echo urlencode($refer_code); ?>" style="color:white;font-weight:bold; background-color:blue;border:2px solid black; border-radius:10px; font-size:17px; padding:10px; display: inline-block; text-decoration: none;">Refer friends</a>
+    </center>
+</div>
+
         <div class="profile-container">
     <div class="profile">
         <svg xmlns="http://www.w3.org/2000/svg"  width="55" height="55" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">

@@ -54,6 +54,11 @@ $conn->close();
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
+         input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
         body {
             font-family: Arial, sans-serif;
             background: linear-gradient(to right, #6f5de5, #7497f3, #62d2e8);
