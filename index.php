@@ -171,7 +171,7 @@ function initiatePayment($amount, $description, $redirectUrl, $apiKey) {
                             <div style="display: flex; justify-content: center; align-items: center; gap: 10px;">
                             <button class="text-black p-2 " style="margin-bottom: 0; font-weight:bold; font-size:18px;  background-color:#424dfd; color:white; border-radius:10px;">₹ 9999/-</button>
                           <?php
-                            $payUrl = initiatePayment(1999, 'Payment for Course 1', $redirectUrl, $apiKey);
+                            $payUrl = initiatePayment(9999, 'Payment for Course 1', $redirectUrl, $apiKey);
                             echo "<a href='" . $payUrl . "' class='btn btn-success' style='border-radius:10px;  font-size:20px;'>Pay</a>";
                          ?>
                         </div>
@@ -186,7 +186,7 @@ function initiatePayment($amount, $description, $redirectUrl, $apiKey) {
 </section>
 
 
-<section id="demand" class="py-5">
+<!--<section id="demand" class="py-5">
     <div class="container">
         <div class="row">
             <div class="text-center">
@@ -287,7 +287,7 @@ function initiatePayment($amount, $description, $redirectUrl, $apiKey) {
           </div>
         </div>
     </div>
-</section>
+</section>-->
 <section id="Business" class="py-5">
     <div class="container">
         <div class="row">
