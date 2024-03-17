@@ -135,8 +135,8 @@ function initiatePayment($amount, $description, $redirectUrl, $apiKey) {
             <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
         </svg>
         <div class="dropdown-menu" id="myDropdown">
-            <a href="demand.html">Print in demand</a>
-            <a href="digital.html">Digital Marketing Course</a>
+            <!--<a href="demand.html">Print in demand</a>
+            <a href="digital.html">Digital Marketing Course</a>-->
             <a href="business.html">E commerce Own Business Course</a>
             <a href="information.php">FAQ</a>
         </div>
