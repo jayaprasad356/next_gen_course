@@ -210,7 +210,7 @@ section {
     padding-top: 30px; /* Add padding to push content from the top */
 }
 #Business h5 {
-    margin-top:40px;
+    margin-top:20px;
     padding:50px;
     font-weight: bold;
     padding:15px;
@@ -223,12 +223,14 @@ section {
     font-weight: bold;
 }
 
-#Business p {
-    font-size: 25px;
-    color: rgb(235, 8, 8);
+#Business p1 {
+    font-size: 17px;
+    color: rgb(21, 12, 12);
     margin-bottom: 10px;
     font-weight: bold;
+    line-height:1.8; /* Adjust the line height as needed */
 }
+
 #Business iframe {
    margin-top:40px;
 }

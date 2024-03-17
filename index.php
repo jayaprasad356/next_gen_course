@@ -1,4 +1,6 @@
+
 <?php
+session_start();
 // Function to initiate payment
 $redirectUrl = 'payment-success.php'; // Replace 'payment-success.php' with your actual redirect URL
 $apiKey = '099eb0cd-02cf-4e2a-8aca-3e6c6aff0399';
@@ -71,7 +73,6 @@ function initiatePayment($amount, $description, $redirectUrl, $apiKey) {
     }
 }
 ?>
-
  
  
 <!DOCTYPE html>
@@ -171,9 +172,15 @@ function initiatePayment($amount, $description, $redirectUrl, $apiKey) {
                             <div style="display: flex; justify-content: center; align-items: center; gap: 10px;">
                             <button class="text-black p-2 " style="margin-bottom: 0; font-weight:bold; font-size:18px;  background-color:#424dfd; color:white; border-radius:10px;">₹ 9999/-</button>
                           <?php
+                        if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
+                            // User is logged in
                             $payUrl = initiatePayment(9999, 'Payment for Course 1', $redirectUrl, $apiKey);
                             echo "<a href='" . $payUrl . "' class='btn btn-success' style='border-radius:10px;  font-size:20px;'>Pay</a>";
-                         ?>
+                        } else {
+                            // User is not logged in
+                            echo "<button class='btn btn-secondary' disabled style='border-radius:10px;  font-size:20px;'>Pay</button>";
+                        }
+                        ?>
                         </div>
                         <br>
                             <a href="register.php"  class="btn btn-success" style="border-radius:18px;">Enroll</a>
@@ -300,40 +307,18 @@ function initiatePayment($amount, $description, $redirectUrl, $apiKey) {
               </div>
             <div class="col-lg-6">
             <br>
-<p1 style="color: white;"><strong>*Course Title : </strong>*NextGen Ecommerce Business Course</p1>
-<br>
-<p1 style="color: white;"><strong>*Course Fee : </strong>*Rs 9999</p1>
-<br>
-<p1 style="color: white;"><strong>*Duration : </strong>*6 Days</p1>
-<br> <br>
-<p1 style="color: white;"><strong>*Course Details:*:</strong></p1>
-<br><br>
-<p1 style="color: white;"><strong>1.*Comprehensive Ecommerce Strategy*</strong></p1>
-<ul>
-    <li style="color: white;"> Learn key strategies for successful ecommerce businesses</li>
-    <li style="color: white;">Understand market trends and consumer behavior</li>
-</ul>
-<p1 style="color: white;"><strong>2.*Free Website Setup*</strong></p1>
-<ul>
-    <li style="color: white;">Get hands-on guidance in setting up your business website</li>
-    <li style="color: white;">Utilize essential tools for website customization</li>
-</ul>
-<p1 style="color: white;"><strong>3.*Integration with Ecommerce Platforms*</strong></p1>
-<ul>
-    <li style="color: white;">Explore methods to integrate with popular ecommerce platforms</li>
-    <li style="color: white;">Earn reselling commissions through strategic partnerships</li>
-</ul>
-<p1 style="color: white;"><strong>4.*Maximizing Reselling Opportunities*</strong></p1>
-<ul>
-    <li style="color: white;">Learn techniques to maximize profits through reselling</li>
-    <li style="color: white;">Optimize product listings and marketing strategies</li>
-</ul>
-<p1 style="color: white;"><strong>5.*Up to 40% Referral Bonus*</strong></p1>
-<ul>
-    <li style="color: white;">Refer others to the course and earn up to 40% referral bonus</li>
-    <li style="color: white;">Leverage your network to enhance your earning potential</li>
-</ul>
+            <p1>🌟 Welcome to Nextgen Company! 🌟
+                <br>
 
+Ready to kickstart your e-commerce journey? Look no further! Our comprehensive E-Commerce Business Course is priced at just Rs 9999/-, offering unbeatable value compared to competitors. Plus, you'll receive a FREE website to get you started!
+
+What sets us apart? Our course covers everything from setting up your e-commerce business with ZERO INVESTMENT to mastering print-on-demand, digital marketing, and affiliate strategies. With complete handholding at every step, we ensure a smooth business launch.
+
+But that's not all! Once your business is thriving, we assist you in registering it officially and even provide guidance on accessing government subsidy loans. Our tailored roadmap will pave the way for international expansion.
+
+And here's the bonus – refer your friends to our course and earn up to a generous 50% referral bonus!
+
+Ready to turn your e-commerce dreams into reality? Join Nextgen Company today and unleash your entrepreneurial potential!</p1>
                     <h5><a href="business.html"><button type="button" class="btn btn-primary">More Info</button></a></h5>
             </div>
         </div>

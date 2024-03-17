@@ -54,7 +54,7 @@ $conn->close();
         .container {
             background: rgb(255, 255, 255);
             max-width: 600px;
-            height:750px;
+            height:790px;
             margin: 0 auto;
             padding: 40px;
             border: 2px solid #9de45f;
@@ -96,11 +96,11 @@ $conn->close();
         .profile p{
           margin-left:110px;
           position: relative;
-          bottom:40px;
+          bottom:10px;
         }
         .profile svg{
           position: relative;
-          top:20px;
+          top:50px;
           left:40px;
         }
         .profile-container {
@@ -120,21 +120,21 @@ margin-left:40px;
 
 }
 
-.violet-bg {
+.profile_button {
             background-color: #2743ff;
             color: white; /* Text color */
             border-color: #2743ff; /* Border color (optional) */
             position: relative;
-            left:80px;
-            top:10px;
+            left:100px;
+            top:20px;
         }
-        .pink-bg {
+        .bank_button {
             background-color: #2743ff;
             color: white; /* Text color */
             border-color: #2743ff; /* Border color (optional) */
             position: relative;
-            left:300px;
-            bottom:1px;
+            left:-50px;
+            bottom:-80px;
         }
         .green-bg {
             background-color: #2743ff;
@@ -219,10 +219,26 @@ margin-left:40px;
 
 /* Styles for smaller screens */
 @media (max-width: 768px) {
+    .profile_button {
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 20px;
+    font-size: 14px !important; /* Adjust the font size as needed */
+}
+
+.bank_button {
+    position: relative;
+    left: 2px;
+    right: 0;
+    top: 0;
+    font-size:14px  !important; /* Adjust the font size as needed */
+} 
     .container {
             background: rgb(255, 255, 255);
             max-width: 600px;
-            height:650px;
+            height:720px;
             margin: 0 auto;
             padding: 40px;
             border: 2px solid #9de45f;
@@ -236,14 +252,14 @@ margin-left:40px;
     .profile p {
         margin-left: 150px;
         position: relative;
-        bottom: 30px;
-        right: 80px;
+        bottom: 10px;
+        right: 90px;
         font-size:12px;
     }
     .profile svg {
         position: relative;
-        top: 20px;
-        left: 10px;
+        top: 40px;
+        left: 0px;
         width: 50px;
     }
     .icon svg {
@@ -266,8 +282,7 @@ margin-left:40px;
         font-size: 14px; /* Decrease font size */
         font-size:9px;
     }
-    .violet-bg,
-    .green-bg {
+    .violet-bg{
         position: relative;
         left: 0;
         right: 0;
@@ -276,14 +291,7 @@ margin-left:40px;
         font-weight:bold;
         
     }
-    .pink-bg {
-        position: relative;
-        left:170px;
-        right: 0;
-        top: 0;
-        margin-bottom: 10px; /* Add some space between buttons */
-        font-size:9px;
-        }
+  
         .white-bg {
             background-color: white;
             color: blue; /* Text color */
@@ -337,12 +345,12 @@ margin-left:40px;
     </div>
     <br>
     <center>
-        <button style="color:blue;font-weight:bold; background-color:white;border:2px solid black; border-radius:10px; font-size:17px; padding:10px;">
+    <a href="https://ngcourse.nextgencareer.in/register.php?refercode=<?php echo urlencode($refer_code); ?>" style="color:blue;font-weight:bold; background-color:white;border:2px solid black; border-radius:10px; font-size:17px; padding:10px;">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
             </svg> copy
-        </button>
-        <a href="https://ngcourse.nextgencareer.in/register.php?refercode=<?php echo urlencode($refer_code); ?>" style="color:white;font-weight:bold; background-color:blue;border:2px solid black; border-radius:10px; font-size:17px; padding:10px; display: inline-block; text-decoration: none;">Refer friends</a>
+      </a>
+        <a href="#" style="color:white;font-weight:bold; background-color:blue;border:2px solid black; border-radius:10px; margin-left:10px; font-size:17px; padding:10px; display: inline-block; text-decoration: none;">Refer friends</a>
     </center>
 </div>
 
@@ -358,10 +366,11 @@ margin-left:40px;
     <?php endif; ?>
     </div>
     <div class="button-container">
-    <a href="#" class="btn btn-primary btn-with-icon violet-bg">Update Profile</a>
-    <a href="#" class="btn btn-primary btn-with-icon green-bg">Update Bank</a>
+    <a href="#" class="profile_button" style="color:white;font-weight:bold; background-color:blue;border:2px solid black; border-radius:10px; margin-left:20px;  padding:10px; display: inline-block; text-decoration: none;">Update Profile</a>
+    <a href="#"  class="bank_button" style="color:white;font-weight:bold; background-color:blue;border:2px solid black; border-radius:10px; margin-left:20px; padding:11px; display: inline-block; text-decoration: none;">Update Bank</a>
     </div>
 </div>
+<br>
 <hr>
 <div class="wallet-container">
     <a href="wallet.php">
