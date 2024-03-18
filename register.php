@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+$refer_code = isset($_SESSION['refer_code']) ? $_SESSION['refer_code'] : '';
 $servername = "localhost";
 $username = "u117947056_ngcourse";
 $password = "Ngcourse@2024";
