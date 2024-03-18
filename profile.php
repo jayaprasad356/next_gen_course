@@ -399,7 +399,7 @@ margin-left:40px;
 
 <script>
 function copyLink() {
-    var link = "https://ngcourse.nextgencareer.in/register.php/?refercode=<?php echo urlencode($refer_code); ?>";
+    var link = "https://ngcourse.nextgencareer.in/?refercode=<?php echo urlencode($refer_code); ?>";
 
     var tempInput = document.createElement("input");
     
