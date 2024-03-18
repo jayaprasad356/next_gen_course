@@ -2,9 +2,9 @@
 session_start();
 
 $servername = "localhost";
-$username = "u117947056_ngcourse";
-$password = "Ngcourse@2024";
-$database = "u117947056_ngcourse";
+$username = "root";
+$password = "";
+$database = "next_gen_course";
 
 $conn = new mysqli($servername, $username, $password, $database);
 
@@ -345,11 +345,11 @@ margin-left:40px;
     </div>
     <br>
     <center>
-    <a href="https://ngcourse.nextgencareer.in/register.php?refercode=<?php echo urlencode($refer_code); ?>" style="color:blue;font-weight:bold; background-color:white;border:2px solid black; border-radius:10px; font-size:17px; padding:10px;">
+    <button onclick="copyLink()" style="color:blue;font-weight:bold; background-color:white;border:2px solid black; border-radius:10px; font-size:17px; padding:10px;">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
             </svg> copy
-      </a>
+</button>
         <a href="#" style="color:white;font-weight:bold; background-color:blue;border:2px solid black; border-radius:10px; margin-left:10px; font-size:17px; padding:10px; display: inline-block; text-decoration: none;">Refer friends</a>
     </center>
 </div>
@@ -397,7 +397,25 @@ margin-left:40px;
     </a>
 </div>
 
+<script>
+function copyLink() {
+    var link = "https://ngcourse.nextgencareer.in/register.php/?refercode=<?php echo urlencode($refer_code); ?>";
 
+    var tempInput = document.createElement("input");
+    
+    tempInput.value = link;
+  
+    document.body.appendChild(tempInput);
+    
+    tempInput.select();
+    
+    document.execCommand("copy");
+    
+    document.body.removeChild(tempInput);
+    
+    alert("Link copied to successfully!");
+}
+</script>
 
 
 <script>
