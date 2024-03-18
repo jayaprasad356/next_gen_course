@@ -413,7 +413,7 @@ function copyLink() {
     
     document.body.removeChild(tempInput);
     
-    alert("Link copied to successfully!");
+    alert("Link copied successfully!");
 }
 </script>
 
