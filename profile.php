@@ -1,12 +1,19 @@
+
 <?php
-session_start();
+session_start(); // Start the session if not already started
 
 $servername = "localhost";
 $username = "u117947056_ngcourse";
 $password = "Ngcourse@2024";
 $database = "u117947056_ngcourse";
 
+
 $conn = new mysqli($servername, $username, $password, $database);
+
+// Check if refercode is passed via GET parameter and store it in session
+if(isset($_GET['refercode'])) {
+    $_SESSION['refercode'] = $_GET['refercode'];
+}
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -399,20 +406,14 @@ margin-left:40px;
 
 <script>
 function copyLink() {
-    var link = "https://ngcourse.nextgencareer.in/register.php?refercode=<?php echo urlencode($refer_code); ?>";
-
+    var refer_code = "<?php echo urlencode($refer_code); ?>";
+    var link = "http://localhost/next_gen_course/?refercode=" + refer_code;
     var tempInput = document.createElement("input");
-    
     tempInput.value = link;
-  
     document.body.appendChild(tempInput);
-    
     tempInput.select();
-    
     document.execCommand("copy");
-    
     document.body.removeChild(tempInput);
-    
     alert("Link copied successfully!");
 }
 </script>
