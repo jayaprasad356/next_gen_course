@@ -128,9 +128,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                 </div>
                 <div class="form-group">
-                    <label for="referred_by">Refer code:</label>
-                    <input type="text" class="form-control" id="referred_by" name="referred_by" placeholder="Refer Code" value="<?php echo isset($_GET['refercode']) ? htmlspecialchars($_GET['refercode']) : ''; ?>">
-                </div>
+                 <label for="referred_by">Refer code:</label>
+                 <input type="text" class="form-control" id="referred_by" name="referred_by" placeholder="Refer Code" value="<?php echo isset($_GET['refercode']) ? htmlspecialchars($_GET['refercode']) : ''; ?>" <?php echo isset($_GET['refercode']) ? 'readonly' : ''; ?>>
+               </div>
+
                 <div class="row">
                     <div class="col-6">
                         <button type="submit" class="btn btn-primary btn-custom">Register</button>
