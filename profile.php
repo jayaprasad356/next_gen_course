@@ -1,6 +1,7 @@
 <?php
 session_start(); // Start the session if not already started
 
+
 $servername = "localhost";
 $username = "u117947056_ngcourse";
 $password = "Ngcourse@2024";
@@ -412,7 +413,7 @@ margin-left:40px;
     </a>
 </div>
 <div class="transaction-container">
-    <a href="#">
+    <a href="transaction.php">
         <i class="bi bi-file-check"></i>
         <h6>Transaction</h6>
     </a>
@@ -424,13 +425,13 @@ margin-left:40px;
     </a>
 </div>
 <div class="profile-container">
-    <a href="#">
+    <a href="update_profile.php">
     <i class="bi bi-person-circle"></i>
         <h6>Update Profile</h6>
     </a>
 </div>
 <div class="bank-container">
-    <a href="#">
+    <a href="update_bank.php">
     <i class="bi bi-person-circle"></i>
         <h6>Update Bank</h6>
     </a>
