@@ -446,7 +446,7 @@ margin-left:40px;
 <script>
 function copyLink() {
     var refer_code = "<?php echo urlencode($refer_code); ?>";
-    var link = "http://localhost/next_gen_course/?refer_code=" + refer_code;
+    var link = "https://ngcourse.nextgencareer.in/?refer_code=" + refer_code;
     var tempInput = document.createElement("input");
     tempInput.value = link;
     document.body.appendChild(tempInput);
