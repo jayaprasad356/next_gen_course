@@ -146,9 +146,9 @@ $conn->close();
     <h4>Main Balance</h4>
     <div class="row justify-content-center">
         <div class="col-md-5 col-12 mb-3">
-            <div class="card p-2 text-center border border-warning" style="background-color:#080b42;height:40px;border-radius:50px;">
+        <div class="p-2 text-center" style="height:40px; color:black;">
             <?php if(isset($balance)): ?>     
-                <p style="color:white;  font-weight: bold;">₹<?php echo $balance; ?></p>
+                <p style="color:black; font-weight: bold;">₹<?php echo $balance; ?></p>
                 <?php endif; ?>
             </div>
         </div>
@@ -158,13 +158,13 @@ $conn->close();
     <form action="#" method="post">
     <div class="form-group row justify-content-center">
     <div class="col-md-8 col-12">
-        <input style="background-color:#0a0e72;height:60px;border-radius:50px; margin-left:10px; text-align: center; color: white; font-weight: bold;" type="number" class="form-control" name="withdrawal_amount" placeholder="Enter amount">
+        <input style="background-color:white;height:60px;border-radius:10px; margin-left:10px; text-align: center; color: white; font-weight: bold;" type="number" class="form-control" name="withdrawal_amount" placeholder="Enter amount">
     </div>
 </div>
 
         <div class="form-group row justify-content-center">
         <div class="col-md-6 col-12 mb-3 d-flex justify-content-center">
-    <button style="background: linear-gradient(to right, #d67026, #a94344, #731f5b); color: white; height: 60px; width: 130px; border-radius: 50px; border: none;" type="submit" class="btn btn-primary">Withdraw</button>
+    <button  type="submit" class="btn btn-primary">Withdraw</button>
 </div>
         </div>
     </form>
@@ -173,19 +173,19 @@ $conn->close();
         <div class="col-md-10 col-12 mb-3">
             <?php
             foreach ($withdrawal_records as $record) {
-                echo '<div class="card p-2 text-center border border-warning mb-3" style="background-color:#730c55; border-radius:20px;">';
+                echo '<div class="card p-2 text-center mb-3" style="background-color:white; border-radius:20px;">';
                 echo '<table class="table table-borderless">';
                 echo '<thead>';
                 echo '<tr>';
-                echo '<th scope="col" class="text-white">Amount</th>';
-                echo '<th scope="col" class="text-white">Time</th>';
-                echo '<th scope="col" class="text-white">Status</th>';
+                echo '<th scope="col" class="text-black font-weight-bold">Amount</th>';
+                echo '<th scope="col" class="text-black font-weight-bold">Time</th>';
+                echo '<th scope="col" class="text-black font-weight-bold">Status</th>';
                 echo '</tr>';
                 echo '</thead>';
                 echo '<tbody>';
                 echo '<tr>';
-                echo '<td class="text-white">' . $record['amount'] . '</td>'; 
-                echo '<td class="text-white" style="white-space: nowrap;">' . $record['datetime'] . '</td>'; 
+                echo '<td class="text-black">' . $record['amount'] . '</td>'; 
+                echo '<td class="text-black" style="white-space: nowrap;">' . $record['datetime'] . '</td>'; 
                 echo '<td>';
                 if ($record['status'] == 1) {
                     echo "<span class='text-success'>Completed</span>"; 

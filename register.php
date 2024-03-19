@@ -1,12 +1,16 @@
 <?php
 session_start();
-$refer_code = isset($_SESSION['refer_code']) ? $_SESSION['refer_code'] : '';
+
 $servername = "localhost";
 $username = "u117947056_ngcourse";
 $password = "Ngcourse@2024";
 $database = "u117947056_ngcourse";
 
 $conn = new mysqli($servername, $username, $password, $database);
+
+if(isset($_GET['refercode'])) {
+    $_SESSION['refer_code'] = $_GET['refercode'];
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = isset($_POST['name']) ? $_POST['name'] : '';
@@ -15,6 +19,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $location = isset($_POST['location']) ? $_POST['location'] : '';
     $password = isset($_POST['password']) ? $_POST['password'] : '';
     $referred_by = isset($_POST['referred_by']) ? $_POST['referred_by'] : '';
+    
+    $refer_code = isset($_SESSION['refer_code']) ? $_SESSION['refer_code'] : '';
+
 
 
     $check_query = "SELECT * FROM users WHERE mobile='$mobile'";
@@ -128,9 +135,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                 </div>
                 <div class="form-group">
-                 <label for="referred_by">Refer code:</label>
-                 <input type="text" class="form-control" id="referred_by" name="referred_by" placeholder="Refer Code" value="<?php echo isset($_GET['refercode']) ? htmlspecialchars($_GET['refercode']) : ''; ?>" <?php echo isset($_GET['refercode']) ? 'readonly' : ''; ?>>
-               </div>
+    <label for="referred_by">Refer code:</label>
+    <input type="text" class="form-control" id="referred_by" name="referred_by" placeholder="Refer Code" value="<?php echo isset($_SESSION['refer_code']) ? $_SESSION['refer_code'] : ''; ?>" <?php echo isset($_SESSION['refer_code']) ? 'readonly' : ''; ?>>
+</div>
+
 
                 <div class="row">
                     <div class="col-6">

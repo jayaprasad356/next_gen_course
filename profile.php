@@ -1,4 +1,3 @@
-
 <?php
 session_start(); // Start the session if not already started
 
@@ -7,12 +6,11 @@ $username = "u117947056_ngcourse";
 $password = "Ngcourse@2024";
 $database = "u117947056_ngcourse";
 
-
 $conn = new mysqli($servername, $username, $password, $database);
 
 // Check if refercode is passed via GET parameter and store it in session
-if(isset($_GET['refercode'])) {
-    $_SESSION['refercode'] = $_GET['refercode'];
+if(isset($_GET['refer_code'])) {
+    $_SESSION['refer_code'] = $_GET['refer_code'];
 }
 
 if ($conn->connect_error) {
@@ -31,6 +29,9 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
         $name = $row['name'];
         $mobile = $row['mobile'];
         $refer_code = $row['refer_code'];
+
+        // Storing refer_code in session
+        $_SESSION['refer_code'] = $refer_code;
     }
 } else {
     // Redirect to login page if user is not logged in
@@ -40,6 +41,8 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
 
 $conn->close();
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,7 +64,7 @@ $conn->close();
         .container {
             background: rgb(255, 255, 255);
             max-width: 600px;
-            height:790px;
+            height:950px;
             margin: 0 auto;
             padding: 40px;
             border: 2px solid #9de45f;
@@ -101,14 +104,14 @@ $conn->close();
             border-color: #181d83; /* Border color (optional) */
         }
         .profile p{
-          margin-left:110px;
+          margin-left:240px;
           position: relative;
           bottom:10px;
         }
         .profile svg{
           position: relative;
           top:50px;
-          left:40px;
+          left:170px;
         }
         .profile-container {
           position: relative;
@@ -199,6 +202,38 @@ margin-left:40px;
    left:29px;
    bottom:70px;
 }
+.profile-container {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    margin-top:5px;
+}
+
+.profile-container i {
+   position: relative;
+   left:10px;
+   bottom:60px;
+}
+.profile-container h6 {
+   position: relative;
+   left:29px;
+   bottom:80px;
+}
+.bank-container {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    margin-top:5px;
+}
+
+.bank-container i {
+   position: relative;
+   left:10px;
+   bottom:70px;
+}
+.bank-container h6 {
+   position: relative;
+   left:29px;
+   bottom:90px;
+}
 .logout-container {
     display: flex;
     align-items: center; /* Center items vertically */
@@ -207,13 +242,13 @@ margin-left:40px;
 
 .logout-container i {
    position: relative;
-   left:380px;
-   bottom:190px;
+   left:10px;
+   bottom:85px;
 }
 .logout-container h6 {
    position: relative;
-   left:400px;
-   bottom:210px;
+   left:30px;
+   bottom:105px;
 }
 
 .icon svg {
@@ -226,26 +261,11 @@ margin-left:40px;
 
 /* Styles for smaller screens */
 @media (max-width: 768px) {
-    .profile_button {
-    position: relative;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 20px;
-    font-size: 14px !important; /* Adjust the font size as needed */
-}
-
-.bank_button {
-    position: relative;
-    left: 2px;
-    right: 0;
-    top: 0;
-    font-size:14px  !important; /* Adjust the font size as needed */
-} 
+   
     .container {
             background: rgb(255, 255, 255);
             max-width: 600px;
-            height:720px;
+            height:880px;
             margin: 0 auto;
             padding: 40px;
             border: 2px solid #9de45f;
@@ -260,13 +280,13 @@ margin-left:40px;
         margin-left: 150px;
         position: relative;
         bottom: 10px;
-        right: 90px;
+        right: 20px;
         font-size:12px;
     }
     .profile svg {
         position: relative;
         top: 40px;
-        left: 0px;
+        left: 60px;
         width: 50px;
     }
     .icon svg {
@@ -289,6 +309,7 @@ margin-left:40px;
         font-size: 14px; /* Decrease font size */
         font-size:9px;
     }
+    
     .violet-bg{
         position: relative;
         left: 0;
@@ -318,16 +339,25 @@ margin-left:40px;
     
 }
 
-
+.profile-container i {
+   position: relative;
+   left: 10px;
+   bottom:60px;
+}
+.profile-container h6 {
+   position: relative;
+   left:30px;
+   bottom:80px;
+}
 .logout-container i {
    position: relative;
-   left: 190px;
-   bottom:190px;
+   left: 10px;
+   bottom:85px;
 }
 .logout-container h6 {
    position: relative;
-   left:210px;
-   bottom:210px;
+   left:30px;
+   bottom:105px;
 }
 
 
@@ -372,10 +402,6 @@ margin-left:40px;
         <p><?php echo $mobile; ?></p>
     <?php endif; ?>
     </div>
-    <div class="button-container">
-    <a href="#" class="profile_button" style="color:white;font-weight:bold; background-color:blue;border:2px solid black; border-radius:10px; margin-left:20px;  padding:10px; display: inline-block; text-decoration: none;">Update Profile</a>
-    <a href="#"  class="bank_button" style="color:white;font-weight:bold; background-color:blue;border:2px solid black; border-radius:10px; margin-left:20px; padding:11px; display: inline-block; text-decoration: none;">Update Bank</a>
-    </div>
 </div>
 <br>
 <hr>
@@ -397,6 +423,19 @@ margin-left:40px;
         <h6>Your Friends</h6>
     </a>
 </div>
+<div class="profile-container">
+    <a href="#">
+    <i class="bi bi-person-circle"></i>
+        <h6>Update Profile</h6>
+    </a>
+</div>
+<div class="bank-container">
+    <a href="#">
+    <i class="bi bi-person-circle"></i>
+        <h6>Update Bank</h6>
+    </a>
+</div>
+
 <div class="logout-container">
     <a href="logout.php">
     <i class="bi bi-person-circle"></i>
@@ -407,7 +446,7 @@ margin-left:40px;
 <script>
 function copyLink() {
     var refer_code = "<?php echo urlencode($refer_code); ?>";
-    var link = "https://ngcourse.nextgencareer.in/?refercode=" + refer_code;
+    var link = "http://localhost/next_gen_course/?refer_code=" + refer_code;
     var tempInput = document.createElement("input");
     tempInput.value = link;
     document.body.appendChild(tempInput);

@@ -141,7 +141,7 @@ function initiatePayment($amount, $description, $redirectUrl, $apiKey) {
             <a href="business.html">E commerce Own Business Course</a>
             <a href="information.php">FAQ</a>
         </div>
-        <img src="new.jpeg" data-aos="fade-up"  class="img-fluid">
+        <img src="new.jpeg" data-aos="fade-up" class="img-fluid">
         <div class="paragraph">
         <h1>About us</h1> 
         <p1> Welcome to NextGen, your trusted partner in career building and online earning opportunities! For four years, we've been dedicated to empowering individuals to kickstart their online journey and unleash their potential in the digital realm.
