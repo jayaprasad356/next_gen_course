@@ -381,5 +381,6 @@ Ready to turn your e-commerce dreams into reality? Join Nextgen Company today an
         }
     }
 </script>
+<script type="text/javascript" id="zsiqchat">var $zoho=$zoho || {};$zoho.salesiq = $zoho.salesiq || {widgetcode: "siqb6cde4bd833b9ff0b1abb8b00d43ad394e767df78f9ef104fbb063e11413ae3a", values:{},ready:function(){}};var d=document;s=d.createElement("script");s.type="text/javascript";s.id="zsiqscript";s.defer=true;s.src="https://salesiq.zohopublic.in/widget";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);</script>
 </body>
 </html>
