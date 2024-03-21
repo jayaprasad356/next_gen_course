@@ -26,13 +26,14 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
         $referred_by = $row['referred_by'];
 
         // Fetch referring user details
-        $referring_user_sql = "SELECT name, mobile FROM users WHERE refer_code='$referred_by'";
+        $referring_user_sql = "SELECT name, mobile,status FROM users WHERE refer_code='$referred_by'";
         $referring_user_result = $conn->query($referring_user_sql);
 
         if ($referring_user_result->num_rows > 0) {
             $referring_user_row = $referring_user_result->fetch_assoc();
             $referring_user_name = $referring_user_row['name'];
             $referring_user_mobile = $referring_user_row['mobile'];
+            $referring_user_status = $referring_user_row['status'];
         }
     }
 } else {
@@ -114,16 +115,27 @@ $conn->close();
                        <th>ID</th>
                         <th>Name</th>
                         <th>Mobile</th>
+                        <th>status</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php if(isset($referring_user_name) && isset($referring_user_mobile)): ?>
-                        <tr>
-                        <td>1</td>
-                            <td><?php echo $referring_user_name; ?></td>
-                            <td><?php echo $referring_user_mobile; ?></td>
-                        </tr>
-                    <?php endif; ?>
+                <?php if(isset($referring_user_name) && isset($referring_user_mobile) && isset($referring_user_status)): ?>
+                            <tr>
+                                <td>1</td>
+                                <td><?php echo $referring_user_name; ?></td>
+                                <td><?php echo $referring_user_mobile; ?></td>
+                                <td>
+                                    <?php 
+                                    if ($referring_user_status == 1) {
+                                        echo "Verified";
+                                    } else {
+                                        echo "<span style='white-space: nowrap;'>Not-Verified</span>";
+                                    }
+                                    ?>
+                                </td>
+                            </tr>
+                 <?php endif; ?>
+
                 </tbody>
             </table>
         </div>

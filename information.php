@@ -58,7 +58,7 @@ section {
       color: #06002e;
 }
 .panel {
-    border: 1px solid #171818;
+    border: 1px solid #0d6efd;
     border-radius: 5px;
     margin-bottom: 10px;
     width:500px; /* Adjust as needed */
@@ -70,7 +70,7 @@ section {
   
   .panel-header {
     position: relative;
-    background-color: #f9f5f5;
+    background-color:#0d6efd;
     color:#191010;
     padding: 10px;
     cursor: pointer;
@@ -79,7 +79,7 @@ section {
 
   .panel-content {
     padding: 10px;
-    background-color: #f1e5e5;
+    background-color: #0d6efd;
     color:#191010;
     font-weight: bold;
   }
@@ -121,7 +121,7 @@ section {
     
 
     .panel {
-        border: 1px solid #171818;
+        border: 1px solid #0d6efd;
         border-radius: 5px;
         margin-bottom: 10px;
         width:300px; /* Adjust as needed */
@@ -132,7 +132,7 @@ section {
       
       .panel-header {
         position: relative;
-        background-color: #f1e8e8;
+        background-color: #0d6efd;
         color:black;
         padding: 10px;
         cursor: pointer;
@@ -141,7 +141,7 @@ section {
     
       .panel-content {
         padding: 10px;
-        background-color: #f1ecec;
+        background-color: #0d6efd;
         color: black;
         font-weight: bold;
       }

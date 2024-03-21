@@ -387,7 +387,7 @@ margin-left:40px;
                 <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
             </svg> copy
 </button>
-<button id="shareButton" style="color:white;font-weight:bold; background-color:blue;border:2px solid black; border-radius:10px; margin-left:10px; font-size:17px; padding:10px; display: inline-block; text-decoration: none;" onclick="share()">Refer friends</button>
+<button id="shareButton" style="color:white;font-weight:bold; background-color:blue;border:2px solid black; border-radius:10px; margin-left:10px; font-size:17px; padding:10px; display: inline-block; text-decoration: none;" onclick="share()">Share</button>
     </center>
 </div>
 
@@ -472,11 +472,6 @@ function copyLink() {
 
     </div>
     <script>
-    function copyLink() {
-        // Your copy link functionality here
-        console.log("Link copied!");
-    }
-
     function share() {
         // Define the URL you want to share
         const url = 'https://ngcourse.nextgencareer.in/';

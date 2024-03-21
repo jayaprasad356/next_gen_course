@@ -1,79 +1,16 @@
-
 <?php
-session_start();
-// Function to initiate payment
-$redirectUrl = 'payment-success.php'; // Replace 'payment-success.php' with your actual redirect URL
-$apiKey = '099eb0cd-02cf-4e2a-8aca-3e6c6aff0399';
-function initiatePayment($amount, $description, $redirectUrl, $apiKey) {
-    $merchantId = 'PGTESTPAYUAT';
-    $order_id = uniqid();
-    $name = "Tutorials Website";
-    $email = "ashokkumar7hitter@gmail.com";
-    $mobile = 8056896831;
+session_start(); // Start the session if not already started
 
-    $paymentData = array(
-        'merchantId' => $merchantId,
-        'merchantTransactionId' => $order_id,
-        "merchantUserId" => "MUID123",
-        'amount' => $amount * 100,
-        'redirectUrl' => $redirectUrl,
-        'redirectMode' => "POST",
-        'callbackUrl' => $redirectUrl,
-        "merchantOrderId" => $order_id,
-        "mobileNumber" => $mobile,
-        "message" => $description,
-        "email" => $email,
-        "shortName" => $name,
-        "paymentInstrument" => array(
-            "type" => "PAY_PAGE",
-        )
-    );
-
-    $jsonencode = json_encode($paymentData);
-    $payloadMain = base64_encode($jsonencode);
-    $salt_index = 1; //key index 1
-    $payload = $payloadMain . "/pg/v1/pay" . $apiKey;
-    $sha256 = hash("sha256", $payload);
-    $final_x_header = $sha256 . '###' . $salt_index;
-    $request = json_encode(array('request' => $payloadMain));
-
-    $curl = curl_init();
-    curl_setopt_array($curl, [
-        CURLOPT_URL => "https://api-preprod.phonepe.com/apis/pg-sandbox/pg/v1/pay",
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_ENCODING => "",
-        CURLOPT_MAXREDIRS => 10,
-        CURLOPT_TIMEOUT => 30,
-        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST => "POST",
-        CURLOPT_POSTFIELDS => $request,
-        CURLOPT_HTTPHEADER => [
-            "Content-Type: application/json",
-            "X-VERIFY: " . $final_x_header,
-            "accept: application/json"
-        ],
-    ]);
-
-    $response = curl_exec($curl);
-    $err = curl_error($curl);
-
-    curl_close($curl);
-
-    if ($err) {
-        echo "cURL Error #:" . $err;
-    } else {
-        $res = json_decode($response);
-
-        if (isset($res->success) && $res->success == '1') {
-            $paymentCode = $res->code;
-            $paymentMsg = $res->message;
-            $payUrl = $res->data->instrumentResponse->redirectInfo->url;
-            return $payUrl;
-        }
-    }
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
+ 
+    $buttonText = "Logout";
+    $buttonLink = "logout.php"; 
+} else {
+  
+    $buttonText = "Register";
+    $buttonLink = "register.php";
 }
 ?>
- 
  
 <!DOCTYPE html>
 <html lang="en">
@@ -129,8 +66,8 @@ function initiatePayment($amount, $description, $redirectUrl, $apiKey) {
             <p>Building Your Future</p>
             <p1>With career Building Course</p1>
         </div>
-<h3><a href="register.php" style="color: white;">register</a></h3>   
-<h5><a href="profile.php" style="color: white;">Profile</a></h5>
+        <h3><a href="<?php echo $buttonLink; ?>" style="color: white;"><?php echo $buttonText; ?></a></h3>   
+        <h5><a href="profile.php" style="color: white;">Profile</a></h5>
   
         <svg id="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="white" class="bi bi-list" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
@@ -171,11 +108,11 @@ function initiatePayment($amount, $description, $redirectUrl, $apiKey) {
                             <h3 class="card-title" style="font-weight: bold;">Ecommerce Business</h3><p>(Free Website)</p>
                             <div style="display: flex; justify-content: center; align-items: center; gap: 10px;">
                             <button class="text-black p-2 " style="margin-bottom: 0; font-weight:bold; font-size:18px;  background-color:#424dfd; color:white; border-radius:10px;">₹ 9999/-</button>
-                          <?php
+                            <?php
                         if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
                             // User is logged in
-                            $payUrl = initiatePayment(9999, 'Payment for Course 1', $redirectUrl, $apiKey);
-                            echo "<a href='" . $payUrl . "' class='btn btn-success' style='border-radius:10px;  font-size:20px;'>Pay</a>";
+                           
+                            echo "<a href='https://slveenterprises.org/product/30879586/--ZERO-INVESTMENT--E-Commerce-Business-Course-With-Free-Website' class='btn btn-success' style='border-radius:10px;  font-size:20px;'>Pay</a>";
                         } else {
                             // User is not logged in
                             echo "<button class='btn btn-secondary' disabled style='border-radius:10px;  font-size:20px;'>Pay</button>";
@@ -444,6 +381,5 @@ Ready to turn your e-commerce dreams into reality? Join Nextgen Company today an
         }
     }
 </script>
-<script type="text/javascript" id="zsiqchat">var $zoho=$zoho || {};$zoho.salesiq = $zoho.salesiq || {widgetcode: "siq4ab3c3afeeb745ff01e72a1d2fd42fe7c6ea983f8493b9047df81c0b14cb52b5", values:{},ready:function(){}};var d=document;s=d.createElement("script");s.type="text/javascript";s.id="zsiqscript";s.defer=true;s.src="https://salesiq.zohopublic.in/widget";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);</script>
 </body>
 </html>
