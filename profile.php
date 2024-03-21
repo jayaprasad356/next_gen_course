@@ -1,7 +1,6 @@
 <?php
 session_start(); // Start the session if not already started
 
-
 $servername = "localhost";
 $username = "u117947056_ngcourse";
 $password = "Ngcourse@2024";
@@ -388,7 +387,7 @@ margin-left:40px;
                 <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
             </svg> copy
 </button>
-        <a href="#" style="color:white;font-weight:bold; background-color:blue;border:2px solid black; border-radius:10px; margin-left:10px; font-size:17px; padding:10px; display: inline-block; text-decoration: none;">Refer friends</a>
+<button id="shareButton" style="color:white;font-weight:bold; background-color:blue;border:2px solid black; border-radius:10px; margin-left:10px; font-size:17px; padding:10px; display: inline-block; text-decoration: none;" onclick="share()">Refer friends</button>
     </center>
 </div>
 
@@ -472,5 +471,38 @@ function copyLink() {
 </script>
 
     </div>
+    <script>
+    function copyLink() {
+        // Your copy link functionality here
+        console.log("Link copied!");
+    }
+
+    function share() {
+        // Define the URL you want to share
+        const url = 'https://ngcourse.nextgencareer.in/';
+
+        // Open a share dialog using the Web Share API
+        if (navigator.share) {
+            navigator.share({
+                title: document.title,
+                url: url
+            }).then(() => {
+                console.log('Successfully shared');
+            }).catch((error) => {
+                console.error('Error sharing:', error);
+            });
+        } else {
+            // Fallback for browsers that do not support Web Share API
+            console.log("Web Share API is not supported in this browser.");
+            // You can add fallback behavior here, such as opening a popup with share options
+            // Or display a message to the user indicating they need to manually share the link
+        }
+    }
+</script>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

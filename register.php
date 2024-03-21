@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-
 $servername = "localhost";
 $username = "u117947056_ngcourse";
 $password = "Ngcourse@2024";
@@ -20,19 +19,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $location = isset($_POST['location']) ? $_POST['location'] : '';
     $password = isset($_POST['password']) ? $_POST['password'] : '';
     $referred_by = isset($_POST['referred_by']) ? $_POST['referred_by'] : '';
+    $otp = isset($_POST['otp']) ? $_POST['otp'] : '';
     
     $refer_code = isset($_SESSION['refer_code']) ? $_SESSION['refer_code'] : '';
 
-
-
+    // Check if mobile number is already registered
     $check_query = "SELECT * FROM users WHERE mobile='$mobile'";
     $check_result = $conn->query($check_query);
 
     if ($check_result->num_rows > 0) {
         echo "<script>alert('Mobile number is already registered. Please use a different mobile number.');</script>";
     } else {
-        $sql_query = "INSERT INTO users (name, email, mobile, location, password, referred_by) 
-                      VALUES ('$name','$email', '$mobile', '$location', '$password', '$referred_by')";
+        // Insert new user data into the database
+        $sql_query = "INSERT INTO users (name, email, mobile, location, password, referred_by, otp) 
+                      VALUES ('$name', '$email', '$mobile', '$location', '$password', '$referred_by', '$otp')";
         
         if ($conn->query($sql_query) === TRUE) {
             $user_id = $conn->insert_id;
@@ -52,6 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
             }
 
+            // Update the user's refer code
             $sql_query_refer = "UPDATE users SET refer_code='$refer_code' WHERE id = $user_id";
             $conn->query($sql_query_refer);
 
@@ -64,6 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -106,6 +108,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 white-space: nowrap;
                 font-size: 10px;
             }
+            .btn-customs {
+            width: 100%;
+            border-radius: 15px;
+            margin-top:6px;
+           
+        }
         }
 
     </style>
@@ -114,7 +122,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
         <div class="custom-container">
             <h2 class="text-center">Register</h2>
-            <form method="post" action="#" enctype="multipart/form-data">
+            <form id="registrationForm" method="post" action="#" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="name">Name:</label>
                     <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
@@ -126,6 +134,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="form-group">
                     <label for="mobile">Phone Number:</label>
                     <input type="number" class="form-control" id="mobile" name="mobile" placeholder="Phone Number" required>
+                    <span id="mobileError" class="text-danger"></span>
+                </div>
+                <label for="otp">OTP:</label>
+                <div class="row">
+                    <div class="col-md-12  d-flex justify-content-start justify-content-md-between">
+                        <div class="form-group">
+                            <input type="number" class="form-control" id="otp" name="otp" placeholder="Enter OTP" required>
+                        </div>
+                        <div class="form-group col-5 mt-0 mt-md-0">
+                            <button id="send" class="btn btn-primary btn-block">Send</button>
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="location">Location:</label>
@@ -136,11 +156,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                 </div>
                 <div class="form-group">
-    <label for="referred_by">Refer code:</label>
-    <input type="text" class="form-control" id="referred_by" name="referred_by" placeholder="Refer Code" value="<?php echo isset($_SESSION['refer_code']) ? $_SESSION['refer_code'] : ''; ?>" <?php echo isset($_SESSION['refer_code']) ? 'readonly' : ''; ?>>
-</div>
-
-
+                    <label for="referred_by">Refer code:</label>
+                    <input type="text" class="form-control" id="referred_by" name="referred_by" placeholder="Refer Code" value="<?php echo isset($_SESSION['refer_code']) ? $_SESSION['refer_code'] : ''; ?>" <?php echo isset($_SESSION['refer_code']) ? 'readonly' : ''; ?>>
+                </div>
                 <div class="row">
                     <div class="col-6">
                         <button type="submit" class="btn btn-primary btn-custom">Register</button>
@@ -153,7 +171,56 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </form>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+$(document).ready(function() {
+    var otpSent = false; // Flag to track whether OTP has been sent
+
+    $('#send').click(function(e) {
+        e.preventDefault();
+        var mobile = $('#mobile').val();
+
+        $.ajax({
+            type: 'POST',
+            url: 'check_mobile.php',
+            data: { mobile: mobile },
+            success: function(response) {
+                if (response === 'registered') {
+                    alert('Mobile number is already registered. Please use a different mobile number.');
+                    $('#mobile').prop('enable', true); // Disable the mobile input
+                } else {
+                    if (!otpSent) { // Check if OTP has not been sent already
+                        alert('OTP sent successfully to ' + mobile);
+                        otpSent = true; // Set the flag to true
+                    }
+                    $('#mobile').prop('readonly', true); // Change to readonly
+                    $('#send').text('Verify').addClass('btn-success').removeClass('btn-primary').prop('enable', true);
+                    $('#send').attr('id', 'verify');
+                    // Proceed with your logic here (e.g., sending OTP)
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error(xhr.responseText);
+            }
+        });
+    });
+
+    $(document).on('click', '#verify', function(e) {
+        e.preventDefault();
+        var otp = $('#otp').val();
+        if (otp.trim() === '') {
+            alert('Please enter the OTP.');
+        } else {
+            alert('Verified successfully.');
+            // Add your verification logic here
+        }
+    });
+});
+</script>
+
+
+
+
+
 </body>
 </html>
-
-
