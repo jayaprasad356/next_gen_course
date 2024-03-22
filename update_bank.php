@@ -41,12 +41,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
     $holder_name = $_POST['holder_name'];
     $account_num = $_POST['account_num'];
-    $ifsc_code = $_POST['ifsc_code'];
-    $bank_name = $_POST['bank_name'];
+    $ifsc = $_POST['ifsc'];
+    $bank = $_POST['bank'];
    
     
     // Update bank details in the database
-    $update_sql = "UPDATE users SET holder_name='$holder_name', account_num='$account_num', ifsc_code='$ifsc_code', bank_name='$bank_name' WHERE id='$user_id'";
+    $update_sql = "UPDATE users SET holder_name='$holder_name', account_num='$account_num', ifsc='$ifsc', bank='$bank' WHERE id='$user_id'";
     
     if ($conn->query($update_sql) === TRUE) {
         $alert_message = "Bank details updated successfully.";
@@ -156,12 +156,12 @@ $conn->close();
                     <input type="number" class="form-control" id="account_num" name="account_num" placeholder="Account Number" required>
                 </div>
                 <div class="form-group">
-                    <label for="mobile">IFSC Code:</label>
-                    <input type="text" class="form-control" id="ifsc_code" name="ifsc_code" placeholder="IFSC Code" required>
+                    <label for="ifsc">IFSC Code:</label>
+                    <input type="text" class="form-control" id="ifsc" name="ifsc" placeholder="IFSC Code" required>
                 </div>
                 <div class="form-group">
-                    <label for="location">Bank Name:</label>
-                    <input type="text" class="form-control" id="bank_name" name="bank_name" placeholder="Bank Name" required>
+                    <label for="bank">Bank Name:</label>
+                    <input type="text" class="form-control" id="bank" name="bank" placeholder="Bank Name" required>
                 </div>
               
                 <center>
