@@ -6,6 +6,7 @@ $username = "u117947056_ngcourse";
 $password = "Ngcourse@2024";
 $database = "u117947056_ngcourse";
 
+
 $conn = new mysqli($servername, $username, $password, $database);
 
 if ($conn->connect_error) {
@@ -115,27 +116,28 @@ $conn->close();
                        <th>ID</th>
                         <th>Name</th>
                         <th>Mobile</th>
-                        <th>status</th>
+                        <th>Status</th>
                     </tr>
                 </thead>
                 <tbody>
-                <?php if(isset($referring_user_name) && isset($referring_user_mobile) && isset($referring_user_status)): ?>
-                            <tr>
-                                <td>1</td>
-                                <td><?php echo $referring_user_name; ?></td>
-                                <td><?php echo $referring_user_mobile; ?></td>
-                                <td>
-                                    <?php 
-                                    if ($referring_user_status == 1) {
-                                        echo "Verified";
-                                    } else {
-                                        echo "<span style='white-space: nowrap;'>Not-Verified</span>";
-                                    }
-                                    ?>
-                                </td>
-                            </tr>
-                 <?php endif; ?>
-
+                <?php if(!empty($referred_by)): ?>
+                    <?php if(isset($referring_user_name) && isset($referring_user_mobile) && isset($referring_user_status)): ?>
+                        <tr>
+                            <td>1</td>
+                            <td><?php echo $referring_user_name; ?></td>
+                            <td><?php echo $referring_user_mobile; ?></td>
+                            <td>
+                                <?php 
+                                if ($referring_user_status == 1) {
+                                    echo "Verified";
+                                } else {
+                                    echo "<span style='white-space: nowrap;'>Not Verified</span>";
+                                }
+                                ?>
+                            </td>
+                        </tr>
+                    <?php endif; ?>
+                <?php endif; ?>
                 </tbody>
             </table>
         </div>

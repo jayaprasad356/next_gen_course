@@ -304,6 +304,9 @@ section {
     #ready img{
         height:110%;
      }
+     #ready h2 {
+        font-size: 20px;
+    }
     #home h4 {
         font-size: 32px;
     }
