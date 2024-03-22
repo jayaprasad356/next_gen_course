@@ -18,7 +18,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
     $user_id = $_SESSION['user_id'];
     
     // Fetch user details from the database using user_id
-    $sql = "SELECT name, mobile, email,location,aadhar_number FROM users WHERE id='$user_id'";
+    $sql = "SELECT name, mobile, email,location FROM users WHERE id='$user_id'";
     $result = $conn->query($sql);
     
     if ($result->num_rows > 0) {
@@ -27,7 +27,6 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
         $mobile = $row['mobile'];
         $email = $row['email'];
         $location = $row['location'];
-        $aadhar_number = $row['aadhar_number'];
 
     }
 } else {
@@ -43,10 +42,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mobile = $_POST['mobile'];
     $email = $_POST['email'];
     $location = $_POST['location'];
-    $aadhar_number = $_POST['aadhar_number'];
     
     // Update bank details in the database
-    $update_sql = "UPDATE users SET name='$name', mobile='$mobile', email='$email', location='$location' ,aadhar_number='$aadhar_number' WHERE id='$user_id'";
+    $update_sql = "UPDATE users SET name='$name', mobile='$mobile', email='$email', location='$location'  WHERE id='$user_id'";
     
     if ($conn->query($update_sql) === TRUE) {
         $alert_message = "User details updated successfully.";
