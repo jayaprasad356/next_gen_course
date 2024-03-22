@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $refer_code = '';
             if (empty($referred_by)) {
-                $refer_code = 'CMDS' . $user_id; 
+                $refer_code = 'NHR' . $user_id; 
             } else {
                 $admincode = substr($referred_by, 0, -5); 
                 $sql = "SELECT refer_code FROM admin WHERE refer_code='$admincode'";
@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if ($num >= 1) {
                     $refer_code = $admincode . $user_id;
                 } else {
-                    $refer_code = 'CMDS' . $user_id;
+                    $refer_code = 'NHR' . $user_id;
                 }
             }
 
@@ -143,7 +143,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <input type="number" class="form-control" id="otp" name="otp" placeholder="Enter OTP" required>
                         </div>
                         <div class="form-group col-5 mt-0 mt-md-0">
-                            <button id="send" class="btn btn-primary btn-block">Send</button>
+                            <button id="send" class="btn btn-primary btn-block">Get OTP</button>
                         </div>
                     </div>
                 </div>

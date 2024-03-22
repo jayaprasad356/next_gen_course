@@ -1,7 +1,6 @@
 <?php
 session_start(); // Start the session if not already started
 
-
 $servername = "localhost";
 $username = "u117947056_ngcourse";
 $password = "Ngcourse@2024";
@@ -44,10 +43,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $account_num = $_POST['account_num'];
     $ifsc_code = $_POST['ifsc_code'];
     $bank_name = $_POST['bank_name'];
-    $branch_name = $_POST['branch_name'];
+   
     
     // Update bank details in the database
-    $update_sql = "UPDATE users SET holder_name='$holder_name', account_num='$account_num', ifsc_code='$ifsc_code', bank_name='$bank_name', branch_name='$branch_name' WHERE id='$user_id'";
+    $update_sql = "UPDATE users SET holder_name='$holder_name', account_num='$account_num', ifsc_code='$ifsc_code', bank_name='$bank_name' WHERE id='$user_id'";
     
     if ($conn->query($update_sql) === TRUE) {
         $alert_message = "Bank details updated successfully.";
@@ -164,10 +163,7 @@ $conn->close();
                     <label for="location">Bank Name:</label>
                     <input type="text" class="form-control" id="bank_name" name="bank_name" placeholder="Bank Name" required>
                 </div>
-                <div class="form-group">
-                    <label for="password">Branch Name:</label>
-                    <input type="text" class="form-control" id="branch_name" name="branch_name" placeholder="Branch Name" required>
-                </div>
+              
                 <center>
                 <div class="row">
                         <button type="submit" class="btn btn-primary btn-custom">Update</button>

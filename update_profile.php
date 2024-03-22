@@ -157,15 +157,11 @@ $conn->close();
                 </div>
                 <div class="form-group">
                     <label for="mobile">Mobile:</label>
-                    <input type="number" class="form-control" id="mobile" name="mobile" placeholder="Mobile" value="<?php echo isset($mobile) ? $mobile : ''; ?>" required>
+                    <input type="number" class="form-control" id="mobile" name="mobile" placeholder="Mobile" value="<?php echo isset($mobile) ? $mobile : ''; ?>" readonly>
                 </div>
                 <div class="form-group">
                     <label for="location">Location:</label>
                     <input type="text" class="form-control" id="location" name="location" placeholder="Location" value="<?php echo isset($location) ? $location : ''; ?>" required>
-                </div>
-                <div class="form-group">
-                    <label for="aadhar_number">Aadhaar Number:</label>
-                    <input type="number" class="form-control" id="aadhar_number" name="aadhar_number" placeholder="Aadhaar Number" value="<?php echo isset($aadhar_number) ? $aadhar_number : ''; ?>" required>
                 </div>
                 <center>
                 <div class="row">
