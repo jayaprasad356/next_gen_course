@@ -45,34 +45,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_id = $_SESSION['user_id'];
     $withdrawal_amount = $_POST['withdrawal_amount'];
 
-    $conn->begin_transaction();
+    // Check if the withdrawal amount is greater than 0 and the user has sufficient balance
+    if ($withdrawal_amount > 0 && $withdrawal_amount <= $balance) {
 
-    $datetime = date('Y-m-d H:i:s');
+        // Proceed with the withdrawal process
+        $conn->begin_transaction();
 
-    $update_balance_sql = "UPDATE users SET balance = balance - $withdrawal_amount WHERE id = $user_id";
+        $datetime = date('Y-m-d H:i:s');
 
-    if ($conn->query($update_balance_sql) === TRUE) {
-    $insert_withdrawal_sql = "INSERT INTO withdrawals (user_id, amount, status) VALUES ('$user_id', '$withdrawal_amount', '0')";
+        $update_balance_sql = "UPDATE users SET balance = balance - $withdrawal_amount WHERE id = $user_id";
 
-    if ($conn->query($insert_withdrawal_sql) === TRUE) {
-    $insert_transaction_sql = "INSERT INTO transactions (user_id, type, datetime, amount) VALUES ('$user_id', 'order_placed', '$datetime', '$withdrawal_amount')";
+        if ($conn->query($update_balance_sql) === TRUE) {
+            $insert_withdrawal_sql = "INSERT INTO withdrawals (user_id, amount, status) VALUES ('$user_id', '$withdrawal_amount', '0')";
 
-            if ($conn->query($insert_transaction_sql) === TRUE) {
-                $conn->commit();
-                header("Location: wallet.php");
-                exit();
+            if ($conn->query($insert_withdrawal_sql) === TRUE) {
+                $insert_transaction_sql = "INSERT INTO transactions (user_id, type, datetime, amount) VALUES ('$user_id', 'order_placed', '$datetime', '$withdrawal_amount')";
+
+                if ($conn->query($insert_transaction_sql) === TRUE) {
+                    $conn->commit();
+                    header("Location: wallet.php");
+                    exit();
+                } else {
+                    $conn->rollback();
+                    echo "Error inserting transaction: " . $conn->error;
+                }
             } else {
                 $conn->rollback();
-                echo "Error inserting transaction: " . $conn->error;
+                echo "Error inserting withdrawal: " . $conn->error;
             }
         } else {
             $conn->rollback();
-            echo "Error inserting withdrawal: " . $conn->error;
+            echo "Error updating balance: " . $conn->error;
         }
-    } else {
-        $conn->rollback();
-        echo "Error updating balance: " . $conn->error;
-    }
+    } 
 }
 
 $conn->close();
@@ -168,6 +173,9 @@ $conn->close();
     <div class="form-group row justify-content-center">
     <div class="col-md-8 col-12">
         <input style="background-color:white;height:60px;border-radius:10px; margin-left:10px; text-align: center; color: black; font-weight: bold;" type="number" class="form-control" name="withdrawal_amount" placeholder="Enter amount">
+        <?php if($balance == 0): ?>
+                    <p style="color: red;">Your Balance is 0</p>
+                <?php endif; ?>  
     </div>
 </div>
 
