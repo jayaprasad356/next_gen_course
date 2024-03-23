@@ -173,54 +173,85 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-$(document).ready(function() {
-    var otpSent = false; // Flag to track whether OTP has been sent
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        var otpSent = false; // Flag to track whether OTP has been sent
+        var sentOTP; // Variable to store the OTP sent by the server
 
-    $('#send').click(function(e) {
-        e.preventDefault();
-        var mobile = $('#mobile').val();
+        $('#send').click(function(e) {
+            e.preventDefault();
+            var mobile = $('#mobile').val();
 
-        $.ajax({
-            type: 'POST',
-            url: 'check_mobile.php',
-            data: { mobile: mobile },
-            success: function(response) {
-                if (response === 'registered') {
-                    alert('Mobile number is already registered. Please use a different mobile number.');
-                    $('#mobile').prop('enable', true); // Disable the mobile input
-                } else {
-                    if (!otpSent) { // Check if OTP has not been sent already
-                        alert('OTP sent successfully to ' + mobile);
-                        otpSent = true; // Set the flag to true
+            if (mobile.trim() === '') {
+                alert('Please enter your Phone number.');
+                return;
+            }
+
+            $.ajax({
+                type: 'POST',
+                url: 'check_mobile.php',
+                data: { mobile: mobile },
+                success: function(response) {
+                    if (response === 'registered') {
+                        alert('Mobile number is already registered. Please use a different mobile number.');
+                        $('#mobile').prop('disabled', false); // Enable the mobile input
+                    } else {
+                        if (!otpSent) { // Check if OTP has not been sent already
+                            // Generate a random OTP
+                            var otp = Math.floor(100000 + Math.random() * 900000);
+                            sentOTP = otp; // Store the OTP sent by the server
+
+                            // Make AJAX call to the API endpoint to send OTP
+                            $.ajax({
+                                type: 'GET',
+                                url: 'https://api.authkey.io/request',
+                                data: {
+                                    authkey: 'b45c58db6d261f2a',
+                                    mobile: mobile,
+                                    country_code: '91',
+                                    sid: '9214',
+                                    otp: otp,
+                                    company: 'Next gen'
+                                },
+                                success: function() {
+                                    alert('OTP sent successfully to ' + mobile);
+                                    otpSent = true; 
+                                },
+                                error: function(xhr, status, error) {
+                                    console.error(xhr.responseText);
+                                }
+                            });
+                        }
+                        $('#mobile').prop('readonly', true);
+                        $('#send').text('Verify').addClass('btn-success').removeClass('btn-primary').prop('disabled', false);
+                        $('#send').attr('id', 'verify');
                     }
-                    $('#mobile').prop('readonly', true); // Change to readonly
-                    $('#send').text('Verify').addClass('btn-success').removeClass('btn-primary').prop('enable', true);
-                    $('#send').attr('id', 'verify');
-                    // Proceed with your logic here (e.g., sending OTP)
+                },
+                error: function(xhr, status, error) {
+                    console.error(xhr.responseText);
                 }
-            },
-            error: function(xhr, status, error) {
-                console.error(xhr.responseText);
+            });
+        });
+
+        $(document).on('click', '#verify', function(e) {
+            e.preventDefault();
+            var otp = $('#otp').val();
+            if (otp.trim() === '') {
+                alert('Please enter the OTP.');
+            } else {
+                // Verify OTP
+                var enteredOTP = parseInt(otp, 10);
+                if (enteredOTP === sentOTP) {
+                    alert('OTP verified successfully.');
+                   
+                } else {
+                    alert('Invalid OTP. Please try again.');
+                }
             }
         });
     });
-
-    $(document).on('click', '#verify', function(e) {
-        e.preventDefault();
-        var otp = $('#otp').val();
-        if (otp.trim() === '') {
-            alert('Please enter the OTP.');
-        } else {
-            alert('Verified successfully.');
-            // Add your verification logic here
-        }
-    });
-});
 </script>
-
-
-
 
 
 </body>

@@ -18,17 +18,16 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
     $user_id = $_SESSION['user_id'];
     
     // Fetch user details from the database using user_id
-    $sql = "SELECT name, mobile, refer_code FROM users WHERE id='$user_id'";
+    $sql = "SELECT holder_name, account_num, ifsc,bank FROM users WHERE id='$user_id'";
     $result = $conn->query($sql);
     
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        $name = $row['name'];
-        $mobile = $row['mobile'];
-        $refer_code = $row['refer_code'];
+        $holder_name = $row['holder_name'];
+        $account_num = $row['account_num'];
+        $ifsc = $row['ifsc'];
+        $bank = $row['bank'];
 
-        // Storing refer_code in session
-        $_SESSION['refer_code'] = $refer_code;
     }
 } else {
     // Redirect to login page if user is not logged in
@@ -149,19 +148,19 @@ $conn->close();
             <form method="post" action="update_bank.php" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="name">Holder Name:</label>
-                    <input type="text" class="form-control" id="holder_name" name="holder_name" placeholder="Holder Name" required>
+                    <input type="text" class="form-control" id="holder_name" name="holder_name" placeholder="Holder Name"  value="<?php echo isset($holder_name) ? $holder_name : ''; ?>" required>
                 </div>
                 <div class="form-group">
                     <label for="number">Account Number:</label>
-                    <input type="number" class="form-control" id="account_num" name="account_num" placeholder="Account Number" required>
+                    <input type="number" class="form-control" id="account_num" name="account_num" placeholder="Account Number"  value="<?php echo isset($account_num) ? $account_num : ''; ?>" required>
                 </div>
                 <div class="form-group">
                     <label for="ifsc">IFSC Code:</label>
-                    <input type="text" class="form-control" id="ifsc" name="ifsc" placeholder="IFSC Code" required>
+                    <input type="text" class="form-control" id="ifsc" name="ifsc" placeholder="IFSC Code"  value="<?php echo isset($ifsc) ? $ifsc : ''; ?>" required>
                 </div>
                 <div class="form-group">
                     <label for="bank">Bank Name:</label>
-                    <input type="text" class="form-control" id="bank" name="bank" placeholder="Bank Name" required>
+                    <input type="text" class="form-control" id="bank" name="bank" placeholder="Bank Name" value="<?php echo isset($bank) ? $bank : ''; ?>"  required>
                 </div>
               
                 <center>

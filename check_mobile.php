@@ -2,9 +2,9 @@
 session_start();
 
 $servername = "localhost";
-$username = "u117947056_ngcourse";
-$password = "Ngcourse@2024";
-$database = "u117947056_ngcourse";
+$username = "root";
+$password = "";
+$database = "next_gen_course";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $database);

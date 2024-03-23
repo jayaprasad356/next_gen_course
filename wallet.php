@@ -167,7 +167,7 @@ $conn->close();
     <form action="#" method="post">
     <div class="form-group row justify-content-center">
     <div class="col-md-8 col-12">
-        <input style="background-color:white;height:60px;border-radius:10px; margin-left:10px; text-align: center; color: white; font-weight: bold;" type="number" class="form-control" name="withdrawal_amount" placeholder="Enter amount">
+        <input style="background-color:white;height:60px;border-radius:10px; margin-left:10px; text-align: center; color: black; font-weight: bold;" type="number" class="form-control" name="withdrawal_amount" placeholder="Enter amount">
     </div>
 </div>
 
