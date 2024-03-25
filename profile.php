@@ -406,7 +406,7 @@ margin-left:40px;
         <?php if(isset($name) && isset($mobile) && isset($ecom_status)): ?>
         <p><?php echo $name; ?></p>
         <p><?php echo $mobile; ?></p>
-        <p><?php echo $ecom_status; ?></p>
+        <p><?php echo ($ecom_status == 1) ? 'Verified' : 'Unverified'; ?></p>
     <?php endif; ?>
     </div>
 </div>
