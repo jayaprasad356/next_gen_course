@@ -2,9 +2,9 @@
 session_start();
 
 $servername = "localhost";
-$username = "u117947056_ngcourse";
-$password = "Ngcourse@2024";
-$database = "u117947056_ngcourse";
+$username = "root";
+$password = "";
+$database = "next_gen_course";
 
 $conn = new mysqli($servername, $username, $password, $database);
 
@@ -119,7 +119,7 @@ $counter = 1;
 foreach ($youtube_links as $youtube_link) {
     if(isset($youtube_link['name']) && isset($youtube_link['link'])) {
         // Regular expression to extract video ID from YouTube link
-        preg_match('/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/', $youtube_link['link'], $matches);
+        preg_match('/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/', $youtube_link['link'], $matches);
 
         // Check if a valid YouTube video ID was found
         if(isset($matches[1])) {
