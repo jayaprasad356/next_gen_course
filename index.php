@@ -76,7 +76,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
         <h5><a href="profile.php" style="color: black; text-decoration: none;">Profile</a></h5>
 
         
-        <img src="new.jpeg" data-aos="fade-up" class="img-fluid">
+        <img src="profile.jpeg" data-aos="fade-up" class="img-fluid">
         <div class="paragraph">
         <h1>About us</h1> 
         <p1> Welcome to NextGen, your trusted partner in career building and online earning opportunities! For four years, we've been dedicated to empowering individuals to kickstart their online journey and unleash their potential in the digital realm.

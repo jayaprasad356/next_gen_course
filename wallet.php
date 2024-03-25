@@ -18,7 +18,7 @@ date_default_timezone_set('Asia/Kolkata');
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
     $user_id = $_SESSION['user_id'];
 
-    $sql = "SELECT name, mobile, balance FROM users WHERE id='$user_id'";
+    $sql = "SELECT name, mobile, balance, withdrawal_status FROM users WHERE id='$user_id'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -26,6 +26,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
         $name = $row['name'];
         $mobile = $row['mobile'];
         $balance = $row['balance'];
+        $withdrawal_status = $row['withdrawal_status'];
     }
 } else {
     header("Location: login.php");
@@ -45,8 +46,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_id = $_SESSION['user_id'];
     $withdrawal_amount = $_POST['withdrawal_amount'];
 
-    // Check if the withdrawal amount is greater than or equal to 250 and the user has sufficient balance
-    if ($withdrawal_amount >= 250 && $withdrawal_amount <= $balance) {
+    // Check if the withdrawal status is 1 and withdrawal amount is greater than or equal to 250
+    if ($withdrawal_status == 1 && $withdrawal_amount >= 250 && $withdrawal_amount <= $balance) {
 
         // Proceed with the withdrawal process
         $conn->begin_transaction();
@@ -77,11 +78,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $conn->rollback();
             echo "Error updating balance: " . $conn->error;
         }
+    } else {
+        echo "<script>alert('Your withdrawal is disabled. Please contact the admin..');</script>";
     }
 }
 
 $conn->close();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -168,7 +172,7 @@ $conn->close();
     </div>
     <br>
     <h5>Withdrawal amount</h5>
-    
+    <form id="withdrawalForm" action="#" method="post">
     <div class="form-group row justify-content-center">
     <div class="col-md-8 col-12">
         <input id="withdrawalAmount" style="background-color:white;height:60px;border-radius:10px; margin-left:10px; text-align: center; color: black; font-weight: bold;" type="number" class="form-control" name="withdrawal_amount" placeholder="Enter amount">
@@ -177,13 +181,12 @@ $conn->close();
                 <?php endif; ?>  
     </div>
 </div>
-
-        <div class="form-group row justify-content-center">
-        <div class="col-md-6 col-12 mb-3 d-flex justify-content-center">
-    <button type="button" id="withdrawButton" class="btn btn-primary">Withdraw</button>
-</div>
+<div class="form-group row justify-content-center">
+            <div class="col-md-6 col-12 mb-3 d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary">Withdraw</button>
+            </div>
         </div>
-   
+    </form>
     <h5>Withdrawal Record</h5>
     <div class="row justify-content-center">
         <div class="col-md-10 col-12 mb-3">
@@ -219,16 +222,16 @@ $conn->close();
     </div>
 </div>
 
+
 <script>
-    document.getElementById('withdrawButton').addEventListener('click', function() {
+    document.getElementById('withdrawalForm').addEventListener('submit', function(event) {
         var withdrawalAmount = document.getElementById('withdrawalAmount').value;
         if (withdrawalAmount < 250) {
-            alert('Minimum withdrawal amount is 250');
-        } else {
-            document.getElementById('withdrawalForm').submit();
+            alert('Withdrawal amount should be at least 250.');
+            event.preventDefault(); // Prevent form submission if amount is less than 250
         }
     });
 </script>
-
 </body>
 </html>
+

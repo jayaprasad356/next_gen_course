@@ -51,14 +51,14 @@ $conn->close();
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color:#0d6efd;
+    background-color:#febd59;
     justify-content: center;
   }
   .faq-item {
     display: flex;
     flex-direction: column;
     text-align: left;
-    color: white;
+    color: black;
     margin-bottom: 20px; /* Adjust margin as needed */
     width: 80%; /* Adjust width as needed */
     max-width: 600px; /* Adjust max-width as needed */
