@@ -12,7 +12,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT question, answer FROM faq ";
+$sql = "SELECT question, answer FROM faq";
 $result = $conn->query($sql);
 
 $faqs = array();
@@ -22,10 +22,10 @@ if ($result->num_rows > 0) {
     }
 }
 
-$sql = "SELECT name, link FROM youtube_link ";
+$sql = "SELECT name, link FROM youtube_link";
 $result = $conn->query($sql);
 
-$youtube_link = array();
+$youtube_links = array();
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $youtube_links[] = $row;
@@ -115,10 +115,10 @@ $conn->close();
 <?php 
 $counter = 1;
 
-foreach ($youtube_links as $youtube_link) {
-    if(isset($youtube_link['name']) && isset($youtube_link['link'])) {
+foreach ($youtube_links as $yt_link) {
+    if(isset($yt_link['name']) && isset($yt_link['link'])) {
         // Regular expression to extract video ID from YouTube link
-        preg_match('/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/', $youtube_link['link'], $matches);
+        preg_match('/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/', $yt_link['link'], $matches);
 
         // Check if a valid YouTube video ID was found
         if(isset($matches[1])) {
@@ -127,7 +127,7 @@ foreach ($youtube_links as $youtube_link) {
 
             ?>
             <div class="container">
-                <h3><u><?php echo $counter . ". " . $youtube_link['name']; ?></u></h3>
+                <h3><u><?php echo $counter . ". " . $yt_link['name']; ?></u></h3>
                 <br>
                 <!-- Embedded YouTube video -->
                 <iframe id="video" width="50%" height="315" src="<?php echo $embed_link; ?>" frameborder="0" allowfullscreen></iframe>

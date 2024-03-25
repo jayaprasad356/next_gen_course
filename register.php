@@ -9,8 +9,8 @@ $database = "u117947056_ngcourse";
 
 $conn = new mysqli($servername, $username, $password, $database);
 
-if(isset($_GET['refercode'])) {
-    $_SESSION['refer_code'] = $_GET['refercode'];
+if(isset($_GET['refer_code'])) {
+    $_SESSION['refer_code'] = $_GET['refer_code'];
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
