@@ -118,7 +118,8 @@ $counter = 1;
 foreach ($youtube_links as $yt_link) {
     if(isset($yt_link['name']) && isset($yt_link['link'])) {
         // Regular expression to extract video ID from YouTube link
-        preg_match('/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/', $yt_link['link'], $matches);
+        preg_match('/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/|(?:youtube\.com\/shorts\/|youtu\.be\/shorts\/))(?:(?:[a-zA-Z0-9_-]{11})|(?:[a-zA-Z0-9_-]{12}))/', $yt_link['link'], $matches);
+
 
         // Check if a valid YouTube video ID was found
         if(isset($matches[1])) {
