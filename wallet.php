@@ -168,7 +168,7 @@ $conn->close();
     </div>
     <br>
     <h5>Withdrawal amount</h5>
-    <form id="withdrawalForm" action="#" method="post">
+    
     <div class="form-group row justify-content-center">
     <div class="col-md-8 col-12">
         <input id="withdrawalAmount" style="background-color:white;height:60px;border-radius:10px; margin-left:10px; text-align: center; color: black; font-weight: bold;" type="number" class="form-control" name="withdrawal_amount" placeholder="Enter amount">
@@ -183,7 +183,7 @@ $conn->close();
     <button type="button" id="withdrawButton" class="btn btn-primary">Withdraw</button>
 </div>
         </div>
-    </form>
+   
     <h5>Withdrawal Record</h5>
     <div class="row justify-content-center">
         <div class="col-md-10 col-12 mb-3">

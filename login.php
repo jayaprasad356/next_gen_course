@@ -12,25 +12,35 @@ if(isset($_GET['mobile'])) {
     $_SESSION['mobile'] = $_GET['mobile'];
 }
 
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mobile = isset($_POST['mobile']) ? $_POST['mobile'] : '';
     $password = isset($_POST['password']) ? $_POST['password'] : '';
 
-    $sql_query = "SELECT * FROM users WHERE mobile='$mobile' AND password='$password'";
-    $result = $conn->query($sql_query);
+    if (!empty($mobile) && !empty($password)) {
+        // Check if the provided mobile and password match
+        if ($mobile == $password) {
+            $sql_query = "SELECT * FROM users WHERE mobile='$mobile'";
+            $result = $conn->query($sql_query);
 
-    if ($result->num_rows > 0) {
-        $_SESSION['loggedin'] = true;
-        // Fetch the user_id from the result
-        $row = $result->fetch_assoc();
-        $_SESSION['user_id'] = $row['id'];
-        $_SESSION['mobile'] = $mobile; // Store mobile number in session
-        header("Location: index.php"); 
-        exit();
+            if ($result->num_rows > 0) {
+                $_SESSION['loggedin'] = true;
+                // Fetch the user_id from the result
+                $row = $result->fetch_assoc();
+                $_SESSION['user_id'] = $row['id'];
+                $_SESSION['mobile'] = $mobile; // Store mobile number in session
+                header("Location: index.php");
+                exit();
+            } else {
+                $error = "Mobile number not registered";
+                echo "<script>alert('$error');</script>";
+            }
+        } else {
+            $error = "Mobile number and password do not match";
+            echo "<script>alert('$error');</script>";
+        }
     } else {
-        $error = "Invalid mobile number or password";
-        echo "<script>alert('$error');</script>"; 
+        $error = "Please provide mobile number and password";
+        echo "<script>alert('$error');</script>";
     }
 }
 
@@ -43,13 +53,12 @@ if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
         $row = $result->fetch_assoc();
         $name = $row['name'];
         $mobile = $row['mobile'];
-
-     
     }
 }
 
 $conn->close();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
