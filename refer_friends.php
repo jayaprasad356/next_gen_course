@@ -6,7 +6,6 @@ $username = "u117947056_ngcourse";
 $password = "Ngcourse@2024";
 $database = "u117947056_ngcourse";
 
-
 $conn = new mysqli($servername, $username, $password, $database);
 
 if ($conn->connect_error) {
@@ -16,7 +15,7 @@ if ($conn->connect_error) {
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
     $user_id = $_SESSION['user_id'];
 
-    $sql = "SELECT name, mobile, balance, referred_by FROM users WHERE id='$user_id'";
+    $sql = "SELECT name, mobile, balance, refer_code FROM users WHERE id='$user_id'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -24,17 +23,19 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
         $name = $row['name'];
         $mobile = $row['mobile'];
         $balance = $row['balance'];
-        $referred_by = $row['referred_by'];
+        $refer_code = $row['refer_code'];
 
-        // Fetch referring user details
-        $referring_user_sql = "SELECT name, mobile,status FROM users WHERE refer_code='$referred_by'";
-        $referring_user_result = $conn->query($referring_user_sql);
+        // Fetch users who used the logged-in user's referral code
+        $referring_users_sql = "SELECT name, mobile, status FROM users WHERE referred_by='$refer_code'";
+        $referring_users_result = $conn->query($referring_users_sql);
 
-        if ($referring_user_result->num_rows > 0) {
-            $referring_user_row = $referring_user_result->fetch_assoc();
-            $referring_user_name = $referring_user_row['name'];
-            $referring_user_mobile = $referring_user_row['mobile'];
-            $referring_user_status = $referring_user_row['status'];
+        if ($referring_users_result->num_rows > 0) {
+            // Display details of users who used the referral code
+            while ($referring_user_row = $referring_users_result->fetch_assoc()) {
+                $referring_user_name[] = $referring_user_row['name'];
+                $referring_user_mobile[] = $referring_user_row['mobile'];
+                $referring_user_status[] = $referring_user_row['status'];
+            }
         }
     }
 } else {
@@ -44,6 +45,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
 
 $conn->close();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -120,23 +122,19 @@ $conn->close();
                     </tr>
                 </thead>
                 <tbody>
-                <?php if(!empty($referred_by)): ?>
-                    <?php if(isset($referring_user_name) && isset($referring_user_mobile) && isset($referring_user_status)): ?>
+                <?php if(isset($referring_user_name)): ?>
+                    <?php for($i = 0; $i < count($referring_user_name); $i++): ?>
                         <tr>
-                            <td>1</td>
-                            <td><?php echo $referring_user_name; ?></td>
-                            <td><?php echo $referring_user_mobile; ?></td>
-                            <td>
-                                <?php 
-                                if ($referring_user_status == 1) {
-                                    echo "Verified";
-                                } else {
-                                    echo "<span style='white-space: nowrap;'>Not Verified</span>";
-                                }
-                                ?>
-                            </td>
+                            <td><?php echo $i + 1; ?></td>
+                            <td><?php echo $referring_user_name[$i]; ?></td>
+                            <td><?php echo $referring_user_mobile[$i]; ?></td>
+                            <td><?php echo ($referring_user_status[$i] == 1) ? "Verified" : "Not Verified"; ?></td>
                         </tr>
-                    <?php endif; ?>
+                    <?php endfor; ?>
+                <?php else: ?>
+                    <tr>
+                        <td colspan="4">No referred users found.</td>
+                    </tr>
                 <?php endif; ?>
                 </tbody>
             </table>
@@ -147,5 +145,3 @@ $conn->close();
 
 </body>
 </html>
-
-

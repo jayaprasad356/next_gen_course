@@ -71,7 +71,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
             <p1>With career Building Course</p1>
         </div>
         <p3><a href="business.html" style="color: black; text-decoration: none;">Course Details</a></p3>
-        <p4><a href="information.php" style="color: black; text-decoration: none;">Faq</a></p4>
+        <p4><a href="information.php" style="color: black; text-decoration: none;">FAQ</a></p4>
         <h3><a href="<?php echo $buttonLink; ?>" style="color: black; text-decoration: none;"><?php echo $buttonText; ?></a></h3>
         <h5><a href="profile.php" style="color: black; text-decoration: none;">Profile</a></h5>
 

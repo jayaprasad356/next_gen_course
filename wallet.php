@@ -18,7 +18,7 @@ date_default_timezone_set('Asia/Kolkata');
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
     $user_id = $_SESSION['user_id'];
 
-    $sql = "SELECT name, mobile, balance, withdrawal_status FROM users WHERE id='$user_id'";
+    $sql = "SELECT name, mobile, balance, withdrawal_status, bank, ifsc, holder_name, account_num FROM users WHERE id='$user_id'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -27,6 +27,10 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
         $mobile = $row['mobile'];
         $balance = $row['balance'];
         $withdrawal_status = $row['withdrawal_status'];
+        $bank = $row['bank'];
+        $ifsc = $row['ifsc'];
+        $holder_name = $row['holder_name'];
+        $account_num = $row['account_num'];
     }
 } else {
     header("Location: login.php");
@@ -48,35 +52,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Check if the withdrawal status is 1 and withdrawal amount is greater than or equal to 250
     if ($withdrawal_status == 1 && $withdrawal_amount >= 250 && $withdrawal_amount <= $balance) {
+        // Check if bank details are updated
+        if ($bank && $ifsc && $holder_name && $account_num) {
+            // Proceed with the withdrawal process
+            $conn->begin_transaction();
 
-        // Proceed with the withdrawal process
-        $conn->begin_transaction();
+            $datetime = date('Y-m-d H:i:s');
 
-        $datetime = date('Y-m-d H:i:s');
+            $update_balance_sql = "UPDATE users SET balance = balance - $withdrawal_amount WHERE id = $user_id";
 
-        $update_balance_sql = "UPDATE users SET balance = balance - $withdrawal_amount WHERE id = $user_id";
+            if ($conn->query($update_balance_sql) === TRUE) {
+                $insert_withdrawal_sql = "INSERT INTO withdrawals (user_id, amount, status) VALUES ('$user_id', '$withdrawal_amount', '0')";
 
-        if ($conn->query($update_balance_sql) === TRUE) {
-            $insert_withdrawal_sql = "INSERT INTO withdrawals (user_id, amount, status) VALUES ('$user_id', '$withdrawal_amount', '0')";
+                if ($conn->query($insert_withdrawal_sql) === TRUE) {
+                    $insert_transaction_sql = "INSERT INTO transactions (user_id, type, datetime, amount) VALUES ('$user_id', 'withdrawal', '$datetime', '$withdrawal_amount')";
 
-            if ($conn->query($insert_withdrawal_sql) === TRUE) {
-                $insert_transaction_sql = "INSERT INTO transactions (user_id, type, datetime, amount) VALUES ('$user_id', 'withdrawal', '$datetime', '$withdrawal_amount')";
-
-                if ($conn->query($insert_transaction_sql) === TRUE) {
-                    $conn->commit();
-                    header("Location: wallet.php");
-                    exit();
+                    if ($conn->query($insert_transaction_sql) === TRUE) {
+                        $conn->commit();
+                        header("Location: wallet.php");
+                        exit();
+                    } else {
+                        $conn->rollback();
+                        echo "Error inserting transaction: " . $conn->error;
+                    }
                 } else {
                     $conn->rollback();
-                    echo "Error inserting transaction: " . $conn->error;
+                    echo "Error inserting withdrawal: " . $conn->error;
                 }
             } else {
                 $conn->rollback();
-                echo "Error inserting withdrawal: " . $conn->error;
+                echo "Error updating balance: " . $conn->error;
             }
         } else {
-            $conn->rollback();
-            echo "Error updating balance: " . $conn->error;
+            echo "<script>alert('Please update your bank details before making a withdrawal.');</script>";
         }
     } else {
         echo "<script>alert('Your withdrawal is disabled. Please contact the admin..');</script>";
