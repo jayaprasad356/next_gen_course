@@ -2,16 +2,19 @@
 session_start(); // Start the session if not already started
 
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
- 
     $buttonText = "Logout";
     $buttonLink = "logout.php"; 
 } else {
-  
     $buttonText = "Register";
-    $buttonLink = "register.php";
+    // Check if refer_code is set in the URL
+    if (isset($_GET['refer_code'])) {
+        $buttonLink = "register.php?refer_code=" . $_GET['refer_code'];
+    } else {
+        $buttonLink = "register.php";
+    }
 }
 ?>
- 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
