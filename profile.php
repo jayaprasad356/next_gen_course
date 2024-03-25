@@ -1,11 +1,12 @@
+
 <?php
 session_start(); // Start the session if not already started
+
 
 $servername = "localhost";
 $username = "u117947056_ngcourse";
 $password = "Ngcourse@2024";
 $database = "u117947056_ngcourse";
-
 $conn = new mysqli($servername, $username, $password, $database);
 
 // Check if refercode is passed via GET parameter and store it in session
@@ -473,8 +474,14 @@ function copyLink() {
     </div>
     <script>
     function share() {
-        // Define the URL you want to share
-        const url = 'https://ngcourse.nextgencareer.in/';
+        // Define the base URL you want to share
+        const baseUrl = 'https://ngcourse.nextgencareer.in/';
+
+        // Define the refer_code parameter
+        var refer_code = "<?php echo urlencode($refer_code); ?>";
+
+        // Construct the complete URL with the refer_code parameter
+        const url = baseUrl + '?refer_code=' + refer_code;
 
         // Open a share dialog using the Web Share API
         if (navigator.share) {
@@ -494,6 +501,7 @@ function copyLink() {
         }
     }
 </script>
+
 
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+
 $servername = "localhost";
 $username = "u117947056_ngcourse";
 $password = "Ngcourse@2024";
@@ -45,8 +46,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_id = $_SESSION['user_id'];
     $withdrawal_amount = $_POST['withdrawal_amount'];
 
-    // Check if the withdrawal amount is greater than 0 and the user has sufficient balance
-    if ($withdrawal_amount > 0 && $withdrawal_amount <= $balance) {
+    // Check if the withdrawal amount is greater than or equal to 250 and the user has sufficient balance
+    if ($withdrawal_amount >= 250 && $withdrawal_amount <= $balance) {
 
         // Proceed with the withdrawal process
         $conn->begin_transaction();
@@ -77,12 +78,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $conn->rollback();
             echo "Error updating balance: " . $conn->error;
         }
-    } 
+    }
 }
 
 $conn->close();
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -169,10 +169,10 @@ $conn->close();
     </div>
     <br>
     <h5>Withdrawal amount</h5>
-    <form action="#" method="post">
+    <form id="withdrawalForm" action="#" method="post">
     <div class="form-group row justify-content-center">
     <div class="col-md-8 col-12">
-        <input style="background-color:white;height:60px;border-radius:10px; margin-left:10px; text-align: center; color: black; font-weight: bold;" type="number" class="form-control" name="withdrawal_amount" placeholder="Enter amount">
+        <input id="withdrawalAmount" style="background-color:white;height:60px;border-radius:10px; margin-left:10px; text-align: center; color: black; font-weight: bold;" type="number" class="form-control" name="withdrawal_amount" placeholder="Enter amount">
         <?php if($balance == 0): ?>
                     <p style="color: red;">Your Balance is 0</p>
                 <?php endif; ?>  
@@ -181,7 +181,7 @@ $conn->close();
 
         <div class="form-group row justify-content-center">
         <div class="col-md-6 col-12 mb-3 d-flex justify-content-center">
-    <button  type="submit" class="btn btn-primary">Withdraw</button>
+    <button type="button" id="withdrawButton" class="btn btn-primary">Withdraw</button>
 </div>
         </div>
     </form>
@@ -220,8 +220,16 @@ $conn->close();
     </div>
 </div>
 
-</div>
+<script>
+    document.getElementById('withdrawButton').addEventListener('click', function() {
+        var withdrawalAmount = document.getElementById('withdrawalAmount').value;
+        if (withdrawalAmount < 250) {
+            alert('Minimum withdrawal amount is 250');
+        } else {
+            document.getElementById('withdrawalForm').submit();
+        }
+    });
+</script>
+
 </body>
 </html>
-
-
