@@ -66,18 +66,12 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
             <p>Building Your Future</p>
             <p1>With career Building Course</p1>
         </div>
-        <h3><a href="<?php echo $buttonLink; ?>" style="color: white;"><?php echo $buttonText; ?></a></h3>   
-        <h5><a href="profile.php" style="color: white;">Profile</a></h5>
-  
-        <svg id="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="white" class="bi bi-list" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
-        </svg>
-        <div class="dropdown-menu" id="myDropdown">
-            <!--<a href="demand.html">Print in demand</a>
-            <a href="digital.html">Digital Marketing Course</a>-->
-            <a href="business.html">E commerce Own Business Course</a>
-            <a href="information.php">FAQ</a>
-        </div>
+        <p3><a href="business.html" style="color: black; text-decoration: none;">Course Details</a></p3>
+        <p4><a href="information.php" style="color: black; text-decoration: none;">Faq</a></p4>
+        <h3><a href="<?php echo $buttonLink; ?>" style="color: black; text-decoration: none;"><?php echo $buttonText; ?></a></h3>
+        <h5><a href="profile.php" style="color: black; text-decoration: none;">Profile</a></h5>
+
+        
         <img src="new.jpeg" data-aos="fade-up" class="img-fluid">
         <div class="paragraph">
         <h1>About us</h1> 

@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-
 $servername = "localhost";
 $username = "u117947056_ngcourse";
 $password = "Ngcourse@2024";
@@ -60,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $insert_withdrawal_sql = "INSERT INTO withdrawals (user_id, amount, status) VALUES ('$user_id', '$withdrawal_amount', '0')";
 
             if ($conn->query($insert_withdrawal_sql) === TRUE) {
-                $insert_transaction_sql = "INSERT INTO transactions (user_id, type, datetime, amount) VALUES ('$user_id', 'order_placed', '$datetime', '$withdrawal_amount')";
+                $insert_transaction_sql = "INSERT INTO transactions (user_id, type, datetime, amount) VALUES ('$user_id', 'withdrawal', '$datetime', '$withdrawal_amount')";
 
                 if ($conn->query($insert_transaction_sql) === TRUE) {
                     $conn->commit();

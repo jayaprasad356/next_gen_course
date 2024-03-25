@@ -12,13 +12,23 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT question, answer FROM faq ORDER BY id LIMIT 6";
+$sql = "SELECT question, answer FROM faq ";
 $result = $conn->query($sql);
 
 $faqs = array();
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $faqs[] = $row;
+    }
+}
+
+$sql = "SELECT name, link FROM youtube_link ";
+$result = $conn->query($sql);
+
+$youtube_link = array();
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $youtube_links[] = $row;
     }
 }
 
@@ -102,26 +112,33 @@ $conn->close();
   </center>
 </section>
 <section id="videos">
-    <div class="container">
-        <h3><u>How To Register??</u></h3>
-        <br>
-        <iframe id= "video" width="50%" height="315" src="https://www.youtube.com/embed/V90381PsLH0" frameborder="0" allowfullscreen></iframe>
-    </div>
-    <div class="container">
-        <h3><u>How To Enroll??</u></h3>
-        <br>
-        <iframe id= "video" width="50%" height="315" src="https://www.youtube.com/embed/V90381PsLH0" frameborder="0" allowfullscreen></iframe>
-    </div>
-    <div class="container">
-        <h3><u>How To withdraw??</u></h3>
-        <br>
-        <iframe id= "video" width="50%" height="315" src="https://www.youtube.com/embed/V90381PsLH0" frameborder="0" allowfullscreen></iframe>
-    </div>
-    <div class="container">
-        <h3><u>How To Refer friend??</u></h3>
-        <br>
-        <iframe id= "video" width="50%" height="315" src="https://www.youtube.com/embed/V90381PsLH0" frameborder="0" allowfullscreen></iframe>
-    </div>
+<?php 
+$counter = 1;
+
+foreach ($youtube_links as $youtube_link) {
+    if(isset($youtube_link['name']) && isset($youtube_link['link'])) {
+        // Regular expression to extract video ID from YouTube link
+        preg_match('/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/', $youtube_link['link'], $matches);
+
+        // Check if a valid YouTube video ID was found
+        if(isset($matches[1])) {
+            $video_id = $matches[1];
+            $embed_link = "https://www.youtube.com/embed/$video_id";
+
+            ?>
+            <div class="container">
+                <h3><u><?php echo $counter . ". " . $youtube_link['name']; ?></u></h3>
+                <br>
+                <!-- Embedded YouTube video -->
+                <iframe id="video" width="50%" height="315" src="<?php echo $embed_link; ?>" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <?php
+            $counter++;
+        }
+    }
+} ?>
 </section>
+
+
 </body>
 </html>

@@ -1,13 +1,17 @@
 <?php
 session_start();
 
-
 $servername = "localhost";
 $username = "u117947056_ngcourse";
 $password = "Ngcourse@2024";
 $database = "u117947056_ngcourse";
 
 $conn = new mysqli($servername, $username, $password, $database);
+
+if(isset($_GET['mobile'])) {
+    $_SESSION['mobile'] = $_GET['mobile'];
+}
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mobile = isset($_POST['mobile']) ? $_POST['mobile'] : '';
@@ -21,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Fetch the user_id from the result
         $row = $result->fetch_assoc();
         $_SESSION['user_id'] = $row['id'];
-        $_SESSION['mobile'] = $mobile;
+        $_SESSION['mobile'] = $mobile; // Store mobile number in session
         header("Location: index.php"); 
         exit();
     } else {
@@ -39,12 +43,13 @@ if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
         $row = $result->fetch_assoc();
         $name = $row['name'];
         $mobile = $row['mobile'];
+
+     
     }
 }
 
 $conn->close();
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -94,8 +99,9 @@ $conn->close();
                     <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                 </div>
                 <div class="text-center mb-3">
-                    <a href="#" class="text-primary">Forgot Password?</a>
-                </div>
+    <a onclick="redirectToForgotPassword()" class="text-primary" id="forgotPasswordLink">Forgot Password?</a>
+</div>
+
                 <div class="row">
                     <div class="col-6">
                         <button type="submit" class="btn btn-primary btn-custom w-100">Login</button>
@@ -107,10 +113,20 @@ $conn->close();
             </form>
         </div>
     </div>
+
     <!-- Bootstrap JS, Popper.js, and jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+    function redirectToForgotPassword() {
+        var mobile = document.getElementById('mobile').value;
+        var redirectURL = "forgot_password.php?mobile=" + mobile;
+        window.location.href = redirectURL;
+    }
+</script>
+
 </body>
 </html>
 

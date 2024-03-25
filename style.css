@@ -85,6 +85,9 @@ section {
     top:5%;
     font-size:25px;
     font-weight: bold;
+    background-color: white;
+    padding:5px;
+    border-radius: 10px;
 }
 #home h5{
     position: absolute;
@@ -92,6 +95,29 @@ section {
     top:5%;
     font-size:25px;
     font-weight: bold;
+    background-color: white;
+    padding:5px;
+    border-radius: 10px;
+}
+#home p3{
+    position: absolute;
+    left:7%;
+    top:6%;
+    font-size:20px;
+    font-weight: bold;
+    background-color: white;
+    padding:5px;
+    border-radius: 10px;
+}
+#home p4{
+    position: absolute;
+    left:20%;
+    top:6%;
+    font-size:20px;
+    font-weight: bold;
+    background-color: white;
+    padding:5px;
+    border-radius: 10px;
 }
 #course {
     background: linear-gradient(
@@ -308,6 +334,7 @@ section {
         font-size: 16px;
     }
     #home h4 {
+        margin-top: 16px;;
         font-size: 32px;
     }
 
@@ -351,14 +378,37 @@ section {
         left:82%;
         top:3%;
         font-size:13px;
+        background-color: white;
+        padding:5px;
+        border-radius: 10px;
     }
     #home h5{
         position: absolute;
         left:68%;
         top:3%;
         font-size:13px;
+        background-color: white;
+        padding:5px;
+        border-radius: 10px;
     }
-    
+    #home p3{
+        position: absolute;
+        left:4%;
+        top:3%;
+        font-size:13px;
+        background-color: white;
+        padding:5px;
+        border-radius: 10px;
+    }
+    #home p4{
+        position: absolute;
+        left:35%;
+        top:3%;
+        font-size:13px;
+        background-color: white;
+        padding:5px;
+        border-radius: 10px;
+    }
     #demand .container {
         display: flex;
         justify-content: center;

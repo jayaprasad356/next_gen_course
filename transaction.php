@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-
 $servername = "localhost";
 $username = "u117947056_ngcourse";
 $password = "Ngcourse@2024";

@@ -9,70 +9,41 @@ $database = "u117947056_ngcourse";
 
 $conn = new mysqli($servername, $username, $password, $database);
 
-if(isset($_GET['refercode'])) {
-    $_SESSION['refer_code'] = $_GET['refercode'];
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+if(isset($_GET['mobile'])) {
+    $_SESSION['mobile'] = $_GET['mobile'];
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = isset($_POST['name']) ? $_POST['name'] : '';
-    $email = isset($_POST['email']) ? $_POST['email'] : '';
-    $mobile = isset($_POST['mobile']) ? $_POST['mobile'] : '';
-    $location = isset($_POST['location']) ? $_POST['location'] : '';
-    $password = isset($_POST['password']) ? $_POST['password'] : '';
-    $referred_by = isset($_POST['referred_by']) ? $_POST['referred_by'] : '';
-    $otp = isset($_POST['otp']) ? $_POST['otp'] : '';
-    
-    $refer_code = isset($_SESSION['refer_code']) ? $_SESSION['refer_code'] : '';
+    $mobile = isset($_SESSION['mobile']) ? $_SESSION['mobile'] : '';
 
-    // Check if mobile number is already registered
-    $check_query = "SELECT * FROM users WHERE mobile='$mobile'";
-    $check_result = $conn->query($check_query);
+        if(isset($_POST['password'])) {
+            $password = $_POST['password'];
 
-    if ($check_result->num_rows > 0) {
-        echo "<script>alert('Mobile number is already registered. Please use a different mobile number.');</script>";
-    } else {
-        // Insert new user data into the database
-        $sql_query = "INSERT INTO users (name, email, mobile, location, password, referred_by, otp) 
-                      VALUES ('$name', '$email', '$mobile', '$location', '$password', '$referred_by', '$otp')";
-        
-        if ($conn->query($sql_query) === TRUE) {
-            $user_id = $conn->insert_id;
-
-            $refer_code = '';
-            if (empty($referred_by)) {
-                $refer_code = 'NHR' . $user_id; 
+            $sql = "UPDATE users SET password='$password' WHERE mobile='$mobile'";
+            if ($conn->query($sql) === TRUE) {
+                echo "<script>alert('Password updated successfully');</script>";
             } else {
-                $admincode = substr($referred_by, 0, -5); 
-                $sql = "SELECT refer_code FROM admin WHERE refer_code='$admincode'";
-                $result = $conn->query($sql);
-                $num = $result->num_rows;
-                if ($num >= 1) {
-                    $refer_code = $admincode . $user_id;
-                } else {
-                    $refer_code = 'NHR' . $user_id;
-                }
+                echo "<script>alert('Error updating password: " . $conn->error . "');</script>";
             }
-
-            // Update the user's refer code
-            $sql_query_refer = "UPDATE users SET refer_code='$refer_code' WHERE id = $user_id";
-            $conn->query($sql_query_refer);
-
-            echo "<script>alert('New record created successfully');</script>";
-            echo "<script>window.location.href='login.php';</script>";
-            exit();
+            
         } else {
-            echo "Error: " . $sql_query . "<br>" . $conn->error;
+            echo "Password not provided";
         }
-    }
-}
+    } 
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register Page</title>
+    <title>Forgot Password Page</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         input[type="number"]::-webkit-inner-spin-button,
@@ -123,20 +94,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
         <div class="custom-container">
-            <h2 class="text-center">Register</h2>
-            <form id="registrationForm" method="post" action="#" enctype="multipart/form-data">
-                <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
-                </div>
+            <h2 class="text-center">Forgot Password</h2>
+            <br>
+            <form id="forgotpassword" method="post" action="#" enctype="multipart/form-data">
+
                 <div class="form-group">
                     <label for="mobile">Phone Number:</label>
-                    <input type="number" class="form-control" id="mobile" name="mobile" placeholder="Phone Number" required>
-                    <span id="mobileError" class="text-danger"></span>
+                    <input type="number" class="form-control" id="mobile" name="mobile" placeholder="Mobile Number" value="<?php echo isset($_SESSION['mobile']) ? $_SESSION['mobile'] : ''; ?>" <?php echo isset($_SESSION['mobile']) ? 'readonly' : ''; ?>>
+
                 </div>
                 <label for="otp">OTP:</label>
                 <div class="row">
@@ -150,24 +115,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="location">Location:</label>
-                    <input type="text" class="form-control" id="location" name="location" placeholder="Location" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password:</label>
+                    <label for="password">New Password:</label>
                     <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                 </div>
-                <div class="form-group">
-                    <label for="referred_by">Refer code:</label>
-                    <input type="text" class="form-control" id="referred_by" name="referred_by" placeholder="Refer Code" value="<?php echo isset($_SESSION['refer_code']) ? $_SESSION['refer_code'] : ''; ?>" <?php echo isset($_SESSION['refer_code']) ? 'readonly' : ''; ?>>
-                </div>
+                
                 <div class="row">
-                    <div class="col-6">
-                        <button type="submit" class="btn btn-primary btn-custom">Register</button>
-                    </div>
-                    <div class="col-6 text-right">
-                    <p class="mb-1 small nowrap-mobile">Already have an account?</p>
-                        <a href="login.php" class="btn btn-success btn-customs">Login</a>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary btn-custom">Update Password</button>
                     </div>
                 </div>
             </form>
