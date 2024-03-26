@@ -8,6 +8,10 @@ $database = "u117947056_ngcourse";
 
 $conn = new mysqli($servername, $username, $password, $database);
 
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
 if(isset($_GET['mobile'])) {
     $_SESSION['mobile'] = $_GET['mobile'];
 }
@@ -17,31 +21,49 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = isset($_POST['password']) ? $_POST['password'] : '';
 
     if (!empty($mobile) && !empty($password)) {
-        // Check if the provided mobile and password match
-        if ($mobile == $password) {
-            $sql_query = "SELECT * FROM users WHERE mobile='$mobile'";
-            $result = $conn->query($sql_query);
+        // Fetch user ID based on mobile number
+        $sql_query = "SELECT id FROM users WHERE mobile='$mobile'";
+        $result = $conn->query($sql_query);
 
-            if ($result->num_rows > 0) {
-                $_SESSION['loggedin'] = true;
-                // Fetch the user_id from the result
-                $row = $result->fetch_assoc();
-                $_SESSION['user_id'] = $row['id'];
-                $_SESSION['mobile'] = $mobile; // Store mobile number in session
-                header("Location: index.php");
-                exit();
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $user_id = $row['id'];
+            // Check if the user ID falls within the allowed range
+            if ($user_id >= 1 && $user_id <= 4739) {
+                // For IDs within the range, check if mobile equals password
+                if ($mobile == $password) {
+                    $_SESSION['loggedin'] = true;
+                    $_SESSION['user_id'] = $user_id;
+                    $_SESSION['mobile'] = $mobile; // Store mobile number in session
+                    header("Location: index.php");
+                    exit();
+                } else {
+                    $error = "Mobile number and password do not match";
+                }
             } else {
-                $error = "Mobile number not registered";
-                echo "<script>alert('$error');</script>";
+                // For IDs greater than 4739, check actual mobile and password
+                $sql_query = "SELECT * FROM users WHERE mobile='$mobile' AND password='$password'";
+                $result = $conn->query($sql_query);
+
+                if ($result->num_rows > 0) {
+                    $_SESSION['loggedin'] = true;
+                    // Fetch the user_id from the result
+                    $row = $result->fetch_assoc();
+                    $_SESSION['user_id'] = $row['id'];
+                    $_SESSION['mobile'] = $mobile; // Store mobile number in session
+                    header("Location: index.php");
+                    exit();
+                } else {
+                    $error = "Invalid mobile number or password";
+                }
             }
         } else {
-            $error = "Mobile number and password do not match";
-            echo "<script>alert('$error');</script>";
+            $error = "Mobile number not registered";
         }
     } else {
         $error = "Please provide mobile number and password";
-        echo "<script>alert('$error');</script>";
     }
+    echo "<script>alert('$error');</script>";
 }
 
 // Ensure $conn is available for subsequent queries

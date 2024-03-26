@@ -6,7 +6,6 @@ $username = "u117947056_ngcourse";
 $password = "Ngcourse@2024";
 $database = "u117947056_ngcourse";
 
-
 $conn = new mysqli($servername, $username, $password, $database);
 
 if ($conn->connect_error) {
