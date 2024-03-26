@@ -86,10 +86,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             echo "<script>alert('Please update your bank details before making a withdrawal.');</script>";
         }
-    } else {
-        echo "<script>alert('Your withdrawal is disabled. Please contact the admin..');</script>";
+    } elseif ($withdrawal_status == 0) {
+        echo "<script>alert('Your withdrawal is disabled. Please contact the admin.');</script>";
+    } elseif ($withdrawal_amount < 250) {
+        echo "<script>alert('Withdrawal amount should be at least 250.');</script>";
     }
 }
+
 
 $conn->close();
 ?>
