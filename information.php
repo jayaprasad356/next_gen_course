@@ -47,6 +47,7 @@ $conn->close();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 </head>
 <style>
+  
    #information {
     display: flex;
     flex-direction: column;
@@ -75,6 +76,7 @@ $conn->close();
 
 }
 
+
 @media (max-width: 768px) {
 .container {
     width: 100%;
@@ -94,6 +96,9 @@ $conn->close();
                 font-size: 13px; /* decrease font size for smaller screens */
             }
 }
+#videos h3 {
+                font-size: 18px; /* Adjust the font size as needed */
+            }
 </style>
 <body>
 <section id="information">

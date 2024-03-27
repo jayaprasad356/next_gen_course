@@ -241,19 +241,38 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
                 <img src="https://freepngimg.com/save/15307-online-marketing-transparent/500x408" data-aos="fade-up"  class="img-fluid">
               </div>
             <div class="col-lg-6">
-            <br>
-            <p1>🌟 Welcome to Nextgen Company! 🌟
                 <br>
+            <strong> 🌟 Welcome to Nextgen 🌟</strong>
+            <br>
+    <p>Start your <strong> Zero Investment</strong>  E-commerce Business With NextGen.</p>
+    <strong>Get six courses which make your e-commerce business successful:</strong>
+    <ol>
+        <li>E-commerce Course</li>
+        <li>Dropshipping Course</li>
+        <li>Reselling Course</li>
+        <li>Print on Demand</li>
+        <li>Affiliate Marketing</li>
+        <li>Digital Marketing</li>
+    </ol>
+    <p>These 6 courses provide opportunities for multiple earning ways.</p>
+    <strong>Get a Free Website To Start Your Business, Immediately After Learning The Insights Of E-commerce Business.</strong>
+    <br>
+    <br>
+    <p>Unmatchable features provided in the website, which competitors charge ₹25,000 and above.</p>
+    <strong>Our Website Features:</strong>
+    <ol>
+        <li>Free Business Domain</li>
+        <li>Free Hosting</li>
+        <li>Themes</li>
+        <li>Add Unlimited Categories</li>
+        <li>Add Unlimited Products</li>
+        <li>WhatsApp Integration to Chat with Your Customers</li>
+        <li>Payment Gateway Integration with <strong>Zero Service Charges & Instant Settlement </strong></li>
+    </ol>
+    <p><strong>Get this complete package at just ₹9,999 </strong>(Originally priced at ₹21,999).</p>
+    <p>The competitor's price for this package is ₹35,000 and above.</p>
+    <p><strong>Kickstart your E-commerce business with NextGen. Achieve financial freedom!</strong></p>
 
-Ready to kickstart your e-commerce journey? Look no further! Our comprehensive E-Commerce Business Course is priced at just Rs 9999/-, offering unbeatable value compared to competitors. Plus, you'll receive a FREE website to get you started!
-
-What sets us apart? Our course covers everything from setting up your e-commerce business with ZERO INVESTMENT to mastering print-on-demand, digital marketing, and affiliate strategies. With complete handholding at every step, we ensure a smooth business launch.
-
-But that's not all! Once your business is thriving, we assist you in registering it officially and even provide guidance on accessing government subsidy loans. Our tailored roadmap will pave the way for international expansion.
-
-And here's the bonus – refer your friends to our course and earn up to a generous 50% referral bonus!
-
-Ready to turn your e-commerce dreams into reality? Join Nextgen Company today and unleash your entrepreneurial potential!</p1>
                     <h5><a href="business.html"><button type="button" class="btn btn-primary">More Info</button></a></h5>
             </div>
         </div>
