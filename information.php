@@ -84,9 +84,9 @@ $conn->close();
     margin: 0 auto;
 }
 
-.container iframe {
+#video {
     width: 100%;
-    height: auto;
+    height:250px;
 }
 .faq-item h5 {
                 font-size: 15px; /* decrease font size for smaller screens */
@@ -116,6 +116,7 @@ $conn->close();
 <?php } ?>
   </center>
 </section>
+<br>
 <section id="videos">
 <?php 
 // Counter variable to keep track of the video numbers
@@ -132,12 +133,16 @@ foreach ($youtube_links as $youtube_link) {
             $embed_link = "https://www.youtube.com/embed/$video_id";
 
             ?>
-            <div class="container">
+             <div class="container">
                 <h3><u><?php echo $counter . ". " . $youtube_link['name']; ?></u></h3>
-                <br>
+            </div> <!-- Close container -->
+            <br> <!-- Add a gap between videos -->
+            <div class="container">
                 <!-- Embedded YouTube video -->
                 <iframe id="video" width="50%" height="315" src="<?php echo $embed_link; ?>" frameborder="0" allowfullscreen></iframe>
             </div>
+            <br> <!-- Add a gap between videos -->
+            <br>
             <?php
             // Increment the counter
             $counter++;

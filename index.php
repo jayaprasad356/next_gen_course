@@ -70,7 +70,6 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
             <p>Building Your Future</p>
             <p1>With career Building Course</p1>
         </div>
-        <p3><a href="business.html" style="color: black; text-decoration: none;">Course Details</a></p3>
         <p4><a href="information.php" style="color: black; text-decoration: none;">FAQ</a></p4>
         <h3><a href="<?php echo $buttonLink; ?>" style="color: black; text-decoration: none;"><?php echo $buttonText; ?></a></h3>
         <h5><a href="profile.php" style="color: black; text-decoration: none;">Profile</a></h5>
@@ -272,11 +271,23 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
     <p><strong>Get this complete package at just ₹9,999 </strong>(Originally priced at ₹21,999).</p>
     <p>The competitor's price for this package is ₹35,000 and above.</p>
     <p><strong>Kickstart your E-commerce business with NextGen. Achieve financial freedom!</strong></p>
-
-                    <h5><a href="business.html"><button type="button" class="btn btn-primary">More Info</button></a></h5>
             </div>
         </div>
     </div>
+    <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3"> <!-- Offset added to center the column -->
+                    <div class="text-center">
+                        <h4>Own Business - Ecommerce</h4>
+                        <p1 style="color:red;">What You Learn - How You Earn</p1>
+                    </div>
+                    <div class="embed-responsive embed-responsive-16by9" data-aos="fade-up">
+                        <iframe class="embed-responsive-item" width="100%" height="315" src="https://www.youtube.com/embed/ZqChUO_NMtI?si=hesYzc3_9vKzHioW" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
 </section>
 <section id="ready" class="py-5">
     <div class="container box">
